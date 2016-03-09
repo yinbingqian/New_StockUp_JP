@@ -1,0 +1,70 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res/lnpdit.lntv.tradingtime"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/register_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/normal_height54"
+        android:background="@color/theme_red"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="@dimen/normal_height54"
+            android:layout_height="@dimen/normal_height54"
+            android:layout_gravity="center"
+            android:background="@drawable/head_background_select"
+            android:clickable="true"
+            android:padding="16dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/img_back" />
+
+        <ImageView
+            android:id="@+id/img_title"
+            android:layout_width="88dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/xuanzeguba"
+            android:gravity="center" />
+    </RelativeLayout>
+
+    
+
+    <com.sxit.utils.tag.TagCloudLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:lineSpacing="10dp"
+        app:tagSpacing="15dp" 
+        android:visibility="gone"/>
+ <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ebebeb"
+        android:orientation="vertical" >
+        <SearchView
+        android:id="@+id/search_view"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:textColor="@android:color/black"
+            android:textColorHint="#c1c0c5"
+            android:layout_margin="7dp"
+        android:iconifiedByDefault="false"
+        android:inputType="textFilter"
+        android:queryHint="搜索" >
+    </SearchView>
+        <ListView
+            android:id="@+id/list_view_discuss"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:cacheColorHint="#00000000"
+            android:textSize="14dp"
+            android:scrollbars="none" />
+        </LinearLayout>
+</LinearLayout>

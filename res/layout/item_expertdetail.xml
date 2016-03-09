@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="2" >
+
+            <TextView
+                android:id="@+id/expertdiscuss_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:ellipsize="end"
+                android:lineSpacingMultiplier="1.2"
+                android:maxLines="4"
+                android:text="结构性机会需关注万科和宝能竞争后的市场反响"
+                android:textColor="#000"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/expertdiscuss_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/expertdiscuss_content"
+                android:layout_marginRight="80dp"
+                android:layout_marginTop="10dp"
+                android:text="23小时前"
+                android:textColor="#777777"
+                android:textSize="12dp" />
+            
+            <TextView
+                android:id="@+id/expertdiscuss_reward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/expertdiscuss_content"
+                android:layout_marginRight="80dp"
+                android:layout_marginTop="10dp"
+                android:text="up11"
+                android:textColor="@color/deep_yellow"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/expertdiscuss_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/expertdiscuss_content"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="10dp"
+                android:text="down22"
+                android:textColor="@color/deep_yellow"
+                android:textSize="12dp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:background="#EEEEEE" />
+
+</LinearLayout>

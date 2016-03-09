@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" >
+
+            <com.sxit.utils.XCRoundImageView
+                android:id="@+id/news_headpic"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/user_none"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:id="@+id/news_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/news_headpic"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="7dp"
+                android:text="姜虹"
+                android:textColor="#666666"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/news_org"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/news_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:text="中银证券"
+                android:textColor="#666666"
+                android:textSize="12dp" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="10dp"
+                android:layout_below="@+id/news_org" >
+            </View>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" >
+
+            <TextView
+                android:id="@+id/news_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:text="四利空交汇击破3500点 短线震荡释放收官情绪"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="#333333"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/news_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/news_title"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:lineSpacingMultiplier="1.2"
+                android:maxLines="4"
+                android:ellipsize="end"
+                android:text="《证券日报》记者：昨日A股呈现低开低走的格局，短期市场重新回归到偏弱震荡态势。最终，沪指收盘破位3500点，创业板指则失守2700点。请问，投资者应该如何看待当前市场走势，并如何应对短期风险？"
+                android:textColor="#777777"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/news_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/news_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="5分钟前"
+                android:textColor="#999999"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/news_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/news_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:text="嘉宾观点"
+                android:textColor="#999999"
+                android:textSize="12dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:background="#EEEEEE" />
+
+</LinearLayout>

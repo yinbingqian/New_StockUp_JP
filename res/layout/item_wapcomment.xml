@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp" >
+
+    <RelativeLayout
+        android:id="@+id/user_layout"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp" >
+
+        <com.sxit.utils.XCRoundImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/user_none"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/iv_avatar"
+            android:text="印冰倩"
+            android:textColor="#0489ff"
+            android:textSize="14dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_layout"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="15dp"
+        android:lineSpacingMultiplier="1.2"
+        android:text="今天又是雾霾！"
+        android:textColor="#333333"
+        android:maxLines="8"
+        android:ellipsize="end"
+        android:textSize="14dp" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/user_layout" >
+
+        <TextView
+            android:id="@+id/time_text"
+            android:layout_width="53dp"
+            android:layout_height="20dp"
+            android:text="10:55"
+            android:textColor="#777777"
+            android:textSize="13dp"
+            android:textStyle="italic" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/tv_content"
+        android:background="#dddddd" />
+
+</RelativeLayout>

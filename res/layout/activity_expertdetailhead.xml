@@ -1,0 +1,128 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/register_bg"
+    android:orientation="vertical"
+    tools:context=".Information_Activity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" >
+
+            <com.sxit.utils.XCRoundImageView
+                android:id="@+id/expertdetail_headpic"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/user_none" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/expertdetail_headpic"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="7dp"
+                android:text="请教他"
+                android:textColor="@color/deep_yellow"
+                android:textSize="13dp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" >
+
+            <TextView
+                android:id="@+id/expertdetail_name"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="成伟"
+                android:textColor="#333333"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/expertdetail_style"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/expertdetail_name"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="中短线狙击手，实战派高手"
+                android:textColor="#666666"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/expertdetail_resume"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/expertdetail_style"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:ellipsize="end"
+                android:lineSpacingMultiplier="1.2"
+                android:maxLines="4"
+                android:text="反反复复好多好多废话说是爽肤水绥芬河市福建省福建省副书记的经典款经典款沙发上看肌肤水分是副驾驶飞机上看风景时"
+                android:textColor="#777777"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/expertdetail_mark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/expertdetail_resume"
+                android:layout_marginRight="80dp"
+                android:layout_marginTop="10dp"
+                android:text="1234威望"
+                android:textColor="@color/deep_yellow"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/expertdetail_rewardmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/expertdetail_resume"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="10dp"
+                android:text="4234赞"
+                android:textColor="@color/deep_yellow"
+                android:textSize="12dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="他的解盘"
+            android:textColor="#333333"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:background="#EEEEEE" />
+
+</LinearLayout>

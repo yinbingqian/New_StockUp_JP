@@ -1,0 +1,145 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/register_bg"
+    android:orientation="vertical"
+    tools:context=".Information_Activity" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/normal_height54"
+        android:background="@color/theme_red"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="@dimen/normal_height54"
+            android:layout_height="@dimen/normal_height54"
+            android:layout_gravity="center"
+            android:background="@drawable/head_background_select"
+            android:clickable="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/img_back" />
+
+        <ImageView
+            android:id="@+id/tv_title"
+            android:layout_width="88dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/register_title_img" />
+
+        <TextView
+            android:id="@+id/tv_register"
+            android:layout_width="@dimen/normal_height54"
+            android:layout_height="@dimen/normal_height54"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:background="@drawable/head_background_select"
+            android:gravity="center"
+            android:text="@string/welcome_rigister"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize18"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="330dp"
+                android:layout_height="228dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/login_edit_bg"
+                android:orientation="vertical" >
+
+                <AutoCompleteTextView
+                    android:id="@+id/actv_name"
+                    style="@style/login_edittext_style"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/login_user_icon"
+                    android:hint="请输入昵称"
+                    android:text=""
+                    android:textSize="@dimen/textsize18" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/actv_phone"
+                    style="@style/login_edittext_style"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/login_phone_icon"
+                    android:hint="请输入手机"
+                    android:text=""
+                    android:textSize="@dimen/textsize18" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/actv_pwd"
+                    style="@style/login_edittext_style"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/login_psw_icon"
+                    android:hint="请输入密码"
+                    android:password="true"
+                    android:text=""
+                    android:textSize="@dimen/textsize18" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/actv_pwdagain"
+                    style="@style/login_edittext_style"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/login_psw_icon"
+                    android:hint="请再次输入密码确认"
+                    android:password="true"
+                    android:text=""
+                    android:textSize="@dimen/textsize18" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="60dp"
+                android:layout_gravity="center_horizontal"
+                android:lineSpacingExtra="2dp"
+                android:lineSpacingMultiplier="1.2"
+                android:text="温馨提示：请正确输入手机号码，便于密码找回"
+                android:textColor="@color/color_9"
+                android:textSize="12dp" />
+
+            <Button
+                android:id="@+id/bt_submit"
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/marging20"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/regist_bt_bg"
+                android:text="@string/register_submit"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textsize18" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

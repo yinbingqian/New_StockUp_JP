@@ -1,0 +1,167 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4"
+    tools:context=".Information_Activity" >
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/normal_height54"
+        android:background="@color/theme_red"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="@dimen/normal_height54"
+            android:layout_height="@dimen/normal_height54"
+            android:layout_gravity="center"
+            android:background="@drawable/head_background_select"
+            android:clickable="true"
+            android:padding="16dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/img_back" />
+
+        <ImageView
+            android:id="@+id/img_title"
+            android:layout_width="66dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/discuss_edit_title_img"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/img_send"
+            android:layout_width="@dimen/normal_height72"
+            android:layout_height="@dimen/normal_height54"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:background="@drawable/head_background_select"
+            android:clickable="true"
+            android:padding="7dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/duel_point_send" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentTop="true"
+            android:background="#dddddd" />
+
+        <Button
+            android:id="@+id/bt_send"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/duel_send_bt"
+            android:text="发布"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_layout"
+        android:layout_below="@+id/top_layout"
+        android:layout_margin="10dp"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical" >
+
+            <AutoCompleteTextView
+                android:id="@+id/content"
+                android:layout_width="fill_parent"
+                android:layout_height="250dp"
+                android:background="@drawable/duel_point_edit"
+                android:gravity="left|top"
+                android:padding="5dp"
+                android:textColor="@color/color_9"
+                android:textSize="15dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/img1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/pic_add" />
+
+                <ImageView
+                    android:id="@+id/img2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="10dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:background="#dddddd" />
+
+            <RelativeLayout
+                android:id="@+id/layout_type"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="选择股吧"
+                    android:textColor="#bbbbbb"
+                    android:textSize="18dp" />
+
+                <ImageView
+                    android:id="@+id/tag_img"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/discuss_type_arrow" />
+
+                <TextView
+                    android:id="@+id/tag_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/tag_img"
+                    android:textColor="#bbbbbb"
+                    android:textSize="18dp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#dddddd" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

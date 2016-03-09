@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 改成taohost_item_bg与该xml文件重名 因此效果不出来 -->
+    <item android:drawable="@drawable/off50" android:state_enabled="true" android:state_checked="false"/>
+    <item android:drawable="@drawable/on50" android:state_enabled="true" android:state_checked="true"/>
+
+</selector>

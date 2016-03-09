@@ -1,0 +1,102 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/register_bg"
+    android:orientation="vertical"
+    tools:context=".Information_Activity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" >
+
+            <com.sxit.utils.XCRoundImageView
+                android:id="@+id/myanswerdetail_headpic"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/user_none" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" >
+
+            <TextView
+                android:id="@+id/myanswerdetail_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="帮忙看一下"
+                android:textColor="#333333"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/myanswerdetail_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/myanswerdetail_title"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:ellipsize="end"
+                android:lineSpacingMultiplier="1.2"
+                android:maxLines="4"
+                android:text="问题描述，目前仓位XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                android:textColor="#777777"
+                android:textSize="14dp" />
+            <com.sxit.utils.live.NoScrollGridView
+                android:id="@+id/myanswerdetailhead_gridview"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/myanswerdetail_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="7dp"
+                android:columnWidth="80dp"
+                android:gravity="center"
+                android:horizontalSpacing="5dp"
+                android:numColumns="2"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="5dp" />
+
+            <TextView
+                android:id="@+id/myanswerdetail_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/myanswerdetailhead_gridview"
+                android:layout_marginTop="10dp"
+                android:text="2015-12-28 12:00"
+                android:textColor="@color/deep_yellow"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/myanswerdetail_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/myanswerdetailhead_gridview"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="10dp"
+                android:text="个股"
+                android:textColor="@color/deep_yellow"
+                android:textSize="12dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:background="#EEEEEE" />
+
+</LinearLayout>
