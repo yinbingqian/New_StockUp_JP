@@ -77,7 +77,6 @@ public class MyApplication extends Application {
 		ImageLoaderConfiguration configuration = ImageLoaderConfiguration.createDefault(this);
 		ImageLoader.getInstance().init(configuration);
 		dbh = new DBHelper(this);
-		
 
 		mPushAgent = PushAgent.getInstance(this);
 		mPushAgent.setDebugMode(false);

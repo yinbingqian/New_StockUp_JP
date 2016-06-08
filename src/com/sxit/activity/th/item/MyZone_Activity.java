@@ -14,10 +14,12 @@ import com.sxit.utils.Utils;
 import com.sxit.utils.XCRoundImageView;
 import com.umeng.message.PushAgent;
 import com.umeng.message.proguard.aa.e;
+import com.umeng.message.tag.TagManager.Result;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -32,6 +34,7 @@ import lnpdit.lntv.tradingtime.R;
 public class MyZone_Activity extends BaseActivity {
 	private ImageView img_back;// back,编辑资料
 	private XCRoundImageView img_loginUser;// 图像
+	private TextView line3;
 	private TextView tv_rank;
 	private TextView tv_name;// name
 	private TextView tv_level;//level
@@ -59,22 +62,40 @@ public class MyZone_Activity extends BaseActivity {
 		mPushAgent = PushAgent.getInstance(this);
 		mPushAgent.enable();
 
-		Utils.showTextToast(this, getUserInfo().getid());
+//		Utils.showTextToast(this, getUserInfo().getid());
 	}
 
 	private void logout(){
 		DBHelper dbh = new DBHelper(this);
 		dbh.clearUserInfoData();
-		Utils.showTextToast(this, "退出登录成功");
-		
-		try {
+		Utils.showTextToast(this, "退出登录");
+		 try {
+  			Thread thread = new Thread(new Runnable() {
+  				
+  				@Override
+  				public void run() {
+  					// TODO Auto-generated method stub					
+  					try {
+  						Result result = mPushAgent.getTagManager().reset();
+  						Log.d("@@@@@@@@@@@@@@@@@@@@@", "@@@@@@@@@@@@@@@@@@@@@@@@@@");
+  						Log.d("@@@@@@@@@@@@@@@@@@@@@", "@@@@@@@@@@@@@@@@@@@@@@@@@@");
+  						Log.d("@@@@@@@@@@@@@@@@@@@@@", "@@@@@@@@@@@@@@@@@@@@@@@@@@");
+  						Log.d("@@@@@@@@@@@@@@@@@@@@@", "@@@@@@@@@@@@@@@@@@@@@@@@@@");
+  						Log.d("@@@@@@@@@@@@@@@@@@@@@", result.jsonString);
+  						Log.d("@@@@@@@@@@@@@@@@@@@@@", result.jsonString);
+  						Log.d("@@@@@@@@@@@@@@@@@@@@@", result.jsonString);
+  						mPushAgent.removeAlias(getUserInfo().getid(),"guzhang");
+  					} catch (Exception e) {
+  						// TODO Auto-generated catch block
+  						e.printStackTrace();
+  					}
+  				}
+  			});
+  			thread.start();
 //			mPushAgent.removeAlias("guzhang",getUserInfo().getid());
 
-			mPushAgent.removeAlias(getUserInfo().getid(),"guzhang");
+//			mPushAgent.getTagManager().reset();
 		} catch (e e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -92,6 +113,7 @@ public class MyZone_Activity extends BaseActivity {
 		tv_name = (TextView) findViewById(R.id.tv_name);
 		tv_level = (TextView) findViewById(R.id.tv_level);
 		tv_rank = (TextView) findViewById(R.id.tv_rank);
+		line3 = (TextView) findViewById(R.id.line3);
 		tv_ps_prestige = (TextView) findViewById(R.id.tv_ps_money);
 		tv_ps_mark = (TextView) findViewById(R.id.tv_ps_contribute);
 		tv_ps_checknum = (TextView) findViewById(R.id.tv_ps_active);
@@ -118,6 +140,15 @@ public class MyZone_Activity extends BaseActivity {
 		tv_ps_prestige.setText(user.getprestige());//威望
 		tv_ps_mark.setText(user.getmark());//红心
 		tv_ps_checknum.setText(user.getchecknum());//签到
+		
+		if(user.getlevel().equals("0")){
+			
+			myanswer_layout.setVisibility(8);
+			line3.setVisibility(8);
+		}else{
+			myanswer_layout.setVisibility(1);
+			line3.setVisibility(1);
+		}
 	}
 
 	private void setListeners() {

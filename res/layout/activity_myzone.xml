@@ -385,6 +385,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/line3"
                 android:layout_width="fill_parent"
                 android:layout_height="1px"
                 android:background="@color/simple_grey" />

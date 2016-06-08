@@ -17,7 +17,7 @@
     <string name="tabHost_frist">首页</string>
     <string name="tabHost_second">智囊团</string>
     <string name="tabHost_thrid">股涨吧</string>
-    <string name="tabHost_fourth">问股</string>
+    <string name="tabHost_fourth">直播间</string>
     <!-- TabHost A -->
     <string name="tabHost_frist_a">互动消息</string>
     <string name="tabHost_second_a">发布消息</string>
@@ -35,7 +35,7 @@
     <string name="register_submit">提交注册</string>
     <string name="register_admin">注册</string>
     <string name="register_agreement">隐私协议</string>
-    <string name="register_password">忘记密码</string>
+    <string name="register_password">忘记密码？</string>
     <string name="register_analyst_login">顾问登录</string>
     <string name="register_analyst">顾问登录</string>
     <string name="register_customer">投资者登录</string>
@@ -45,6 +45,8 @@
     <string name="register_tv_hint_password_again">再次输入</string>
     <string name="register_tv_hint_checkpassword">验证密码</string>
     <string name="registrer_tv_phone">输入手机</string>
+    <string name="phonenum">手机号</string>
+    <string name="checkcode">验证码</string>
     <string name="register_checkCode">获取验证码</string>
     <string name="register_protocol1">我已阅读股涨用户</string>
     <string name="register_protocol2">隐私协议</string>

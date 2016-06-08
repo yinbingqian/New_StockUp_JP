@@ -30,6 +30,10 @@ public class SOAP_UTILS {
 		public static final String ONEKEYLOGIN = "OneKeyLogin";
 		// 用户注册
 		public static final String USERREGISTERED = "UserRegistered";
+		// 绑定手机号
+		public static final String BINDPHONENUM = "codeCheckSimbind";
+		// 确认验证码
+		public static final String CODEVERIFY = "CodeVerify";
 		// 多空对决发布观点
 		public static final String VIEWPOINTADD = "ViewPointAdd";
 		// 头像上传
@@ -171,6 +175,26 @@ public class SOAP_UTILS {
 		public static final String GETNEWSCOMMENT = "GetNewsComment";
 		// 获取wap评论
 		public static final String ADDNEWSCOMMENT = "AddNewsComment";
+		// 获取正在直播
+		public static final String GETLIVING = "GetLiving";
+		// 获取全部直播
+		public static final String GETLIVINGALL = "GetLivingALl";
+		// 获取热门直播
+		public static final String GETLIVINGHOT = "GetLivingHot";
+		// 获取正在直播详情
+		public static final String GETLIVINGDETAIL = "GetLivingDetail";
+		// 获取互动问答
+		public static final String GETINTERACTQA = "GetInteractQA";
+		// 修改直播关注状态
+		public static final String GETATTENTIONLIVEUSER = "GetAttentionLiveUser";
+		// 直播大厅轮巡
+		public static final String GETLIVINGUPDATE = "GetLivingUpdate";
+		// 直播大厅轮巡
+		public static final String USERINFOLOGINUPDATEIMEI = "UserInfoLoginUpdateImei";
+		// 直播大厅轮巡
+		public static final String UPDATEIMEI = "UpdateImei";
+		// 忘记密码中重置密码
+		public static final String USERPASSWORDFIND = "UserPasswordFind";
 	}
 
 	public class ACTION {
@@ -190,17 +214,20 @@ public class SOAP_UTILS {
 	}
 
 	public static final String NAMESPACE = "MobileNewspaper";
-//	public static final String IP = "http://192.168.1.124:8027/guzhang";
-//	public static final String IP = "http://192.168.1.102:8027/guzhang";
-	public static final String IP = "http://backlogin.guzhang.tv/guzhang";
-//	public static final String HEADER_URL = "http://192.168.1.124:8027/guzhang/upload/headpic/";
-	public static final String HEADER_URL = "http://backlogin.guzhang.tv/guzhang/upload/headpic/";
+	public static final String IP = "http://192.168.1.104:8027/guzhang";
+//	public static final String IP = "http://backlogin.guzhang.tv/guzhang";
+	public static final String HEADER_URL = "http://192.168.1.104:8027/guzhang/upload/headpic/";
+//	public static final String HEADER_URL = "http://backlogin.guzhang.tv/guzhang/upload/headpic/";
 	public static final String URL = IP + "/phoneinvoke.asmx?wsdl";
-
+//新版股涨用
 	public static final String HTTP_BACKLOGINIP = "http://backlogin.guzhang.tv";
-//	public static final String HTTP_IP = "http://192.168.1.124:8027";
+//	public static final String HTTP_BACKLOGINIP = "http://123.56.88.189:8027";
+//	public static final String HTTP_IP = "http://192.168.1.118:8027";
+//	public static final String HTTP_IP = "http://192.168.1.118:8080";
 	public static final String HTTP_PATHIP = "http://share.guzhang.tv";
-	public static final String HTTP_URL =  HTTP_BACKLOGINIP + "/guzhang/";
+//	public static final String HTTP_URL =  HTTP_BACKLOGINIP + "/guzhang/";
+//	public static final String HTTP_URL =  "http://192.168.1.104:8027/guzhang/";//内网地址
+	public static final String HTTP_URL =  "http://123.56.88.189:8027/guzhangTest/";//外网测试地址
 //	public static final String HTTP_URL =  HTTP_IP + "/guzhang/";
 	public static final String HTTP_HEAD_PATH = HTTP_BACKLOGINIP + "/upload/headpic/";
 //	public static final String HTTP_HEAD_PATH = HTTP_IP + "/upload/headpic/";

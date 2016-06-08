@@ -91,6 +91,9 @@ public class GuestDetail_Activity extends BaseActivity {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				Intent intent = new Intent();
 				intent.setClass(GuestDetail_Activity.this, Wap_Activity.class);
+//				intent.putExtra("wap_url", SOAP_UTILS.HTTP_NEWSINFO_PATH + list.get(position-1).getwebid());
+//				intent.putExtra("wap_share", SOAP_UTILS.HTTP_NEWSSHARE_PATH + list.get(position-1).getwebid());
+//				intent.putExtra("wap_name", list.get(position-1).gettitle());
 				intent.putExtra("wap_url", SOAP_UTILS.HTTP_NEWSINFO_PATH + list.get(position).getwebid());
 				intent.putExtra("wap_share", SOAP_UTILS.HTTP_NEWSSHARE_PATH + list.get(position).getwebid());
 				intent.putExtra("wap_name", list.get(position).gettitle());

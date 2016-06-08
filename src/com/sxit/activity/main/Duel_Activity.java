@@ -210,7 +210,7 @@ public class Duel_Activity extends BaseActivity {
 			int up_int = up_count*100/total_count;
 			int down_int = 100-up_int;
 			String content = "今日股市多空对决，当前看涨"+up_int+"%vs看跌"+down_int+"%，您怎么看？来投一票吧！";
-			ShareTool.getInstance(this,this, "股涨图文直播", content, SOAP_UTILS.HTTP_DUELSHARE_PATH,null).shareMsg(this);
+			ShareTool.getInstance(this,this, "股涨多空对决", content, SOAP_UTILS.HTTP_DUELSHARE_PATH,null).shareMsg(this);
 			break;
 		default:
 			break;

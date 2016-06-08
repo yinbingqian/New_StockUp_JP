@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp" 
+    android:background="#f4f4f4">
+
+    <RelativeLayout
+        android:id="@+id/user_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp" 
+        android:layout_marginBottom="2dp">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="30dp"
+                android:background="#EEEEEE" />
+
+<RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/corners_bg">
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:lineSpacingMultiplier="1.2"
+        android:text="今天又是雾霾！"
+        android:textColor="#666666"
+        android:textSize="13dp" />
+
+    <com.sxit.utils.live.NoScrollGridView
+        android:id="@+id/gridview"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="7dp"
+        android:columnWidth="80dp"
+        android:gravity="center"
+        android:horizontalSpacing="5dp"
+        android:numColumns="4"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="5dp" />
+    <View 
+        android:layout_width="fill_parent"
+        android:layout_height="10dp"
+        android:layout_below="@+id/gridview"/>
+</RelativeLayout>
+
+            <TextView
+                android:id="@+id/time_text"
+                android:layout_width="53dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/live_time_bg"
+                android:gravity="center"
+                android:text="10:55"
+                android:textSize="13dp"
+                android:textColor="@color/font_grey1" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true" >
+
+            <com.sxit.utils.XCRoundImageView
+                android:id="@+id/iv_avatar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/user_none"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="78dp"
+                android:text="王元石"
+                android:textColor="#666666"
+                android:textSize="12dp" />
+        </FrameLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

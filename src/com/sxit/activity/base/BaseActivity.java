@@ -60,13 +60,13 @@ public class BaseActivity extends Activity implements OnClickListener {
 	 */
 	public void addLoading() {
 		loading = new LoadingPage(this, new ILoadingDo() {
-
+			
 			@Override
 			public void soapFail(String methodName) {
 				EventCache.errorHttp.post(methodName);
 			}
-
 		});
+		
 		addContentView(loading, new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 	}
 

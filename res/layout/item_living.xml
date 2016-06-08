@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp" >
+
+        <com.sxit.utils.XCRoundImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/user_none"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/iv_avatar"
+            android:text="涨停先锋"
+            android:textColor="#333333"
+            android:textSize="16dp" />
+
+        
+        <TextView
+            android:id="@+id/zbj_text"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@+id/tv_title"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="的直播间"
+            android:textSize="13dp"/>
+         
+        <TextView
+            android:id="@+id/living_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="直播中..."
+            android:textColor="@color/red"
+            android:textSize="13dp"/>
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="60dp"
+        android:layout_toRightOf="@+id/iv_avatar"
+        android:lineSpacingMultiplier="1.2"
+        android:text="今天又是雾霾！"
+        android:textColor="#333333"
+        android:maxLines="8"
+        android:ellipsize="end"
+        android:textSize="14dp" />
+        
+    
+        <TextView
+            android:id="@+id/watching_text"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@+id/living_tv"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:text="1111人正在看"
+            android:textColor="#777777"
+            android:textSize="13dp" />
+
+ 
+
+</RelativeLayout>

@@ -14,9 +14,11 @@
     <color name="grey">#808080</color>
     <color name="deep_grey">#404040</color>
     <color name="grey_s">#FAFAFA</color>
+    <color name="grey_bg">#f8f8f8</color>
     <color name="font_grey1">#999999</color>
     <color name="font_grey2">#666666</color>
     <color name="font_grey3">#CCCCCC</color>
+    <color name="font_grey4">#c9c9c9</color>
     <!-- 蓝 -->
     <color name="simple_blue">#6699EE</color>
     <color name="blue">#3366CC</color>

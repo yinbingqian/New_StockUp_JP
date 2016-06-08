@@ -9,6 +9,8 @@
         android:id="@+id/ad_view"
         android:layout_width="fill_parent"
         android:layout_height="160dip" />
+    
+
 <LinearLayout 
         android:layout_width="fill_parent"
         android:layout_height="65dp"
@@ -17,6 +19,7 @@
         android:background="#f06000"
         android:orientation="horizontal"
     >
+   
     <ImageView 
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -135,7 +138,7 @@
                 android:layout_below="@+id/bt_jiabinguandian"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:text="智囊观点"
+                android:text="嘉宾观点"
                 android:textColor="#333333"
                 android:textSize="14dp" />
         </RelativeLayout>
@@ -146,5 +149,474 @@
         android:layout_height="1dp"
         android:layout_marginTop="20dp"
         android:background="#CCCCCC" />
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        >
+<TextView 
+    android:id="@+id/now_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="15dp"
+    android:text="正在直播"
+    android:textColor="#f06000"
+    android:textSize="17dp"
+    />
+<RelativeLayout 
+    android:id="@+id/more_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignBottom="@+id/now_tv"
+    android:layout_alignParentRight="true"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="10dp">
+<TextView 
+    android:id="@+id/more_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="更多直播"
+    android:textStyle="italic"
+    android:textColor="#f06000"
+    android:textSize="14dp"
+    />
+<ImageView 
+    android:layout_width="10dp"
+    android:layout_height="10dp"
+    android:layout_toRightOf="@+id/more_tv"
+    android:layout_alignTop="@+id/more_tv"
+    android:layout_marginLeft="6dp"
+    android:layout_marginTop="5dp"
+    android:background="@drawable/gengduo"/>
+</RelativeLayout>
+</RelativeLayout>
 
+<View 
+    android:layout_width="fill_parent"
+        android:background="@color/white"
+    android:layout_height="10dp"/>
+<LinearLayout 
+    android:id="@+id/list1_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+        android:background="@drawable/corners_greybg">
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" >
+
+            <com.sxit.utils.XCRoundImageView
+                android:id="@+id/expert_headpic1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/user_none" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" 
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:id="@+id/expert_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="京城81号"
+                android:textColor="@color/font_grey2"
+                android:textSize="16dp" />
+           <TextView
+            android:id="@+id/zbj_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@+id/expert_name1"
+            android:layout_alignBottom="@+id/expert_name1"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="的直播间"
+                android:textColor="@color/font_grey1"
+            android:textSize="14dp"/>
+  <TextView
+            android:id="@+id/living_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="直播中..."
+            android:textStyle="italic"
+            android:textColor="@color/red"
+            android:textSize="13dp"/>
+  
+            <TextView
+                android:id="@+id/expert_content1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/expert_name1"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="中短线狙击手，实战派高手"
+                android:textColor="@color/font_grey1"
+                android:textSize="14dp" />
+            
+<TextView
+            android:id="@+id/watching_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+                android:layout_below="@+id/expert_content1"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:text="11人正在看"
+            android:textStyle="italic"
+                android:textColor="@color/font_grey4"
+            android:textSize="12dp" />
+            </RelativeLayout>
+            
+</LinearLayout>
+<View 
+    android:layout_width="fill_parent"
+    android:background="@color/white"
+    android:layout_height="10dp"/>
+    </LinearLayout>
+    
+
+<LinearLayout 
+    android:id="@+id/list2_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+        android:background="@drawable/corners_greybg">
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" >
+
+            <com.sxit.utils.XCRoundImageView
+                android:id="@+id/expert_headpic2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/user_none" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" 
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:id="@+id/expert_name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="京城81号"
+                android:textColor="@color/font_grey2"
+                android:textSize="16dp" />
+           <TextView
+            android:id="@+id/zbj_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@+id/expert_name2"
+            android:layout_alignBottom="@+id/expert_name2"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="的直播间"
+                android:textColor="@color/font_grey1"
+            android:textSize="14dp"/>
+  <TextView
+            android:id="@+id/living_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="直播中..."
+            android:textStyle="italic"
+            android:textColor="@color/red"
+            android:textSize="13dp"/>
+  
+            <TextView
+                android:id="@+id/expert_content2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/expert_name2"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="中短线狙击手，实战派高手"
+                android:textColor="@color/font_grey1"
+                android:textSize="14dp" />
+            
+<TextView
+            android:id="@+id/watching_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+                android:layout_below="@+id/expert_content2"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:text="11人正在看"
+            android:textStyle="italic"
+                android:textColor="@color/font_grey4"
+            android:textSize="12dp" />
+            </RelativeLayout>
+            
+</LinearLayout>
+<View 
+    android:layout_width="fill_parent"
+        android:background="@color/white"
+    android:layout_height="10dp"/>
+    </LinearLayout>
+    
+
+<LinearLayout 
+    android:id="@+id/list3_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+        android:background="@drawable/corners_greybg">
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" >
+
+            <com.sxit.utils.XCRoundImageView
+                android:id="@+id/expert_headpic3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/user_none" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" 
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:id="@+id/expert_name3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="京城81号"
+                android:textColor="@color/font_grey2"
+                android:textSize="16dp" />
+           <TextView
+            android:id="@+id/zbj_text3"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@+id/expert_name3"
+            android:layout_alignBottom="@+id/expert_name3"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="的直播间"
+                android:textColor="@color/font_grey1"
+            android:textSize="14dp"/>
+  <TextView
+            android:id="@+id/living_tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="直播中..."
+            android:textStyle="italic"
+            android:textColor="@color/red"
+            android:textSize="13dp"/>
+  
+            <TextView
+                android:id="@+id/expert_content3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/expert_name3"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="中短线狙击手，实战派高手"
+                android:textColor="@color/font_grey1"
+                android:textSize="14dp" />
+            
+<TextView
+            android:id="@+id/watching_text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+                android:layout_below="@+id/expert_content3"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:text="11人正在看"
+            android:textStyle="italic"
+                android:textColor="@color/font_grey4"
+            android:textSize="12dp" />
+            </RelativeLayout>
+            
+</LinearLayout>
+<View 
+    android:layout_width="fill_parent"
+        android:background="@color/white"
+    android:layout_height="10dp"/>
+    </LinearLayout>
+    
+
+<LinearLayout 
+    android:id="@+id/list4_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+        android:background="@drawable/corners_greybg">
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" >
+
+            <com.sxit.utils.XCRoundImageView
+                android:id="@+id/expert_headpic4"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/user_none" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" 
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:id="@+id/expert_name4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="京城81号"
+                android:textColor="@color/font_grey2"
+                android:textSize="16dp" />
+           <TextView
+            android:id="@+id/zbj_text4"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@+id/expert_name4"
+            android:layout_alignBottom="@+id/expert_name4"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="的直播间"
+                android:textColor="@color/font_grey1"
+            android:textSize="14dp"/>
+  <TextView
+            android:id="@+id/living_tv4"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="直播中..."
+            android:textStyle="italic"
+            android:textColor="@color/red"
+            android:textSize="13dp"/>
+  
+            <TextView
+                android:id="@+id/expert_content4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/expert_name4"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="中短线狙击手，实战派高手"
+                android:textColor="@color/font_grey1"
+                android:textSize="14dp" />
+            
+<TextView
+            android:id="@+id/watching_text4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+                android:layout_below="@+id/expert_content4"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:text="11人正在看"
+            android:textStyle="italic"
+                android:textColor="@color/font_grey4"
+            android:textSize="12dp" />
+            </RelativeLayout>
+            
+</LinearLayout>
+<View 
+    android:layout_width="fill_parent"
+        android:background="@color/white"
+    android:layout_height="10dp"/>
+    </LinearLayout>
+    
+
+<LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+<TextView 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:text="观点策略"
+    android:textColor="#f06000"
+    android:textSize="17dp"
+    />
+</LinearLayout>
 </LinearLayout>

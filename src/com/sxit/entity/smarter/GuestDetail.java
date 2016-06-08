@@ -9,6 +9,7 @@ public class GuestDetail implements Serializable {
 	private String crtime;
 	private String headpic;
 	private String webid;
+	private String newscomcount;
 	private String orders;
 	private String orgname;
 	private String picture;
@@ -22,7 +23,7 @@ public class GuestDetail implements Serializable {
 	}
 
 	public GuestDetail(String adminid, String coltitle, String crtime,
-			String headpic, String webid, String orders, String orgname,
+			String headpic, String webid, String newscomcount,String orders, String orgname,
 			String picture, String realname, String source, String thumbnail,
 			String title) {
 		this.adminid = adminid;
@@ -30,6 +31,7 @@ public class GuestDetail implements Serializable {
 		this.crtime = crtime;
 		this.headpic = headpic;
 		this.webid = webid;
+		this.newscomcount = newscomcount;
 		this.orders = orders;
 		this.orgname = orgname;
 		this.picture = picture;
@@ -87,6 +89,13 @@ public class GuestDetail implements Serializable {
 		this.webid = webid;
 	}
 
+	public String getnewscomcount() {
+		return newscomcount;
+	}
+	
+	public void setnewscomcount(String newscomcount) {
+		this.newscomcount = newscomcount;
+	}
 	public String getorders() {
 		return orders;
 	}

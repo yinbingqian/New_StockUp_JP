@@ -74,7 +74,7 @@ public class UserSetting_Sex_Activity extends BaseActivity {
 			finish();
 			break;
 		case R.id.tv_save:
-			String[] property_va = new String[] { getUserInfo().getid(), sex.equals("男") ? "0" : "1" };
+			String[] property_va = new String[] { getUserInfo().getid(), sex.equals("男") ? "1" : "0" };
 			soapService.userEditor_Sex(property_va);
 			break;
 		default:
@@ -120,7 +120,7 @@ public class UserSetting_Sex_Activity extends BaseActivity {
 			String result = obj.getObj().toString();
 			if(result.equals("success")){
 				DBHelper dbh = new DBHelper(context);
-				dbh.updateUser(getUserInfo().getid(), "SEX", sex.equals("男") ? "0" : "1");
+				dbh.updateUser(getUserInfo().getid(), "SEX", sex.equals("男") ? "1" : "0");
 				Utils.showTextToast(context, "修改成功");
 				finish();
 			}else{

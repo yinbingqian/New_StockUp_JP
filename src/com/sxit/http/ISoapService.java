@@ -534,4 +534,87 @@ public interface ISoapService extends IASoapService {
 	 */
 	void getNewsComment(Object[] property_va, boolean isPage);
 	
+	/**
+	 *正在直播
+	 * 
+	 * @param property_va
+	 */
+	void getLiving(Object[] property_va, boolean isPage);
+	
+	/**
+	 *全部直播
+	 * 
+	 * @param property_va
+	 */
+	void getLivingALl(Object[] property_va, boolean isPage);
+	/**
+	 *热门直播
+	 * 
+	 * @param property_va
+	 */
+	void getLivingHot(Object[] property_va, boolean isPage);
+	
+	/**
+	 *正在直播详情
+	 * 
+	 * @param property_va
+	 */
+	void getLivingDetail(Object[] property_va, boolean isPage);
+	
+	/**
+	 *互动问答
+	 * 
+	 * @param property_va
+	 */
+	void getInteractQA(Object[] property_va, boolean isPage);
+	
+	/**
+	 *直播关注状态
+	 * 
+	 * @param property_va
+	 */
+	void getAttentionLiveUser(Object[] property_va);
+	
+	/**
+	 *直播大厅轮巡
+	 * 
+	 * @param property_va
+	 */
+	void getLivingUpdate(Object[] property_va, boolean isPage);
+	
+	/**
+	 *直播大厅轮巡
+	 * 
+	 * @param property_va
+	 */
+	void updateImei(Object[] property_va);
+	
+	/**
+	 *直播大厅轮巡
+	 * 
+	 * @param property_va
+	 */
+	void userInfoLoginUpdateImei(Object[] property_va);
+
+	/**
+	 * 绑定手机号
+	 * 
+	 * @param property_va
+	 */
+	void bindPhoneNum(Object[] property_va);
+
+	/**
+	 * 确认验证码
+	 * 
+	 * @param property_va
+	 */
+	void codeVerify(Object[] property_va);
+	
+	/**
+	 * 忘记密码中重置密码
+	 * 
+	 * @param property_va
+	 */
+	void userPasswordFind(Object[] property_va);
+	
 }

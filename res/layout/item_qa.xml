@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"  >
+    
+<RelativeLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="提问"
+        android:textColor="@color/deep_yellow"
+        android:textSize="14dp"/>
+    <TextView
+        android:id="@+id/question_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/name_tv"
+        android:text="提问:"
+        android:textColor="@color/font_grey2"
+        android:textSize="14dp"/>
+    <TextView
+        android:id="@+id/qcontent_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/question_tv"
+        android:text="002378"
+        android:textColor="@color/font_grey2"
+        android:textSize="14dp"/>
+    <TextView
+        android:id="@+id/time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="03-24 11:30"
+        android:textColor="@color/font_grey3"
+        android:textSize="14dp"/>
+</RelativeLayout>
+ <TextView
+        android:id="@+id/qdetail_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="6dp"
+        android:text="详细描述："
+        android:textColor="@color/font_grey1"
+        android:textSize="14dp"/>
+
+     <ImageView 
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+         android:background="@drawable/up_arrow"/>
+      <LinearLayout 
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:paddingBottom="10dp"
+     android:background="@color/grey_bg"
+     android:orientation="vertical">
+         <TextView
+        android:id="@+id/acontent_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:text="此投近期较大跌幅"
+        android:textColor="@color/font_grey2"
+        android:textSize="14dp"/>
+         
+         <com.sxit.utils.live.NoScrollGridView
+        android:id="@+id/gridview"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="7dp"
+        android:columnWidth="80dp"
+        android:gravity="center"
+        android:horizontalSpacing="5dp"
+        android:numColumns="4"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="5dp" />
+         
+             <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="【仅供参考，不构成投资建议】"
+        android:textColor="@color/font_grey2"
+        android:textSize="14dp"/>
+             
+ </LinearLayout>
+</LinearLayout>

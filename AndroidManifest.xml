@@ -90,6 +90,29 @@
                 android:value="首页" />
         </activity>
         <activity
+            android:name="com.sxit.activity.th.living.MoreLiving_Activity"
+            android:excludeFromRecents="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:taskAffinity="" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="更多直播" />
+        </activity>
+         <activity
+            android:name="com.sxit.activity.th.living.NowLivingDetails_Activity"
+            android:excludeFromRecents="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:taskAffinity="" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="单击正在直播" />
+        </activity>
+        
+        <activity
             android:name="com.sxit.activity.main.StockNews_Activity"
             android:excludeFromRecents="true"
             android:label="@string/app_name"
@@ -402,6 +425,27 @@
                 android:value="用户登录" />
         </activity>
         <activity
+            android:name="com.sxit.activity.login.AddPhoneNumActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="填写手机号" />
+        </activity>
+        <activity
+            android:name="com.sxit.activity.login.BindPhoneNumActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="绑定手机号" />
+        </activity>
+           <activity
+            android:name="com.sxit.activity.login.ResetPassword_Activity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="忘记密码中重置密码" />
+        </activity>
+        <activity
             android:name="com.sxit.activity.register.Register_Activity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
@@ -409,6 +453,15 @@
             <meta-data
                 android:name="DESCRIPTION"
                 android:value="用户注册" />
+        </activity>
+        <activity
+            android:name="com.sxit.activity.register.Agree_Activity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="注册协议" />
         </activity>
         <activity
             android:name="com.sxit.activity.agreement.AgreementActivity"
@@ -862,7 +915,10 @@
         <service
             android:name="com.umeng.message.UmengIntentService"
             android:process=":push" />
-
+        <!-- 主线程轮巡服务 -->
+         <service
+            android:name="com.sxit.service.LocalService" >
+        </service>
         <!-- Umeng的消息路由服务 -->
         <service
             android:name="com.umeng.message.UmengMessageIntentReceiverService"

@@ -23,13 +23,16 @@
             android:scaleType="centerInside"
             android:src="@drawable/img_back" />
 
-        <ImageView
+        <TextView
             android:id="@+id/img_title"
-            android:layout_width="88dp"
+            android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:background="@drawable/standpoint_title_img" />
+            android:text="嘉宾观点" 
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="22dp" />
 
         <ImageView
             android:id="@+id/img_share"

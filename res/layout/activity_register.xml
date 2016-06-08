@@ -118,14 +118,38 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="40dp"
                 android:layout_gravity="center_horizontal"
                 android:lineSpacingExtra="2dp"
                 android:lineSpacingMultiplier="1.2"
                 android:text="温馨提示：请正确输入手机号码，便于密码找回"
-                android:textColor="@color/color_9"
+                android:textColor="#ff2c32"
                 android:textSize="12dp" />
-
+            <LinearLayout 
+                android:id="@+id/agree_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <ImageView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yes"/>
+           <TextView
+               android:id="@+id/agree_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="5dp"                
+                android:lineSpacingExtra="2dp"
+                android:lineSpacingMultiplier="1.2"
+                android:text="我已接受《股涨软件用户协议与声明》"
+                android:textColor="#59a6ea"
+                android:textSize="12dp" />
+           </LinearLayout>
             <Button
                 android:id="@+id/bt_submit"
                 android:layout_width="fill_parent"
@@ -134,11 +158,11 @@
                 android:layout_marginBottom="@dimen/marging20"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/regist_bt_bg"
                 android:text="@string/register_submit"
                 android:textColor="@color/white"
-                android:textSize="@dimen/textsize18" />
+                android:textSize="@dimen/textsize20" />
         </LinearLayout>
     </ScrollView>
 

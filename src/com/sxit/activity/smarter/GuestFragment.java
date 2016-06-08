@@ -134,11 +134,11 @@ public class GuestFragment extends Fragment {
 					@Override
 					public void onRefresh(
 							PullToRefreshBase<ListView> refreshView) {
+						pageIndex = 1;
 						String[] property_va = new String[] { "10",
 								pageIndex + "" };
 						soapService.getGuestTeam(property_va, false);
 
-						pageIndex = 1;
 
 					}
 				});

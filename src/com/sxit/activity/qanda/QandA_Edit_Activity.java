@@ -91,6 +91,10 @@ public class QandA_Edit_Activity extends BaseActivity {
 			Toast.makeText(context, "请选择疑问类别", Toast.LENGTH_SHORT).show();
 			return;
 		}
+		if(edit_title.getText().toString().equals("")){
+			Toast.makeText(context, "请填写问题标题", Toast.LENGTH_SHORT).show();
+			return;
+		}
 //		String[] property_va = new String[] { user.getid(),edit_title.getText().toString(), edit_content.getText().toString(), tag_value, img1_name, img2_name };
 //		soapService.questionSubmit(property_va);
 		String[] property_nm = { "userid", "title", "content", "col", "img1", "img2" };

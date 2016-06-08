@@ -16,6 +16,10 @@ import com.sxit.entity.anwser.Anwser;
 import com.sxit.entity.discuss.DiscussItem;
 import com.sxit.entity.discuss.DiscussReply;
 import com.sxit.entity.discuss.DiscussTag;
+import com.sxit.entity.living.AllLiving;
+import com.sxit.entity.living.HotLiving;
+import com.sxit.entity.living.NowLiving;
+import com.sxit.entity.living.QA;
 import com.sxit.entity.qanda.Answer;
 import com.sxit.entity.qanda.Question;
 import com.sxit.entity.qanda.QuestionDetail;
@@ -114,7 +118,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void getListByStock(Object[] property_va, final boolean isPage) {
 		String[] property_nm = {};
@@ -135,7 +139,7 @@ public class SoapService implements ISoapService {
 						HomePageNews hpn = new HomePageNews();
 						hpn.setAdminid(json_news.get("Adminid").toString());
 						hpn.setColtitle("");
-//						hpn.setColtitle(json_news.get("Coltitle").toString());
+						// hpn.setColtitle(json_news.get("Coltitle").toString());
 						hpn.setCrtime(json_news.get("Crtime").toString());
 						hpn.setHeadPic(json_news.get("HeadPic").toString());
 						hpn.setId(json_news.get("Id").toString());
@@ -172,7 +176,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void getListByGuest(Object[] property_va, final boolean isPage) {
 		String[] property_nm = {};
@@ -193,7 +197,7 @@ public class SoapService implements ISoapService {
 						HomePageNews hpn = new HomePageNews();
 						hpn.setAdminid(json_news.get("Adminid").toString());
 						hpn.setColtitle("");
-//						hpn.setColtitle(json_news.get("Coltitle").toString());
+						// hpn.setColtitle(json_news.get("Coltitle").toString());
 						hpn.setCrtime(json_news.get("Crtime").toString());
 						hpn.setHeadPic(json_news.get("HeadPic").toString());
 						hpn.setId(json_news.get("Id").toString());
@@ -287,7 +291,6 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
 
 	@Override
 	public void userInfoLogin(Object[] property_va) {
@@ -302,24 +305,12 @@ public class SoapService implements ISoapService {
 			public void soapResult(Object obj) {
 				// TODO Auto-generated method stub
 				try {
-//					{
-//					    "CheckNum": 0,
-//					    "CheckSta": 0,
-//					    "HeadPic": "1.jpg",
-//					    "Id": 12,
-//					    "Level": 0,
-//					    "Mark": 380,
-//					    "Name": "admin",
-//					    "Prestige": 0,
-//					    "Rank": 220,
-//					    "RealName": "演示"
-//					}
-					
+
 					JSONObject user_obj = new JSONObject(obj.toString());
 					UserInfo user = new UserInfo();
 					user.setchecknum(user_obj.get("CheckNum").toString());
 					user.setchecksta(user_obj.get("CheckSta").toString());
-					user.setheadpic(SOAP_UTILS.HTTP_HEAD_PATH+user_obj.get("HeadPic").toString());
+					user.setheadpic(SOAP_UTILS.HTTP_HEAD_PATH + user_obj.get("HeadPic").toString());
 					user.setid(user_obj.get("Id").toString());
 					user.setlevel(user_obj.get("Level").toString());
 					user.setmark(user_obj.get("Redheart").toString());
@@ -329,7 +320,19 @@ public class SoapService implements ISoapService {
 					user.setrealname(user_obj.get("RealName").toString());
 					user.setbirth(user_obj.get("StockAge").toString());
 					user.setsex(user_obj.get("Sex").toString());
-
+					user.setNewprestige(user_obj.get("Prestige").toString());
+					user.setRewardmark(user_obj.get("Rewardmark").toString());
+					user.setattuser(user_obj.get("AttUser").toString());
+					// String result = user_obj.get("AttUser").toString();
+					//
+					// JSONArray attuser_array = new JSONArray(result);
+					// for(int i = 0; attuser_array.length()>0;i++){
+					//
+					// JSONObject json_attuser = (JSONObject)
+					// attuser_array.get(i);
+					//
+					// }
+					//
 					soapRes.setObj(user);
 					soapRes.setCode(SOAP_UTILS.METHOD.USERINFOLOGIN);
 					EventCache.commandActivity.post(soapRes);
@@ -350,7 +353,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void userInfoById(Object[] property_va, final String headpic) {
 		// TODO Auto-generated method stub
@@ -364,24 +367,24 @@ public class SoapService implements ISoapService {
 			public void soapResult(Object obj) {
 				// TODO Auto-generated method stub
 				try {
-//					{
-//					    "CheckNum": 0,
-//					    "CheckSta": 0,
-//					    "HeadPic": "1.jpg",
-//					    "Id": 12,
-//					    "Level": 0,
-//					    "Mark": 380,
-//					    "Name": "admin",
-//					    "Prestige": 0,
-//					    "Rank": 220,
-//					    "RealName": "演示"
-//					}
-					
+					// {
+					// "CheckNum": 0,
+					// "CheckSta": 0,
+					// "HeadPic": "1.jpg",
+					// "Id": 12,
+					// "Level": 0,
+					// "Mark": 380,
+					// "Name": "admin",
+					// "Prestige": 0,
+					// "Rank": 220,
+					// "RealName": "演示"
+					// }
+
 					JSONObject user_obj = new JSONObject(obj.toString());
 					UserInfo user = new UserInfo();
 					user.setchecknum(user_obj.get("CheckNum").toString());
 					user.setchecksta(user_obj.get("CheckSta").toString());
-//					user.setheadpic(user_obj.get("HeadPic").toString());
+					// user.setheadpic(user_obj.get("HeadPic").toString());
 					user.setheadpic(headpic);
 					user.setid(user_obj.get("Id").toString());
 					user.setlevel(user_obj.get("Level").toString());
@@ -413,7 +416,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void getDuelVote(Object[] property_va) {
 		String[] property_nm = {};
@@ -438,7 +441,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void getDuelVotePage(Object[] property_va) {
 		String[] property_nm = {};
@@ -453,7 +456,7 @@ public class SoapService implements ISoapService {
 				try {
 					JSONObject json_obj = new JSONObject(obj.toString());
 					String result = json_obj.get("Result").toString();
-					if(result.equals("success")){					
+					if (result.equals("success")) {
 						JSONObject msg_obj = new JSONObject(json_obj.getString("Message"));
 						JSONArray point_array = msg_obj.getJSONArray("point");
 						List<DuelPoint> list = new ArrayList<DuelPoint>();
@@ -467,13 +470,13 @@ public class SoapService implements ISoapService {
 							dp.setSupportrate(json_point.get("Supportrate").toString());
 							dp.setRealName(json_point.get("RealName").toString());
 							dp.setHeadPic(json_point.get("HeadPic").toString());
-							
+
 							list.add(dp);
 						}
 						soapRes.setObj(list);
 						soapRes.setCode(SOAP_UTILS.METHOD.GETDUELVOTEPAGE);
 						EventCache.commandActivity.post(soapRes);
-					}else{
+					} else {
 						soapRes.setObj(null);
 						soapRes.setCode(SOAP_UTILS.METHOD.GETDUELVOTEPAGE);
 						EventCache.commandActivity.post(soapRes);
@@ -482,7 +485,7 @@ public class SoapService implements ISoapService {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+
 			}
 
 			@Override
@@ -493,7 +496,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void duelVote(Object[] property_va) {
 		String[] property_nm = {};
@@ -518,7 +521,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void viewPointSupport(Object[] property_va, final int position) {
 		String[] property_nm = {};
@@ -545,7 +548,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void oneKeyLogin(Object[] property_va, final String headpic) {
 		// TODO Auto-generated method stub
@@ -561,12 +564,12 @@ public class SoapService implements ISoapService {
 				try {
 					JSONObject json_obj = new JSONObject(obj.toString());
 					String result = json_obj.get("Result").toString();
-					if(result.equals("success")){	
+					if (result.equals("success")) {
 						JSONObject user_obj = new JSONObject(json_obj.getString("Message"));
 						UserInfo user = new UserInfo();
 						user.setchecknum(user_obj.get("CheckNum").toString());
 						user.setchecksta(user_obj.get("CheckSta").toString());
-//					user.setheadpic(user_obj.get("HeadPic").toString());
+						// user.setheadpic(user_obj.get("HeadPic").toString());
 						user.setheadpic(headpic);
 						user.setid(user_obj.get("Id").toString());
 						user.setlevel(user_obj.get("Level").toString());
@@ -575,7 +578,27 @@ public class SoapService implements ISoapService {
 						user.setprestige(user_obj.get("Prestige").toString());
 						user.setrank(user_obj.get("Rank").toString());
 						user.setrealname(user_obj.get("RealName").toString());
-						
+
+						soapRes.setPosition(0);
+						soapRes.setObj(user);
+						soapRes.setCode(SOAP_UTILS.METHOD.ONEKEYLOGIN);
+						EventCache.commandActivity.post(soapRes);
+					} else if (result.equals("NoExist")) {
+						JSONObject user_obj = new JSONObject(json_obj.getString("Message"));
+						UserInfo user = new UserInfo();
+						user.setchecknum(user_obj.get("CheckNum").toString());
+						user.setchecksta(user_obj.get("CheckSta").toString());
+						// user.setheadpic(user_obj.get("HeadPic").toString());
+						user.setheadpic(headpic);
+						user.setid(user_obj.get("Id").toString());
+						user.setlevel(user_obj.get("Level").toString());
+						user.setmark(user_obj.get("Mark").toString());
+						user.setname(user_obj.get("Name").toString());
+						user.setprestige(user_obj.get("Prestige").toString());
+						user.setrank(user_obj.get("Rank").toString());
+						user.setrealname(user_obj.get("RealName").toString());
+
+						soapRes.setPosition(1);
 						soapRes.setObj(user);
 						soapRes.setCode(SOAP_UTILS.METHOD.ONEKEYLOGIN);
 						EventCache.commandActivity.post(soapRes);
@@ -597,16 +620,16 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void userRegistered(Object[] property_va) {
 		// TODO Auto-generated method stub
-		String[] property_nm = {};
+		String[] property_nm = { "name", "password", "realName" };
 		asynTaskBase.setMethod(SOAP_UTILS.METHOD.USERREGISTERED);
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
 		asynTaskBase.executeDo(new HttpObjectResult() {
-			
+
 			@Override
 			public void soapResult(Object obj) {
 				// TODO Auto-generated method stub
@@ -614,28 +637,13 @@ public class SoapService implements ISoapService {
 					JSONObject json_obj = new JSONObject(obj.toString());
 					String result = json_obj.get("Result").toString();
 					String message = json_obj.get("Message").toString();
-					if(result.equals("success")){
+					if (result.equals("success")) {
 						message = "success";
 					}
-//					if(result.equals("success")){	
-//						JSONObject user_obj = new JSONObject(json_obj.getString("Message"));
-//						UserInfo user = new UserInfo();
-//						user.setchecknum(user_obj.get("CheckNum").toString());
-//						user.setchecksta(user_obj.get("CheckSta").toString());
-////							user.setheadpic(user_obj.get("HeadPic").toString());
-//						user.setheadpic(headpic);
-//						user.setid(user_obj.get("Id").toString());
-//						user.setlevel(user_obj.get("Level").toString());
-//						user.setmark(user_obj.get("Mark").toString());
-//						user.setname(user_obj.get("Name").toString());
-//						user.setprestige(user_obj.get("Prestige").toString());
-//						user.setrank(user_obj.get("Rank").toString());
-//						user.setrealname(user_obj.get("RealName").toString());
-//						
-						soapRes.setObj(message);
-						soapRes.setCode(SOAP_UTILS.METHOD.USERREGISTERED);
-						EventCache.commandActivity.post(soapRes);
-//					}
+					soapRes.setObj(message);
+					soapRes.setCode(SOAP_UTILS.METHOD.USERREGISTERED);
+					EventCache.commandActivity.post(soapRes);
+					// }
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -644,7 +652,7 @@ public class SoapService implements ISoapService {
 					EventCache.commandActivity.post(soapRes);
 				}
 			}
-			
+
 			@Override
 			public void soapError() {
 				soapRes.setObj(null);
@@ -653,7 +661,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void viewPointAdd(Object[] property_va) {
 		// TODO Auto-generated method stub
@@ -662,7 +670,7 @@ public class SoapService implements ISoapService {
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
 		asynTaskBase.executeDo(new HttpObjectResult() {
-			
+
 			@Override
 			public void soapResult(Object obj) {
 				// TODO Auto-generated method stub
@@ -670,9 +678,9 @@ public class SoapService implements ISoapService {
 					JSONObject json_obj = new JSONObject(obj.toString());
 					String result = json_obj.get("Result").toString();
 					String message = json_obj.get("Message").toString();
-					if(result.equals("success")){
+					if (result.equals("success")) {
 						message = "success";
-					}	
+					}
 					soapRes.setObj(message);
 					soapRes.setCode(SOAP_UTILS.METHOD.VIEWPOINTADD);
 					EventCache.commandActivity.post(soapRes);
@@ -684,7 +692,7 @@ public class SoapService implements ISoapService {
 					EventCache.commandActivity.post(soapRes);
 				}
 			}
-			
+
 			@Override
 			public void soapError() {
 				soapRes.setObj(null);
@@ -693,7 +701,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void userEditor_RealName(Object[] property_va) {
 		// TODO Auto-generated method stub
@@ -702,7 +710,7 @@ public class SoapService implements ISoapService {
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
 		asynTaskBase.executeDo(new HttpObjectResult() {
-			
+
 			@Override
 			public void soapResult(Object obj) {
 				// TODO Auto-generated method stub
@@ -710,9 +718,9 @@ public class SoapService implements ISoapService {
 					JSONObject json_obj = new JSONObject(obj.toString());
 					String result = json_obj.get("Result").toString();
 					String message = json_obj.get("Message").toString();
-					if(result.equals("success")){
+					if (result.equals("success")) {
 						message = "success";
-					}	
+					}
 					soapRes.setObj(message);
 					soapRes.setCode(SOAP_UTILS.METHOD.USEREDITOR_REALNAME);
 					EventCache.commandActivity.post(soapRes);
@@ -724,7 +732,7 @@ public class SoapService implements ISoapService {
 					EventCache.commandActivity.post(soapRes);
 				}
 			}
-			
+
 			@Override
 			public void soapError() {
 				soapRes.setObj(null);
@@ -733,7 +741,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void userEditor_Password(Object[] property_va) {
 		// TODO Auto-generated method stub
@@ -742,7 +750,7 @@ public class SoapService implements ISoapService {
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
 		asynTaskBase.executeDo(new HttpObjectResult() {
-			
+
 			@Override
 			public void soapResult(Object obj) {
 				// TODO Auto-generated method stub
@@ -750,9 +758,9 @@ public class SoapService implements ISoapService {
 					JSONObject json_obj = new JSONObject(obj.toString());
 					String result = json_obj.get("Result").toString();
 					String message = json_obj.get("Message").toString();
-					if(result.equals("success")){
+					if (result.equals("success")) {
 						message = "success";
-					}	
+					}
 					soapRes.setObj(message);
 					soapRes.setCode(SOAP_UTILS.METHOD.USEREDITOR_PASSWORD);
 					EventCache.commandActivity.post(soapRes);
@@ -764,7 +772,7 @@ public class SoapService implements ISoapService {
 					EventCache.commandActivity.post(soapRes);
 				}
 			}
-			
+
 			@Override
 			public void soapError() {
 				soapRes.setObj(null);
@@ -773,7 +781,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void userEditor_StockAge(Object[] property_va) {
 		// TODO Auto-generated method stub
@@ -782,7 +790,7 @@ public class SoapService implements ISoapService {
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
 		asynTaskBase.executeDo(new HttpObjectResult() {
-			
+
 			@Override
 			public void soapResult(Object obj) {
 				// TODO Auto-generated method stub
@@ -790,9 +798,9 @@ public class SoapService implements ISoapService {
 					JSONObject json_obj = new JSONObject(obj.toString());
 					String result = json_obj.get("Result").toString();
 					String message = json_obj.get("Message").toString();
-					if(result.equals("success")){
+					if (result.equals("success")) {
 						message = "success";
-					}	
+					}
 					soapRes.setObj(message);
 					soapRes.setCode(SOAP_UTILS.METHOD.USEREDITOR_STOCKAGE);
 					EventCache.commandActivity.post(soapRes);
@@ -804,7 +812,7 @@ public class SoapService implements ISoapService {
 					EventCache.commandActivity.post(soapRes);
 				}
 			}
-			
+
 			@Override
 			public void soapError() {
 				soapRes.setObj(null);
@@ -813,7 +821,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void userEditor_Sex(Object[] property_va) {
 		// TODO Auto-generated method stub
@@ -822,7 +830,7 @@ public class SoapService implements ISoapService {
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
 		asynTaskBase.executeDo(new HttpObjectResult() {
-			
+
 			@Override
 			public void soapResult(Object obj) {
 				// TODO Auto-generated method stub
@@ -830,9 +838,9 @@ public class SoapService implements ISoapService {
 					JSONObject json_obj = new JSONObject(obj.toString());
 					String result = json_obj.get("Result").toString();
 					String message = json_obj.get("Message").toString();
-					if(result.equals("success")){
+					if (result.equals("success")) {
 						message = "success";
-					}	
+					}
 					soapRes.setObj(message);
 					soapRes.setCode(SOAP_UTILS.METHOD.USEREDITOR_SEX);
 					EventCache.commandActivity.post(soapRes);
@@ -844,7 +852,7 @@ public class SoapService implements ISoapService {
 					EventCache.commandActivity.post(soapRes);
 				}
 			}
-			
+
 			@Override
 			public void soapError() {
 				soapRes.setObj(null);
@@ -853,7 +861,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void getGuestTeam(Object[] property_va, final boolean isPage) {
 		String[] property_nm = {};
@@ -878,8 +886,7 @@ public class SoapService implements ISoapService {
 						guest.setlevel(json_guest.get("Level").toString());
 						guest.setpaidmark(json_guest.get("Rewardmark").toString());
 						guest.setrealname(json_guest.get("RealName").toString());
-						guest.setstockstyle(json_guest.get("StockStyle")
-								.toString());
+						guest.setstockstyle(json_guest.get("StockStyle").toString());
 						guest.setresume(json_guest.get("Resume").toString());
 
 						guest_list.add(guest);
@@ -923,20 +930,15 @@ public class SoapService implements ISoapService {
 					List<Expert> expert_list = new ArrayList<Expert>();
 
 					for (int i = 0; i < expert_array.length(); i++) {
-						JSONObject json_expert = (JSONObject) expert_array
-								.get(i);
+						JSONObject json_expert = (JSONObject) expert_array.get(i);
 						Expert expert = new Expert();
-						expert.setrewardmark(json_expert.get("Rewardmark")
-								.toString());
+						expert.setrewardmark(json_expert.get("Rewardmark").toString());
 						expert.setheadpic(json_expert.get("HeadPic").toString());
 						expert.setwebid(json_expert.get("Userid").toString());
 						expert.setlevel(json_expert.get("Level").toString());
-						expert.setmark(json_expert.get("Mark")
-								.toString());
-						expert.setrealname(json_expert.get("RealName")
-								.toString());
-						expert.setstockstyle(json_expert.get("StockStyle")
-								.toString());
+						expert.setmark(json_expert.get("Mark").toString());
+						expert.setrealname(json_expert.get("RealName").toString());
+						expert.setstockstyle(json_expert.get("StockStyle").toString());
 						expert.setresume(json_expert.get("Resume").toString());
 
 						expert_list.add(expert);
@@ -982,33 +984,21 @@ public class SoapService implements ISoapService {
 					List<GuestDetail> guestDetail_list = new ArrayList<GuestDetail>();
 
 					for (int i = 0; i < guestDetail_array.length(); i++) {
-						JSONObject json_guestDetail = (JSONObject) guestDetail_array
-								.get(i);
+						JSONObject json_guestDetail = (JSONObject) guestDetail_array.get(i);
 						GuestDetail guestDetail = new GuestDetail();
-						guestDetail.setadminid(json_guestDetail.get("Adminid")
-								.toString());
-						guestDetail.setcoltitle(json_guestDetail
-								.get("Coltitle").toString());
-						guestDetail.setcrtime(json_guestDetail.get("Crtime")
-								.toString());
-						guestDetail.setheadpic(json_guestDetail.get("HeadPic")
-								.toString());
-						guestDetail.setwebid(json_guestDetail.get("Id")
-								.toString());
-						guestDetail.setorders(json_guestDetail.get("Orders")
-								.toString());
-						guestDetail.setorgname(json_guestDetail.get("OrgName")
-								.toString());
-						guestDetail.setpicture(json_guestDetail.get("Picture")
-								.toString());
-						guestDetail.setrealname(json_guestDetail
-								.get("RealName").toString());
-						guestDetail.setsource(json_guestDetail.get("Source")
-								.toString());
-						guestDetail.setthumbnail(json_guestDetail.get(
-								"Thumbnail").toString());
-						guestDetail.settitle(json_guestDetail.get("Title")
-								.toString());
+						guestDetail.setadminid(json_guestDetail.get("Adminid").toString());
+						guestDetail.setcoltitle(json_guestDetail.get("Coltitle").toString());
+						guestDetail.setcrtime(json_guestDetail.get("Crtime").toString());
+						guestDetail.setheadpic(json_guestDetail.get("HeadPic").toString());
+						guestDetail.setwebid(json_guestDetail.get("Id").toString());
+						guestDetail.setnewscomcount(json_guestDetail.get("NewsComCount").toString());
+						guestDetail.setorders(json_guestDetail.get("Orders").toString());
+						guestDetail.setorgname(json_guestDetail.get("OrgName").toString());
+						guestDetail.setpicture(json_guestDetail.get("Picture").toString());
+						guestDetail.setrealname(json_guestDetail.get("RealName").toString());
+						guestDetail.setsource(json_guestDetail.get("Source").toString());
+						guestDetail.setthumbnail(json_guestDetail.get("Thumbnail").toString());
+						guestDetail.settitle(json_guestDetail.get("Title").toString());
 
 						guestDetail_list.add(guestDetail);
 					}
@@ -1053,43 +1043,25 @@ public class SoapService implements ISoapService {
 					List<ExpertDetail> expertDetail_list = new ArrayList<ExpertDetail>();
 
 					for (int i = 0; i < expertDetail_array.length(); i++) {
-						JSONObject json_expertDetail = (JSONObject) expertDetail_array
-								.get(i);
+						JSONObject json_expertDetail = (JSONObject) expertDetail_array.get(i);
 						ExpertDetail expertDetail = new ExpertDetail();
-						expertDetail.setcolumn(json_expertDetail.get("Column")
-								.toString());
-						expertDetail.setcontent(json_expertDetail
-								.get("Content").toString());
-						expertDetail.setcrtime(json_expertDetail.get("Crtime")
-								.toString());
-						expertDetail.setdownmark(json_expertDetail.get(
-								"Downmark").toString());
-						expertDetail.setheadpic(json_expertDetail
-								.get("HeadPic").toString());
-						expertDetail.sethot(json_expertDetail.get("Hot")
-								.toString());
-						expertDetail.setwebid(json_expertDetail.get("Id")
-								.toString());
-						expertDetail.setimg1(json_expertDetail.get("Img1")
-								.toString());
-						expertDetail.setimg2(json_expertDetail.get("Img2")
-								.toString());
-						expertDetail.setimgthumbnail1(json_expertDetail.get(
-								"Imgthumbnail1").toString());
-						expertDetail.setimgthumbnail2(json_expertDetail.get(
-								"Imgthumbnail2").toString());
-						expertDetail.setmark(json_expertDetail.get("Mark")
-								.toString());
-						expertDetail.setrealname(json_expertDetail.get(
-								"RealName").toString());
-						expertDetail.setreplynum(json_expertDetail.get(
-								"Replynum").toString());
-						expertDetail.setrewardmark(json_expertDetail.get(
-								"Rewardmark").toString());
-						expertDetail.setsign(json_expertDetail.get("Sign")
-								.toString());
-						expertDetail.setuserid(json_expertDetail.get("Userid")
-								.toString());
+						expertDetail.setcolumn(json_expertDetail.get("Column").toString());
+						expertDetail.setcontent(json_expertDetail.get("Content").toString());
+						expertDetail.setcrtime(json_expertDetail.get("Crtime").toString());
+						expertDetail.setdownmark(json_expertDetail.get("Downmark").toString());
+						expertDetail.setheadpic(json_expertDetail.get("HeadPic").toString());
+						expertDetail.sethot(json_expertDetail.get("Hot").toString());
+						expertDetail.setwebid(json_expertDetail.get("Id").toString());
+						expertDetail.setimg1(json_expertDetail.get("Img1").toString());
+						expertDetail.setimg2(json_expertDetail.get("Img2").toString());
+						expertDetail.setimgthumbnail1(json_expertDetail.get("Imgthumbnail1").toString());
+						expertDetail.setimgthumbnail2(json_expertDetail.get("Imgthumbnail2").toString());
+						expertDetail.setmark(json_expertDetail.get("Mark").toString());
+						expertDetail.setrealname(json_expertDetail.get("RealName").toString());
+						expertDetail.setreplynum(json_expertDetail.get("Replynum").toString());
+						expertDetail.setrewardmark(json_expertDetail.get("Rewardmark").toString());
+						expertDetail.setsign(json_expertDetail.get("Sign").toString());
+						expertDetail.setuserid(json_expertDetail.get("Userid").toString());
 
 						expertDetail_list.add(expertDetail);
 					}
@@ -1115,7 +1087,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void getDiscussionList(Object[] property_va, final boolean isPage) {
 		String[] property_nm = {};
@@ -1150,7 +1122,7 @@ public class SoapService implements ISoapService {
 						disitem.setRewardmark(json_obj.get("Rewardmark").toString());
 						disitem.setSign(json_obj.get("Sign").toString());
 						disitem.setUserid(json_obj.get("Userid").toString());
-						
+
 						dis_list.add(disitem);
 					}
 
@@ -1175,7 +1147,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void getMyDiscussionList(Object[] property_va, final boolean isPage) {
 		String[] property_nm = {};
@@ -1210,7 +1182,7 @@ public class SoapService implements ISoapService {
 						disitem.setRewardmark(json_obj.get("Rewardmark").toString());
 						disitem.setSign(json_obj.get("Sign").toString());
 						disitem.setUserid(json_obj.get("Userid").toString());
-						
+
 						dis_list.add(disitem);
 					}
 
@@ -1257,7 +1229,7 @@ public class SoapService implements ISoapService {
 						disitem.setOrders(json_obj.get("Orders").toString());
 						disitem.setTitle(json_obj.get("Title").toString());
 						disitem.setValue(json_obj.get("Value").toString());
-						
+
 						dis_list.add(disitem);
 					}
 
@@ -1281,7 +1253,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void getQuestionColumn(Object[] property_va) {
 		String[] property_nm = {};
@@ -1303,7 +1275,7 @@ public class SoapService implements ISoapService {
 						disitem.setOrders(json_obj.get("Orders").toString());
 						disitem.setTitle(json_obj.get("Title").toString());
 						disitem.setValue(json_obj.get("Value").toString());
-						
+
 						dis_list.add(disitem);
 					}
 
@@ -1327,7 +1299,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void discussionSubmit(Object[] property_va) {
 		// TODO Auto-generated method stub
@@ -1336,7 +1308,7 @@ public class SoapService implements ISoapService {
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
 		asynTaskBase.executeDo(new HttpObjectResult() {
-			
+
 			@Override
 			public void soapResult(Object obj) {
 				// TODO Auto-generated method stub
@@ -1344,13 +1316,13 @@ public class SoapService implements ISoapService {
 					JSONObject json_obj = new JSONObject(obj.toString());
 					String result = json_obj.get("Result").toString();
 					String message = json_obj.get("Message").toString();
-					if(result.equals("success")){
+					if (result.equals("success")) {
 						message = "success";
 					}
-						soapRes.setObj(message);
-						soapRes.setCode(SOAP_UTILS.METHOD.DISCUSSIONSUBMIT);
-						EventCache.commandActivity.post(soapRes);
-//					}
+					soapRes.setObj(message);
+					soapRes.setCode(SOAP_UTILS.METHOD.DISCUSSIONSUBMIT);
+					EventCache.commandActivity.post(soapRes);
+					// }
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -1359,7 +1331,7 @@ public class SoapService implements ISoapService {
 					EventCache.commandActivity.post(soapRes);
 				}
 			}
-			
+
 			@Override
 			public void soapError() {
 				soapRes.setObj(null);
@@ -1368,7 +1340,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void questionSubmit(Object[] property_va) {
 		// TODO Auto-generated method stub
@@ -1377,7 +1349,7 @@ public class SoapService implements ISoapService {
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
 		asynTaskBase.executeDo(new HttpObjectResult() {
-			
+
 			@Override
 			public void soapResult(Object obj) {
 				// TODO Auto-generated method stub
@@ -1385,13 +1357,13 @@ public class SoapService implements ISoapService {
 					JSONObject json_obj = new JSONObject(obj.toString());
 					String result = json_obj.get("Result").toString();
 					String message = json_obj.get("Message").toString();
-					if(result.equals("success")){
+					if (result.equals("success")) {
 						message = "success";
 					}
-						soapRes.setObj(message);
-						soapRes.setCode(SOAP_UTILS.METHOD.QUESTIONSUBMIT);
-						EventCache.commandActivity.post(soapRes);
-//					}
+					soapRes.setObj(message);
+					soapRes.setCode(SOAP_UTILS.METHOD.QUESTIONSUBMIT);
+					EventCache.commandActivity.post(soapRes);
+					// }
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -1400,7 +1372,7 @@ public class SoapService implements ISoapService {
 					EventCache.commandActivity.post(soapRes);
 				}
 			}
-			
+
 			@Override
 			public void soapError() {
 				soapRes.setObj(null);
@@ -1409,7 +1381,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void answerSubmit(Object[] property_va) {
 		// TODO Auto-generated method stub
@@ -1418,7 +1390,7 @@ public class SoapService implements ISoapService {
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
 		asynTaskBase.executeDo(new HttpObjectResult() {
-			
+
 			@Override
 			public void soapResult(Object obj) {
 				// TODO Auto-generated method stub
@@ -1426,13 +1398,13 @@ public class SoapService implements ISoapService {
 					JSONObject json_obj = new JSONObject(obj.toString());
 					String result = json_obj.get("Result").toString();
 					String message = json_obj.get("Message").toString();
-					if(result.equals("success")){
+					if (result.equals("success")) {
 						message = "success";
 					}
-						soapRes.setObj(message);
-						soapRes.setCode(SOAP_UTILS.METHOD.ANSWERSUBMIT);
-						EventCache.commandActivity.post(soapRes);
-//					}
+					soapRes.setObj(message);
+					soapRes.setCode(SOAP_UTILS.METHOD.ANSWERSUBMIT);
+					EventCache.commandActivity.post(soapRes);
+					// }
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -1441,7 +1413,7 @@ public class SoapService implements ISoapService {
 					EventCache.commandActivity.post(soapRes);
 				}
 			}
-			
+
 			@Override
 			public void soapError() {
 				soapRes.setObj(null);
@@ -1467,27 +1439,19 @@ public class SoapService implements ISoapService {
 					List<Question> question_list = new ArrayList<Question>();
 
 					for (int i = 0; i < question_array.length(); i++) {
-						JSONObject json_question = (JSONObject) question_array
-								.get(i);
+						JSONObject json_question = (JSONObject) question_array.get(i);
 						Question question = new Question();
-						question.setanswernum(json_question.get("Answernum")
-								.toString());
-						question.setcolumn(json_question.get("Column")
-								.toString());
-						question.setcontent(json_question.get("Content")
-								.toString());
-						question.setcrtime(json_question.get("Crtime")
-								.toString());
+						question.setanswernum(json_question.get("Answernum").toString());
+						question.setcolumn(json_question.get("Column").toString());
+						question.setcontent(json_question.get("Content").toString());
+						question.setcrtime(json_question.get("Crtime").toString());
 						question.setwebid(json_question.get("Id").toString());
 						question.setimg1(json_question.get("Img1").toString());
 						question.setimg2(json_question.get("Img2").toString());
-						question.setimgthumbnail1(json_question.get(
-								"Imgthumbnail1").toString());
-						question.setimgthumbnail2(json_question.get(
-								"Imgthumbnail2").toString());
+						question.setimgthumbnail1(json_question.get("Imgthumbnail1").toString());
+						question.setimgthumbnail2(json_question.get("Imgthumbnail2").toString());
 						question.settitle(json_question.get("Title").toString());
-						question.setuserid(json_question.get("Userid")
-								.toString());
+						question.setuserid(json_question.get("Userid").toString());
 
 						question_list.add(question);
 					}
@@ -1530,8 +1494,7 @@ public class SoapService implements ISoapService {
 					List<Answer> anwser_list = new ArrayList<Answer>();
 
 					for (int i = 0; i < anwser_array.length(); i++) {
-						JSONObject json_anwser = (JSONObject) anwser_array
-								.get(i);
+						JSONObject json_anwser = (JSONObject) anwser_array.get(i);
 						Answer anwser = new Answer();
 						anwser.setcolumn(json_anwser.get("Column").toString());
 						anwser.setcontent(json_anwser.get("Content").toString());
@@ -1540,12 +1503,9 @@ public class SoapService implements ISoapService {
 						anwser.setwebid(json_anwser.get("Id").toString());
 						anwser.setimg1(json_anwser.get("Img1").toString());
 						anwser.setimg2(json_anwser.get("Img2").toString());
-						anwser.setimgthumbnail1(json_anwser
-								.get("Imgthumbnail1").toString());
-						anwser.setimgthumbnail2(json_anwser
-								.get("Imgthumbnail2").toString());
-						anwser.setrealname(json_anwser.get("RealName")
-								.toString());
+						anwser.setimgthumbnail1(json_anwser.get("Imgthumbnail1").toString());
+						anwser.setimgthumbnail2(json_anwser.get("Imgthumbnail2").toString());
+						anwser.setrealname(json_anwser.get("RealName").toString());
 						anwser.settitle(json_anwser.get("Title").toString());
 						anwser.setuserid(json_anwser.get("Userid").toString());
 
@@ -1592,33 +1552,20 @@ public class SoapService implements ISoapService {
 					List<QuestionDetail> questiondetail_list = new ArrayList<QuestionDetail>();
 
 					for (int i = 0; i < questiondetail_array.length(); i++) {
-						JSONObject json_questiondetail = (JSONObject) questiondetail_array
-								.get(i);
+						JSONObject json_questiondetail = (JSONObject) questiondetail_array.get(i);
 						QuestionDetail questiondetail = new QuestionDetail();
-						questiondetail.setquesid(json_questiondetail.get(
-								"Quesid").toString());
-						questiondetail.setcontent(json_questiondetail.get(
-								"Content").toString());
-						questiondetail.setcrtime(json_questiondetail.get(
-								"Crtime").toString());
-						questiondetail.setheadpic(json_questiondetail.get(
-								"HeadPic").toString());
-						questiondetail.setwebid(json_questiondetail.get("Id")
-								.toString());
-						questiondetail.setimg1(json_questiondetail.get("Img1")
-								.toString());
-						questiondetail.setimg2(json_questiondetail.get("Img2")
-								.toString());
-						questiondetail.setimgthumbnail1(json_questiondetail
-								.get("Imgthumbnail1").toString());
-						questiondetail.setimgthumbnail2(json_questiondetail
-								.get("Imgthumbnail2").toString());
-						questiondetail.setrealname(json_questiondetail.get(
-								"RealName").toString());
-						questiondetail.setuseful(json_questiondetail.get(
-								"Useful").toString());
-						questiondetail.setuserid(json_questiondetail.get(
-								"Userid").toString());
+						questiondetail.setquesid(json_questiondetail.get("Quesid").toString());
+						questiondetail.setcontent(json_questiondetail.get("Content").toString());
+						questiondetail.setcrtime(json_questiondetail.get("Crtime").toString());
+						questiondetail.setheadpic(json_questiondetail.get("HeadPic").toString());
+						questiondetail.setwebid(json_questiondetail.get("Id").toString());
+						questiondetail.setimg1(json_questiondetail.get("Img1").toString());
+						questiondetail.setimg2(json_questiondetail.get("Img2").toString());
+						questiondetail.setimgthumbnail1(json_questiondetail.get("Imgthumbnail1").toString());
+						questiondetail.setimgthumbnail2(json_questiondetail.get("Imgthumbnail2").toString());
+						questiondetail.setrealname(json_questiondetail.get("RealName").toString());
+						questiondetail.setuseful(json_questiondetail.get("Useful").toString());
+						questiondetail.setuserid(json_questiondetail.get("Userid").toString());
 
 						questiondetail_list.add(questiondetail);
 					}
@@ -1708,14 +1655,14 @@ public class SoapService implements ISoapService {
 						disitem.setCrtime(json_obj.get("Crtime").toString());
 						disitem.setFloor(json_obj.get("Floor").toString());
 						disitem.setHeadPic(SOAP_UTILS.HTTP_HEAD_PATH + json_obj.get("HeadPic").toString());
-//						disitem.setHostid(json_obj.get("Hostid").toString());
+						// disitem.setHostid(json_obj.get("Hostid").toString());
 						disitem.setHostid(down);
 						disitem.setId(json_obj.get("Id").toString());
 						disitem.setMark(json_obj.get("Mark").toString());
 						disitem.setRealName(json_obj.get("RealName").toString());
 						disitem.setReplyid(json_obj.get("Replyid").toString());
 						disitem.setUserid(json_obj.get("Userid").toString());
-						
+
 						dis_list.add(disitem);
 					}
 
@@ -1740,7 +1687,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void discussionUserSupport(Object[] property_va, final boolean isUp) {
 		// TODO Auto-generated method stub
@@ -1781,7 +1728,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void discussionReplyHost(Object[] property_va) {
 		// TODO Auto-generated method stub
@@ -1861,8 +1808,6 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
-
 
 	@Override
 	public void getMyAnswerUse(Object[] property_va, final boolean isPage) {
@@ -1881,8 +1826,7 @@ public class SoapService implements ISoapService {
 					List<Answer> anwser_list = new ArrayList<Answer>();
 
 					for (int i = 0; i < anwser_array.length(); i++) {
-						JSONObject json_anwser = (JSONObject) anwser_array
-								.get(i);
+						JSONObject json_anwser = (JSONObject) anwser_array.get(i);
 						Answer anwser = new Answer();
 						anwser.setcolumn(json_anwser.get("Column").toString());
 						anwser.setcontent(json_anwser.get("Content").toString());
@@ -1891,12 +1835,9 @@ public class SoapService implements ISoapService {
 						anwser.setwebid(json_anwser.get("Id").toString());
 						anwser.setimg1(json_anwser.get("Img1").toString());
 						anwser.setimg2(json_anwser.get("Img2").toString());
-						anwser.setimgthumbnail1(json_anwser
-								.get("Imgthumbnail1").toString());
-						anwser.setimgthumbnail2(json_anwser
-								.get("Imgthumbnail2").toString());
-						anwser.setrealname(json_anwser.get("RealName")
-								.toString());
+						anwser.setimgthumbnail1(json_anwser.get("Imgthumbnail1").toString());
+						anwser.setimgthumbnail2(json_anwser.get("Imgthumbnail2").toString());
+						anwser.setrealname(json_anwser.get("RealName").toString());
 						anwser.settitle(json_anwser.get("Title").toString());
 						anwser.setuserid(json_anwser.get("Userid").toString());
 
@@ -1942,8 +1883,7 @@ public class SoapService implements ISoapService {
 					List<Answer> anwser_list = new ArrayList<Answer>();
 
 					for (int i = 0; i < anwser_array.length(); i++) {
-						JSONObject json_anwser = (JSONObject) anwser_array
-								.get(i);
+						JSONObject json_anwser = (JSONObject) anwser_array.get(i);
 						Answer anwser = new Answer();
 						anwser.setcolumn(json_anwser.get("Column").toString());
 						anwser.setcontent(json_anwser.get("Content").toString());
@@ -1952,12 +1892,9 @@ public class SoapService implements ISoapService {
 						anwser.setwebid(json_anwser.get("Id").toString());
 						anwser.setimg1(json_anwser.get("Img1").toString());
 						anwser.setimg2(json_anwser.get("Img2").toString());
-						anwser.setimgthumbnail1(json_anwser
-								.get("Imgthumbnail1").toString());
-						anwser.setimgthumbnail2(json_anwser
-								.get("Imgthumbnail2").toString());
-						anwser.setrealname(json_anwser.get("RealName")
-								.toString());
+						anwser.setimgthumbnail1(json_anwser.get("Imgthumbnail1").toString());
+						anwser.setimgthumbnail2(json_anwser.get("Imgthumbnail2").toString());
+						anwser.setrealname(json_anwser.get("RealName").toString());
 						anwser.settitle(json_anwser.get("Title").toString());
 						anwser.setuserid(json_anwser.get("Userid").toString());
 
@@ -2004,33 +1941,20 @@ public class SoapService implements ISoapService {
 					List<QuestionDetail> questiondetail_list = new ArrayList<QuestionDetail>();
 
 					for (int i = 0; i < questiondetail_array.length(); i++) {
-						JSONObject json_questiondetail = (JSONObject) questiondetail_array
-								.get(i);
+						JSONObject json_questiondetail = (JSONObject) questiondetail_array.get(i);
 						QuestionDetail questiondetail = new QuestionDetail();
-						questiondetail.setquesid(json_questiondetail.get(
-								"Quesid").toString());
-						questiondetail.setcontent(json_questiondetail.get(
-								"Content").toString());
-						questiondetail.setcrtime(json_questiondetail.get(
-								"Crtime").toString());
-						questiondetail.setheadpic(json_questiondetail.get(
-								"HeadPic").toString());
-						questiondetail.setwebid(json_questiondetail.get("Id")
-								.toString());
-						questiondetail.setimg1(json_questiondetail.get("Img1")
-								.toString());
-						questiondetail.setimg2(json_questiondetail.get("Img2")
-								.toString());
-						questiondetail.setimgthumbnail1(json_questiondetail
-								.get("Imgthumbnail1").toString());
-						questiondetail.setimgthumbnail2(json_questiondetail
-								.get("Imgthumbnail2").toString());
-						questiondetail.setrealname(json_questiondetail.get(
-								"RealName").toString());
-						questiondetail.setuseful(json_questiondetail.get(
-								"Useful").toString());
-						questiondetail.setuserid(json_questiondetail.get(
-								"Userid").toString());
+						questiondetail.setquesid(json_questiondetail.get("Quesid").toString());
+						questiondetail.setcontent(json_questiondetail.get("Content").toString());
+						questiondetail.setcrtime(json_questiondetail.get("Crtime").toString());
+						questiondetail.setheadpic(json_questiondetail.get("HeadPic").toString());
+						questiondetail.setwebid(json_questiondetail.get("Id").toString());
+						questiondetail.setimg1(json_questiondetail.get("Img1").toString());
+						questiondetail.setimg2(json_questiondetail.get("Img2").toString());
+						questiondetail.setimgthumbnail1(json_questiondetail.get("Imgthumbnail1").toString());
+						questiondetail.setimgthumbnail2(json_questiondetail.get("Imgthumbnail2").toString());
+						questiondetail.setrealname(json_questiondetail.get("RealName").toString());
+						questiondetail.setuseful(json_questiondetail.get("Useful").toString());
+						questiondetail.setuserid(json_questiondetail.get("Userid").toString());
 
 						questiondetail_list.add(questiondetail);
 					}
@@ -2056,6 +1980,7 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
+
 	@Override
 	public void userExpertDetailChanged(Object[] property_va, final boolean isPage) {
 		String[] property_nm = {};
@@ -2063,7 +1988,7 @@ public class SoapService implements ISoapService {
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
 		asynTaskBase.executeDo(new HttpObjectResult() {
-			
+
 			@Override
 			public void soapResult(Object obj) {
 				// TODO Auto-generated method stub
@@ -2073,37 +1998,24 @@ public class SoapService implements ISoapService {
 					JSONArray questiondetail_array = new JSONArray(result);
 					List<UserExpertDetailChanged> questiondetail_list = new ArrayList<UserExpertDetailChanged>();
 					for (int i = 0; i < questiondetail_array.length(); i++) {
-						JSONObject json_questiondetail = (JSONObject) questiondetail_array
-								.get(i);
+						JSONObject json_questiondetail = (JSONObject) questiondetail_array.get(i);
 						UserExpertDetailChanged questiondetail = new UserExpertDetailChanged();
-						questiondetail.setAdminid(json_questiondetail.get(
-								"Adminid").toString());
-						questiondetail.setColtitle(json_questiondetail.get(
-								"Coltitle").toString());
-						questiondetail.setCrtime(json_questiondetail.get(
-								"Crtime").toString());
-						questiondetail.setHeadPic(json_questiondetail.get(
-								"HeadPic").toString());
-						questiondetail.setId(json_questiondetail.get("Id")
-								.toString());
-						questiondetail.setOrders(json_questiondetail.get("Orders")
-								.toString());
-						questiondetail.setOrgName(json_questiondetail.get("OrgName")
-								.toString());
-						questiondetail.setPicture(json_questiondetail
-								.get("Picture").toString());
-						questiondetail.setRealName(json_questiondetail
-								.get("RealName").toString());
-						questiondetail.setSource(json_questiondetail.get(
-								"Source").toString());
-						questiondetail.setThumbnail(json_questiondetail.get(
-								"Thumbnail").toString());
-						questiondetail.setTitle(json_questiondetail.get(
-								"Title").toString());
-						
+						questiondetail.setAdminid(json_questiondetail.get("Adminid").toString());
+						questiondetail.setColtitle(json_questiondetail.get("Coltitle").toString());
+						questiondetail.setCrtime(json_questiondetail.get("Crtime").toString());
+						questiondetail.setHeadPic(json_questiondetail.get("HeadPic").toString());
+						questiondetail.setId(json_questiondetail.get("Id").toString());
+						questiondetail.setOrders(json_questiondetail.get("Orders").toString());
+						questiondetail.setOrgName(json_questiondetail.get("OrgName").toString());
+						questiondetail.setPicture(json_questiondetail.get("Picture").toString());
+						questiondetail.setRealName(json_questiondetail.get("RealName").toString());
+						questiondetail.setSource(json_questiondetail.get("Source").toString());
+						questiondetail.setThumbnail(json_questiondetail.get("Thumbnail").toString());
+						questiondetail.setTitle(json_questiondetail.get("Title").toString());
+
 						questiondetail_list.add(questiondetail);
 					}
-					
+
 					soapRes.setObj(questiondetail_list);
 					soapRes.setPage(isPage);
 					soapRes.setCode(SOAP_UTILS.METHOD.USEREXPERTDETAILCHANGED);
@@ -2115,8 +2027,8 @@ public class SoapService implements ISoapService {
 					soapRes.setCode(SOAP_UTILS.METHOD.USEREXPERTDETAILCHANGED);
 					EventCache.commandActivity.post(soapRes);
 				}
-			} 
-			
+			}
+
 			@Override
 			public void soapError() {
 				soapRes.setObj(null);
@@ -2128,12 +2040,12 @@ public class SoapService implements ISoapService {
 
 	@Override
 	public void getNewsComment(Object[] property_va, final boolean isPage) {
-		String[] property_nm = {"newsid", "pagesize", "pageindex"};
+		String[] property_nm = { "newsid", "pagesize", "pageindex" };
 		asynTaskBase.setMethod(SOAP_UTILS.METHOD.GETNEWSCOMMENT);
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
 		asynTaskBase.executeDo(new HttpObjectResult() {
-			
+
 			@Override
 			public void soapResult(Object obj) {
 				// TODO Auto-generated method stub
@@ -2141,35 +2053,23 @@ public class SoapService implements ISoapService {
 					JSONArray questiondetail_array = new JSONArray(obj.toString());
 					List<WapCommentItem> questiondetail_list = new ArrayList<WapCommentItem>();
 					for (int i = 0; i < questiondetail_array.length(); i++) {
-						JSONObject json_questiondetail = (JSONObject) questiondetail_array
-								.get(i);
+						JSONObject json_questiondetail = (JSONObject) questiondetail_array.get(i);
 						WapCommentItem questiondetail = new WapCommentItem();
-						questiondetail.setCommentcont(json_questiondetail.get(
-								"Commentcont").toString());
-						questiondetail.setCrtime(json_questiondetail.get(
-								"Crtime").toString());
-						questiondetail.setId(json_questiondetail.get(
-								"Id").toString());
-						questiondetail.setLaud(json_questiondetail.get(
-								"Laud").toString());
-						questiondetail.setName(json_questiondetail.get("Name")
-								.toString());
-						questiondetail.setNewsId(json_questiondetail.get("NewsId")
-								.toString());
-						questiondetail.setOppose(json_questiondetail.get("Oppose")
-								.toString());
-						questiondetail.setPrestige(json_questiondetail
-								.get("Prestige").toString());
-						questiondetail.setStrTime(json_questiondetail
-								.get("StrTime").toString());
-						questiondetail.setUserPic(json_questiondetail.get(
-								"UserPic").toString());
-						questiondetail.setUserid(json_questiondetail.get(
-								"Userid").toString());
-						
+						questiondetail.setCommentcont(json_questiondetail.get("Commentcont").toString());
+						questiondetail.setCrtime(json_questiondetail.get("Crtime").toString());
+						questiondetail.setId(json_questiondetail.get("Id").toString());
+						questiondetail.setLaud(json_questiondetail.get("Laud").toString());
+						questiondetail.setName(json_questiondetail.get("Name").toString());
+						questiondetail.setNewsId(json_questiondetail.get("NewsId").toString());
+						questiondetail.setOppose(json_questiondetail.get("Oppose").toString());
+						questiondetail.setPrestige(json_questiondetail.get("Prestige").toString());
+						questiondetail.setStrTime(json_questiondetail.get("StrTime").toString());
+						questiondetail.setUserPic(json_questiondetail.get("UserPic").toString());
+						questiondetail.setUserid(json_questiondetail.get("Userid").toString());
+
 						questiondetail_list.add(questiondetail);
 					}
-					
+
 					soapRes.setObj(questiondetail_list);
 					soapRes.setPage(isPage);
 					soapRes.setCode(SOAP_UTILS.METHOD.GETNEWSCOMMENT);
@@ -2181,8 +2081,8 @@ public class SoapService implements ISoapService {
 					soapRes.setCode(SOAP_UTILS.METHOD.GETNEWSCOMMENT);
 					EventCache.commandActivity.post(soapRes);
 				}
-			} 
-			
+			}
+
 			@Override
 			public void soapError() {
 				soapRes.setObj(null);
@@ -2191,7 +2091,574 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
+
+	@Override
+	public void getLiving(Object[] property_va, final boolean isPage) {
+		String[] property_nm = { "UserId", "pagesize", "pageindex" };
+		asynTaskBase.setMethod(SOAP_UTILS.METHOD.GETLIVING);
+		asynTaskBase.setProperty_nm(property_nm);
+		asynTaskBase.setProperty_va(property_va);
+		asynTaskBase.executeDo(new HttpObjectResult() {
+
+			@Override
+			public void soapResult(Object obj) {
+				// TODO Auto-generated method stub
+				try {
+					JSONArray nowliving_array = new JSONArray(obj.toString());
+					List<NowLiving> nowliving_list = new ArrayList<NowLiving>();
+					for (int i = 0; i < nowliving_array.length(); i++) {
+						JSONObject json_nowliving = (JSONObject) nowliving_array.get(i);
+						NowLiving nowliving = new NowLiving();
+						nowliving.setAnswerCount(json_nowliving.get("AnswerCount").toString());
+						nowliving.setAttention(json_nowliving.get("Attention").toString());
+						nowliving.setCrtimeStr(json_nowliving.get("CrtimeStr").toString());
+						nowliving.setDealAdvise(json_nowliving.get("DealAdvise").toString());
+						nowliving.setDealControl(json_nowliving.get("DealControl").toString());
+						nowliving.setDealOperate(json_nowliving.get("DealOperate").toString());
+						nowliving.setHotlive(json_nowliving.get("Hotlive").toString());
+						nowliving.setId(json_nowliving.get("Id").toString());
+						nowliving.setLaud(json_nowliving.get("Laud").toString());
+						nowliving.setLiveContent(json_nowliving.get("LiveContent").toString());
+						nowliving.setLiveCount(json_nowliving.get("LiveCount").toString());
+						nowliving.setLiveUserId(json_nowliving.get("LiveUserId").toString());
+						nowliving.setLiveUserName(json_nowliving.get("LiveUserName").toString());
+						nowliving.setLivings(json_nowliving.get("Livings").toString());
+						nowliving.setTodayViewPoint(json_nowliving.get("TodayViewPoint").toString());
+						nowliving.setToplive(json_nowliving.get("Toplive").toString());
+						nowliving.setUserHeadpic(json_nowliving.get("UserHeadpic").toString());
+						nowliving.setUserResume(json_nowliving.get("UserResume").toString());
+						nowliving_list.add(nowliving);
+					}
+
+					soapRes.setObj(nowliving_list);
+					soapRes.setPage(isPage);
+					soapRes.setCode(SOAP_UTILS.METHOD.GETLIVING);
+					EventCache.commandActivity.post(soapRes);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					soapRes.setObj(null);
+					soapRes.setCode(SOAP_UTILS.METHOD.GETLIVING);
+					EventCache.commandActivity.post(soapRes);
+				}
+			}
+
+			@Override
+			public void soapError() {
+				soapRes.setObj(null);
+				soapRes.setCode(SOAP_UTILS.METHOD.GETLIVING);
+				EventCache.commandActivity.post(soapRes);
+			}
+		});
+	}
+
+	@Override
+	public void getLivingALl(Object[] property_va, final boolean isPage) {
+		String[] property_nm = { "UserId", "pagesize", "pageindex" };
+		asynTaskBase.setMethod(SOAP_UTILS.METHOD.GETLIVINGALL);
+		asynTaskBase.setProperty_nm(property_nm);
+		asynTaskBase.setProperty_va(property_va);
+		asynTaskBase.executeDo(new HttpObjectResult() {
+
+			@Override
+			public void soapResult(Object obj) {
+				// TODO Auto-generated method stub
+				try {
+					JSONArray nowliving_array = new JSONArray(obj.toString());
+					List<AllLiving> nowliving_list = new ArrayList<AllLiving>();
+					for (int i = 0; i < nowliving_array.length(); i++) {
+						JSONObject json_nowliving = (JSONObject) nowliving_array.get(i);
+						AllLiving nowliving = new AllLiving();
+						nowliving.setAnswerCount(json_nowliving.get("AnswerCount").toString());
+						nowliving.setAttention(json_nowliving.get("Attention").toString());
+						nowliving.setCrtimeStr(json_nowliving.get("CrtimeStr").toString());
+						nowliving.setDealAdvise(json_nowliving.get("DealAdvise").toString());
+						nowliving.setDealControl(json_nowliving.get("DealControl").toString());
+						nowliving.setDealOperate(json_nowliving.get("DealOperate").toString());
+						nowliving.setHotlive(json_nowliving.get("Hotlive").toString());
+						nowliving.setId(json_nowliving.get("Id").toString());
+						nowliving.setLaud(json_nowliving.get("Laud").toString());
+						nowliving.setLiveContent(json_nowliving.get("LiveContent").toString());
+						nowliving.setLiveCount(json_nowliving.get("LiveCount").toString());
+						nowliving.setLiveUserId(json_nowliving.get("LiveUserId").toString());
+						nowliving.setLiveUserName(json_nowliving.get("LiveUserName").toString());
+						nowliving.setLivings(json_nowliving.get("Livings").toString());
+						nowliving.setTodayViewPoint(json_nowliving.get("TodayViewPoint").toString());
+						nowliving.setToplive(json_nowliving.get("Toplive").toString());
+						nowliving.setUserHeadpic(json_nowliving.get("UserHeadpic").toString());
+						nowliving.setUserResume(json_nowliving.get("UserResume").toString());
+						nowliving_list.add(nowliving);
+					}
+
+					soapRes.setObj(nowliving_list);
+					soapRes.setPage(isPage);
+					soapRes.setCode(SOAP_UTILS.METHOD.GETLIVINGALL);
+					EventCache.commandActivity.post(soapRes);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					soapRes.setObj(null);
+					soapRes.setCode(SOAP_UTILS.METHOD.GETLIVINGALL);
+					EventCache.commandActivity.post(soapRes);
+				}
+			}
+
+			@Override
+			public void soapError() {
+				soapRes.setObj(null);
+				soapRes.setCode(SOAP_UTILS.METHOD.GETLIVINGALL);
+				EventCache.commandActivity.post(soapRes);
+			}
+		});
+	}
+
+	@Override
+	public void getLivingHot(Object[] property_va, final boolean isPage) {
+		String[] property_nm = { "UserId", "pagesize", "pageindex" };
+		asynTaskBase.setMethod(SOAP_UTILS.METHOD.GETLIVINGHOT);
+		asynTaskBase.setProperty_nm(property_nm);
+		asynTaskBase.setProperty_va(property_va);
+		asynTaskBase.executeDo(new HttpObjectResult() {
+
+			@Override
+			public void soapResult(Object obj) {
+				// TODO Auto-generated method stub
+				try {
+					JSONArray nowliving_array = new JSONArray(obj.toString());
+					List<HotLiving> nowliving_list = new ArrayList<HotLiving>();
+					for (int i = 0; i < nowliving_array.length(); i++) {
+						JSONObject json_nowliving = (JSONObject) nowliving_array.get(i);
+						HotLiving nowliving = new HotLiving();
+						nowliving.setAnswerCount(json_nowliving.get("AnswerCount").toString());
+						nowliving.setAttention(json_nowliving.get("Attention").toString());
+						nowliving.setCrtimeStr(json_nowliving.get("CrtimeStr").toString());
+						nowliving.setDealAdvise(json_nowliving.get("DealAdvise").toString());
+						nowliving.setDealControl(json_nowliving.get("DealControl").toString());
+						nowliving.setDealOperate(json_nowliving.get("DealOperate").toString());
+						nowliving.setHotlive(json_nowliving.get("Hotlive").toString());
+						nowliving.setId(json_nowliving.get("Id").toString());
+						nowliving.setLaud(json_nowliving.get("Laud").toString());
+						nowliving.setLiveContent(json_nowliving.get("LiveContent").toString());
+						nowliving.setLiveCount(json_nowliving.get("LiveCount").toString());
+						nowliving.setLiveUserId(json_nowliving.get("LiveUserId").toString());
+						nowliving.setLiveUserName(json_nowliving.get("LiveUserName").toString());
+						nowliving.setLivings(json_nowliving.get("Livings").toString());
+						nowliving.setTodayViewPoint(json_nowliving.get("TodayViewPoint").toString());
+						nowliving.setToplive(json_nowliving.get("Toplive").toString());
+						nowliving.setUserHeadpic(json_nowliving.get("UserHeadpic").toString());
+						nowliving.setUserResume(json_nowliving.get("UserResume").toString());
+						nowliving_list.add(nowliving);
+					}
+
+					soapRes.setObj(nowliving_list);
+					soapRes.setPage(isPage);
+					soapRes.setCode(SOAP_UTILS.METHOD.GETLIVINGHOT);
+					EventCache.commandActivity.post(soapRes);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					soapRes.setObj(null);
+					soapRes.setCode(SOAP_UTILS.METHOD.GETLIVINGHOT);
+					EventCache.commandActivity.post(soapRes);
+				}
+			}
+
+			@Override
+			public void soapError() {
+				soapRes.setObj(null);
+				soapRes.setCode(SOAP_UTILS.METHOD.GETLIVINGHOT);
+				EventCache.commandActivity.post(soapRes);
+			}
+		});
+	}
+
+	@Override
+	public void getLivingDetail(Object[] property_va, final boolean isPage) {
+		String[] property_nm = { "Id", "pagesize", "pageindex" };
+		asynTaskBase.setMethod(SOAP_UTILS.METHOD.GETLIVINGDETAIL);
+		asynTaskBase.setProperty_nm(property_nm);
+		asynTaskBase.setProperty_va(property_va);
+		asynTaskBase.executeDo(new HttpObjectResult() {
+
+			@Override
+			public void soapResult(Object obj) {
+				soapRes.setObj(obj.toString());
+				soapRes.setPage(isPage);
+				soapRes.setCode(SOAP_UTILS.METHOD.GETLIVINGDETAIL);
+				EventCache.commandActivity.post(soapRes);
+			}
+
+			@Override
+			public void soapError() {
+				soapRes.setObj(null);
+				soapRes.setCode(SOAP_UTILS.METHOD.GETLIVINGDETAIL);
+				EventCache.commandActivity.post(soapRes);
+			}
+		});
+	}
+
+	@Override
+	public void getInteractQA(Object[] property_va, final boolean isPage) {
+		String[] property_nm = { "Id", "pagesize", "pageindex" };
+		asynTaskBase.setMethod(SOAP_UTILS.METHOD.GETINTERACTQA);
+		asynTaskBase.setProperty_nm(property_nm);
+		asynTaskBase.setProperty_va(property_va);
+		asynTaskBase.executeDo(new HttpObjectResult() {
+
+			@Override
+			public void soapResult(Object obj) {
+				// TODO Auto-generated method stub
+				try {
+					JSONArray nowliving_array = new JSONArray(obj.toString());
+					List<QA> nowliving_list = new ArrayList<QA>();
+					for (int i = 0; i < nowliving_array.length(); i++) {
+						JSONObject json_nowliving = (JSONObject) nowliving_array.get(i);
+						QA nowliving = new QA();
+						nowliving.setAnswer(json_nowliving.get("Answer").toString());
+
+						JSONArray qapic_array = new JSONArray(json_nowliving.get("Answpic").toString());
+						if (qapic_array.length() != 0) {
+							JSONObject json_qapic = (JSONObject) qapic_array.get(0);
+
+							nowliving.setAnswpicId(json_qapic.get("Id").toString());
+							nowliving.setAnswpicImg1(json_qapic.get("Img1").toString());
+							nowliving.setAnswpicImg2(json_qapic.get("Img2").toString());
+							nowliving.setAnswpicImgthumbnail1(json_qapic.get("Imgthumbnail1").toString());
+							nowliving.setAnswpicImgthumbnail2(json_qapic.get("Imgthumbnail2").toString());
+
+						}
+						nowliving.setCrtime(json_nowliving.get("Crtime").toString());
+						nowliving.setId(json_nowliving.get("Id").toString());
+						nowliving.setQuContent(json_nowliving.get("QuContent").toString());
+						nowliving.setQuUserName(json_nowliving.get("QuUserName").toString());
+						nowliving.setTitle(json_nowliving.get("Title").toString());
+						nowliving_list.add(nowliving);
+					}
+
+					soapRes.setObj(nowliving_list);
+					soapRes.setPage(isPage);
+					soapRes.setCode(SOAP_UTILS.METHOD.GETINTERACTQA);
+					EventCache.commandActivity.post(soapRes);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					soapRes.setObj(null);
+					soapRes.setCode(SOAP_UTILS.METHOD.GETINTERACTQA);
+					EventCache.commandActivity.post(soapRes);
+				}
+			}
+
+			@Override
+			public void soapError() {
+				soapRes.setObj(null);
+				soapRes.setCode(SOAP_UTILS.METHOD.GETINTERACTQA);
+				EventCache.commandActivity.post(soapRes);
+			}
+		});
+	}
+
+	@Override
+	public void getAttentionLiveUser(Object[] property_va) {
+		// TODO Auto-generated method stub
+		String[] property_nm = { "LiveUserId", "UserId", "type" };
+		asynTaskBase.setMethod(SOAP_UTILS.METHOD.GETATTENTIONLIVEUSER);
+		asynTaskBase.setProperty_nm(property_nm);
+		asynTaskBase.setProperty_va(property_va);
+		asynTaskBase.executeDo(new HttpObjectResult() {
+
+			@Override
+			public void soapResult(Object obj) {
+				// TODO Auto-generated method stub
+				try {
+					JSONObject json_obj = new JSONObject(obj.toString());
+					String result = json_obj.get("Result").toString();
+					String message = json_obj.get("Message").toString();
+					// if (result.equals("success")) {
+					// message = "success";
+					// }
+					soapRes.setObj(json_obj);
+					soapRes.setCode(SOAP_UTILS.METHOD.GETATTENTIONLIVEUSER);
+					EventCache.commandActivity.post(soapRes);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					soapRes.setObj(null);
+					soapRes.setCode(SOAP_UTILS.METHOD.GETATTENTIONLIVEUSER);
+					EventCache.commandActivity.post(soapRes);
+				}
+			}
+
+			@Override
+			public void soapError() {
+				soapRes.setObj(null);
+				soapRes.setCode(SOAP_UTILS.METHOD.GETATTENTIONLIVEUSER);
+				EventCache.commandActivity.post(soapRes);
+			}
+		});
+	}
+
+	@Override
+	public void getLivingUpdate(Object[] property_va, final boolean isPage) {
+		String[] property_nm = { "Id", "nowId", "pagesize", "pageindex" };
+		asynTaskBase.setMethod(SOAP_UTILS.METHOD.GETLIVINGUPDATE);
+		asynTaskBase.setProperty_nm(property_nm);
+		asynTaskBase.setProperty_va(property_va);
+		asynTaskBase.executeDo(new HttpObjectResult() {
+
+			@Override
+			public void soapResult(Object obj) {
+				soapRes.setObj(obj.toString());
+				soapRes.setPage(isPage);
+				soapRes.setCode(SOAP_UTILS.METHOD.GETLIVINGUPDATE);
+				EventCache.commandActivity.post(soapRes);
+			}
+
+			@Override
+			public void soapError() {
+				soapRes.setObj(null);
+				soapRes.setCode(SOAP_UTILS.METHOD.GETLIVINGUPDATE);
+				EventCache.commandActivity.post(soapRes);
+			}
+		});
+	}
+
+	@Override
+	public void userInfoLoginUpdateImei(Object[] property_va) {
+		// TODO Auto-generated method stub
+		String[] property_nm = { "userid", "imei" };
+		asynTaskBase.setMethod(SOAP_UTILS.METHOD.USERINFOLOGINUPDATEIMEI);
+		asynTaskBase.setProperty_nm(property_nm);
+		asynTaskBase.setProperty_va(property_va);
+		asynTaskBase.executeDo(new HttpObjectResult() {
+
+			@Override
+			public void soapResult(Object obj) {
+				// TODO Auto-generated method stub
+				try {
+					JSONObject json_obj = new JSONObject(obj.toString());
+					String result = json_obj.get("Result").toString();
+					String message = json_obj.get("Message").toString();
+					// if (result.equals("success")) {
+					// message = "success";
+					// }
+					soapRes.setObj(json_obj);
+					soapRes.setCode(SOAP_UTILS.METHOD.USERINFOLOGINUPDATEIMEI);
+					EventCache.commandActivity.post(soapRes);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					soapRes.setObj(null);
+					soapRes.setCode(SOAP_UTILS.METHOD.USERINFOLOGINUPDATEIMEI);
+					EventCache.commandActivity.post(soapRes);
+				}
+			}
+
+			@Override
+			public void soapError() {
+				soapRes.setObj(null);
+				soapRes.setCode(SOAP_UTILS.METHOD.USERINFOLOGINUPDATEIMEI);
+				EventCache.commandActivity.post(soapRes);
+			}
+		});
+	}
+
+	@Override
+	public void updateImei(Object[] property_va) {
+		// TODO Auto-generated method stub
+		String[] property_nm = { "userid", "imei" };
+		asynTaskBase.setMethod(SOAP_UTILS.METHOD.UPDATEIMEI);
+		asynTaskBase.setProperty_nm(property_nm);
+		asynTaskBase.setProperty_va(property_va);
+		asynTaskBase.executeDo(new HttpObjectResult() {
+
+			@Override
+			public void soapResult(Object obj) {
+				// TODO Auto-generated method stub
+				try {
+					JSONObject json_obj = new JSONObject(obj.toString());
+					String result = json_obj.get("Result").toString();
+					String message = json_obj.get("Message").toString();
+					// if (result.equals("success")) {
+					// message = "success";
+					// }
+					soapRes.setObj(json_obj);
+					soapRes.setCode(SOAP_UTILS.METHOD.UPDATEIMEI);
+					EventCache.commandActivity.post(soapRes);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					soapRes.setObj(null);
+					soapRes.setCode(SOAP_UTILS.METHOD.UPDATEIMEI);
+					EventCache.commandActivity.post(soapRes);
+				}
+			}
+
+			@Override
+			public void soapError() {
+				soapRes.setObj(null);
+				soapRes.setCode(SOAP_UTILS.METHOD.UPDATEIMEI);
+				EventCache.commandActivity.post(soapRes);
+			}
+		});
+	}
+
+	@Override
+	public void getCode(Object[] property_va) {
+		// TODO Auto-generated method stub
+		String[] property_nm = {};
+		asynTaskBase.setMethod(SOAP_UTILS.METHOD.GETCODE);
+		asynTaskBase.setProperty_nm(property_nm);
+		asynTaskBase.setProperty_va(property_va);
+		asynTaskBase.executeDo(new HttpObjectResult() {
+
+			@Override
+			public void soapResult(Object obj) {
+				// TODO Auto-generated method stub
+				try {
+
+					JSONObject json_obj = new JSONObject(obj.toString());
+					soapRes.setObj(json_obj);
+					soapRes.setCode(SOAP_UTILS.METHOD.GETCODE);
+					EventCache.commandActivity.post(soapRes);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					soapRes.setObj(null);
+					soapRes.setCode(SOAP_UTILS.METHOD.GETCODE);
+					EventCache.commandActivity.post(soapRes);
+				}
+			}
+
+			@Override
+			public void soapError() {
+				soapRes.setObj(null);
+				soapRes.setCode(SOAP_UTILS.METHOD.GETCODE);
+				EventCache.commandActivity.post(soapRes);
+			}
+		});
+	}
 	
+
+	@Override
+	public void bindPhoneNum(Object[] property_va) {
+		// TODO Auto-generated method stub
+		String[] property_nm = {};
+		asynTaskBase.setMethod(SOAP_UTILS.METHOD.BINDPHONENUM);
+		asynTaskBase.setProperty_nm(property_nm);
+		asynTaskBase.setProperty_va(property_va);
+		asynTaskBase.executeDo(new HttpObjectResult() {
+
+			@Override
+			public void soapResult(Object obj) {
+				// TODO Auto-generated method stub
+				try {
+					JSONObject json_obj = new JSONObject(obj.toString());
+					String result = json_obj.get("Result").toString();
+					String message = json_obj.get("Message").toString();
+					// if (result.equals("success")) {
+					// message = "success";
+					// }
+					soapRes.setObj(json_obj);
+					soapRes.setCode(SOAP_UTILS.METHOD.BINDPHONENUM);
+					EventCache.commandActivity.post(soapRes);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					soapRes.setObj(null);
+					soapRes.setCode(SOAP_UTILS.METHOD.BINDPHONENUM);
+					EventCache.commandActivity.post(soapRes);
+				}
+			}
+
+			@Override
+			public void soapError() {
+				soapRes.setObj(null);
+				soapRes.setCode(SOAP_UTILS.METHOD.BINDPHONENUM);
+				EventCache.commandActivity.post(soapRes);
+			}
+		});
+	}
+	
+
+	@Override
+	public void codeVerify(Object[] property_va) {
+		// TODO Auto-generated method stub
+		String[] property_nm = {"sim","code"};
+		asynTaskBase.setMethod(SOAP_UTILS.METHOD.CODEVERIFY);
+		asynTaskBase.setProperty_nm(property_nm);
+		asynTaskBase.setProperty_va(property_va);
+		asynTaskBase.executeDo(new HttpObjectResult() {
+
+			@Override
+			public void soapResult(Object obj) {
+				// TODO Auto-generated method stub
+				try {
+					JSONObject json_obj = new JSONObject(obj.toString());
+					String result = json_obj.get("Result").toString();
+					String message = json_obj.get("Message").toString();
+					// if (result.equals("success")) {
+					// message = "success";
+					// }
+					soapRes.setObj(json_obj);
+					soapRes.setCode(SOAP_UTILS.METHOD.CODEVERIFY);
+					EventCache.commandActivity.post(soapRes);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					soapRes.setObj(null);
+					soapRes.setCode(SOAP_UTILS.METHOD.CODEVERIFY);
+					EventCache.commandActivity.post(soapRes);
+				}
+			}
+
+			@Override
+			public void soapError() {
+				soapRes.setObj(null);
+				soapRes.setCode(SOAP_UTILS.METHOD.CODEVERIFY);
+				EventCache.commandActivity.post(soapRes);
+			}
+		});
+	}
+	
+	@Override
+	public void userPasswordFind(Object[] property_va) {
+		// TODO Auto-generated method stub
+		String[] property_nm = {"sim","pwd_new"};
+		asynTaskBase.setMethod(SOAP_UTILS.METHOD.USERPASSWORDFIND);
+		asynTaskBase.setProperty_nm(property_nm);
+		asynTaskBase.setProperty_va(property_va);
+		asynTaskBase.executeDo(new HttpObjectResult() {
+
+			@Override
+			public void soapResult(Object obj) {
+				// TODO Auto-generated method stub
+				try {
+					JSONObject json_obj = new JSONObject(obj.toString());
+					String result = json_obj.get("Result").toString();
+					String message = json_obj.get("Message").toString();
+//					 if (result.equals("success")) {
+//					 message = "success";
+//					 }
+					soapRes.setObj(json_obj);
+					soapRes.setCode(SOAP_UTILS.METHOD.USERPASSWORDFIND);
+					EventCache.commandActivity.post(soapRes);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					soapRes.setObj(null);
+					soapRes.setCode(SOAP_UTILS.METHOD.USERPASSWORDFIND);
+					EventCache.commandActivity.post(soapRes);
+				}
+			}
+
+			@Override
+			public void soapError() {
+				soapRes.setObj(null);
+				soapRes.setCode(SOAP_UTILS.METHOD.USERPASSWORDFIND);
+				EventCache.commandActivity.post(soapRes);
+			}
+		});
+	}
 	
 	@Override
 	public void adminLogin(Object[] property_va) {
@@ -2378,13 +2845,5 @@ public class SoapService implements ISoapService {
 		// TODO Auto-generated method stub
 
 	}
-
-	@Override
-	public void getCode(Object[] property_va) {
-		// TODO Auto-generated method stub
-
-	}
-
-	
 
 }

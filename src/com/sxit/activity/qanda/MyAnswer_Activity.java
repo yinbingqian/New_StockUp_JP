@@ -7,6 +7,7 @@ import com.sxit.activity.smarter.custom.TabSwipPager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -59,5 +60,17 @@ public class MyAnswer_Activity extends FragmentActivity {
 
 		tags = new String[] { "已采纳", "进行中" };
 
+	}
+	
+
+	/** 监听返回键 */
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+			finish();
+			return true;
+		} else {
+			return super.onKeyDown(keyCode, event);
+		}
 	}
 }

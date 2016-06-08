@@ -30,13 +30,14 @@ import android.os.Bundle;
  * 
  * @author huanyu 类名称：WXEntryActivity 创建时间:2014-11-20 下午1:46:09
  */
-public class WXEntryActivity extends WXCallbackActivity implements IWXAPIEventHandler{
+public class WXEntryActivity extends WXCallbackActivity implements IWXAPIEventHandler {
 	private IWXAPI api;
 	public static final String APP_id = "wx84b8e5819e8cab1d";
 	public static final String AppSecret = "1d3a184d961e2b9dcb2d3c937923a24b";
-//	public static final String AppSecret = "300346ca58ed3910162f3edf448302e0";
-    public static BaseResp mResp = null;
-    Context context;
+	// public static final String AppSecret =
+	// "300346ca58ed3910162f3edf448302e0";
+	public static BaseResp mResp = null;
+	Context context;
 	public ISoapService soapService = new SoapService();
 
 	@Override
@@ -71,50 +72,51 @@ public class WXEntryActivity extends WXCallbackActivity implements IWXAPIEventHa
 		Utils.showTextToast(this, result);
 		finish();
 	}
-	
+
 	@Override
-    public void onResp(BaseResp resp) {
-        // TODO Auto-generated method stub
-		try {			
-			String code = ((SendAuth.Resp) resp).code;//获取code后需要去获取access_token
+	public void onResp(BaseResp resp) {
+		// TODO Auto-generated method stub
+		try {
+			String code = ((SendAuth.Resp) resp).code;// 获取code后需要去获取access_token
 			new GetToken().execute(code);
 		} catch (Exception e) {
 			// TODO: handle exception
 			Utils.showTextToast(this, "分享成功");
 			finish();
 		}
-    }
-	
+	}
+
 	class GetToken extends AsyncTask<Object, Object, Object> {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+		}
 
-        @Override
-        protected Object doInBackground(Object... params) {
-            System.out.println(">>>>>");
-            String code = (String) params[0];
-            String url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid="+APP_id+"&secret="+AppSecret+"&code="+code+"&grant_type=authorization_code";
-    		HttpGet httpGet = new HttpGet(url);
-    		HttpClient httpClient = new DefaultHttpClient();
-    		// 发送请求
-    		String result = "";
-    		try {
-    			HttpResponse response = httpClient.execute(httpGet);
-    			result = EntityUtils.toString(response.getEntity(), "UTF_8");
-    			return result;
-    		} catch (Exception e) {
-    			e.printStackTrace();
-    			return null;
-    		}
-        }
+		@Override
+		protected Object doInBackground(Object... params) {
+			System.out.println(">>>>>");
+			String code = (String) params[0];
+			String url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + APP_id + "&secret=" + AppSecret
+					+ "&code=" + code + "&grant_type=authorization_code";
+			HttpGet httpGet = new HttpGet(url);
+			HttpClient httpClient = new DefaultHttpClient();
+			// 发送请求
+			String result = "";
+			try {
+				HttpResponse response = httpClient.execute(httpGet);
+				result = EntityUtils.toString(response.getEntity(), "UTF_8");
+				return result;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
 
-        @Override
-        protected void onPostExecute(Object result) {
-            super.onPostExecute(result);
-    		try {
-				JSONObject token_json = new JSONObject(result.toString());				
+		@Override
+		protected void onPostExecute(Object result) {
+			super.onPostExecute(result);
+			try {
+				JSONObject token_json = new JSONObject(result.toString());
 				String access_token = token_json.getString("access_token");
 				String expires_in = token_json.getString("expires_in");
 				String refresh_token = token_json.getString("refresh_token");
@@ -128,44 +130,44 @@ public class WXEntryActivity extends WXCallbackActivity implements IWXAPIEventHa
 				Utils.showTextToast(context, "token获取失败");
 				finish();
 			}
-        }
-    }
-	
-	class GetUserInfo extends AsyncTask<Object, Object, Object> {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
+		}
+	}
 
-        @Override
-        protected Object doInBackground(Object... params) {
-            System.out.println(">>>>>");
-            String access_token = (String) params[0];
+	class GetUserInfo extends AsyncTask<Object, Object, Object> {
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+		}
+
+		@Override
+		protected Object doInBackground(Object... params) {
+			System.out.println(">>>>>");
+			String access_token = (String) params[0];
 			String expires_in = (String) params[1];
 			String refresh_token = (String) params[2];
 			String openid = (String) params[3];
 			String scope = (String) params[4];
 			String unionid = (String) params[5];
-			
-            String url = "https://api.weixin.qq.com/sns/userinfo?access_token="+access_token+"&openid="+openid;
-    		HttpGet httpGet = new HttpGet(url);
-    		HttpClient httpClient = new DefaultHttpClient();
-    		// 发送请求
-    		String result = "";
-    		try {
-    			HttpResponse response = httpClient.execute(httpGet);
-    			result = EntityUtils.toString(response.getEntity(), "UTF_8");
-    			return result;
-    		} catch (Exception e) {
-    			e.printStackTrace();
-    			return null;
-    		}
-        }
 
-        @Override
-        protected void onPostExecute(Object result) {
-            super.onPostExecute(result);
-    		try {
+			String url = "https://api.weixin.qq.com/sns/userinfo?access_token=" + access_token + "&openid=" + openid;
+			HttpGet httpGet = new HttpGet(url);
+			HttpClient httpClient = new DefaultHttpClient();
+			// 发送请求
+			String result = "";
+			try {
+				HttpResponse response = httpClient.execute(httpGet);
+				result = EntityUtils.toString(response.getEntity(), "UTF_8");
+				return result;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
+
+		@Override
+		protected void onPostExecute(Object result) {
+			super.onPostExecute(result);
+			try {
 				JSONObject token_json = new JSONObject(result.toString());
 				String openid = token_json.getString("openid");
 				String nickname = token_json.getString("nickname");
@@ -176,7 +178,8 @@ public class WXEntryActivity extends WXCallbackActivity implements IWXAPIEventHa
 				String headimgurl = token_json.getString("headimgurl");
 				String privilege = token_json.getString("privilege");
 				String unionid = token_json.getString("unionid");
-				
+
+
 				Object[] property_va = { openid, nickname };
 				soapService.oneKeyLogin(property_va, headimgurl);
 				finish();
@@ -186,7 +189,7 @@ public class WXEntryActivity extends WXCallbackActivity implements IWXAPIEventHa
 				Utils.showTextToast(context, "获取微信用户信息失败");
 				finish();
 			}
-        }
-    }
-	
+		}
+	}
+
 }

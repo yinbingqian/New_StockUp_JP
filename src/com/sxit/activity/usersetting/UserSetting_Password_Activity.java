@@ -19,7 +19,7 @@ import lnpdit.lntv.tradingtime.R;
 /**
  * 密码
  * 
- * @author huanyu 类名称：UserSetting_Password_Activity 创建时间:2014-11-3 上午11:54:35
+ * @author huanyu 类名称：ResetPassword_Activity 创建时间:2014-11-3 上午11:54:35
  */
 public class UserSetting_Password_Activity extends BaseActivity {
 	private ImageView img_back;

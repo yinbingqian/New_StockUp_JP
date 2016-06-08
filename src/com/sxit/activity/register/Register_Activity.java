@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Html;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.widget.AutoCompleteTextView;
@@ -31,6 +32,7 @@ public class Register_Activity extends BaseActivity {
 	private ImageView img_back;
 	private AutoCompleteTextView actv_name, actv_phone, actv_pwd, actv_pwdagain;// 昵称，设置密码，再次输入，输入手机
 	private Button bt_submit;// 提交
+	private LinearLayout agree_layout;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +53,14 @@ public class Register_Activity extends BaseActivity {
 		actv_pwd = (AutoCompleteTextView) findViewById(R.id.actv_pwd);
 		actv_pwdagain = (AutoCompleteTextView) findViewById(R.id.actv_pwdagain);
 		bt_submit = (Button) findViewById(R.id.bt_submit);
+		agree_layout = (LinearLayout) findViewById(R.id.agree_layout);  
+		agree_layout.setClickable(true);
 	}
 
 	private void setListeners() {
 		img_back.setOnClickListener(this);
 		bt_submit.setOnClickListener(this);
+		agree_layout.setOnClickListener(this);
 //		actv_name.setOnFocusChangeListener(new OnFocusChangeListener() {
 //
 //			@Override
@@ -70,6 +75,8 @@ public class Register_Activity extends BaseActivity {
 //				}
 //			}
 //		});
+		
+
 	}
 
 	@Override
@@ -77,6 +84,12 @@ public class Register_Activity extends BaseActivity {
 		switch (v.getId()) {
 		case R.id.img_back:
 			finish();
+			break;
+		case R.id.agree_layout:
+            Intent intent_agree = new Intent();
+            intent_agree.setClass(Register_Activity.this, Agree_Activity.class);
+            startActivity(intent_agree);
+			
 			break;
 		case R.id.bt_submit:
 			// 昵称校验

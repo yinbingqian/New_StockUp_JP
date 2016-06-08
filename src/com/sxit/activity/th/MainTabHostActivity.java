@@ -5,11 +5,8 @@ import java.util.List;
 
 import com.sxit.activity.base.MyApplication;
 import com.sxit.activity.discuss.Discuss_Activity;
-import com.sxit.activity.qanda.QandA_Activity;
 import com.sxit.activity.smarter.Smarter_Activity;
-import com.umeng.update.UmengUpdateAgent;
-import com.umeng.update.UmengUpdateListener;
-import com.umeng.update.UpdateResponse;
+import com.sxit.activity.th.living.MoreLiving_Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,9 +39,12 @@ public class MainTabHostActivity extends TabHostAbstractActivity {
 
 		TabHostItem ask = new TabHostItem(getString(R.string.tabHost_thrid), R.drawable.tab_icon_3_u,
 				R.drawable.maintab_toolbar_bg, new Intent(this, Discuss_Activity.class));
-
+          Intent moreliving_intent = new Intent();
+          moreliving_intent.putExtra("friendpage", false);
+          moreliving_intent.setClass(this,MoreLiving_Activity.class);
 		TabHostItem myzone = new TabHostItem(getString(R.string.tabHost_fourth), R.drawable.tab_icon_4_u,
-				R.drawable.maintab_toolbar_bg, new Intent(this, QandA_Activity.class));
+				R.drawable.maintab_toolbar_bg, moreliving_intent);
+//		R.drawable.maintab_toolbar_bg, new Intent(this, QandA_Activity.class));
 
 		mItems = new ArrayList<TabHostItem>();
 		mItems.add(info);

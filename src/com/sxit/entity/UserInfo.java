@@ -15,12 +15,15 @@ public class UserInfo implements Serializable {
 	private String realname;
 	private String birth;
 	private String sex;
+	private String attuser;
+	private String newprestige;
+	private String rewardmark;
 
 	public UserInfo() {
 
 	}
 
-	public UserInfo(String checknum, String checksta, String headpic, String id, String level, String mark, String name, String prestige, String rank, String realname) {
+	public UserInfo(String checknum, String checksta, String headpic, String id, String level, String mark, String name, String prestige, String rank, String realname, String newprestige, String rewardmark) {
 		this.checknum = checknum;
 		this.checksta = checksta;
 		this.headpic = headpic;
@@ -31,6 +34,8 @@ public class UserInfo implements Serializable {
 		this.prestige = prestige;
 		this.rank = rank;
 		this.realname = realname;
+		this.newprestige = newprestige;
+		this.rewardmark = rewardmark;
 	}
 
 	public String getchecknum() {
@@ -127,6 +132,30 @@ public class UserInfo implements Serializable {
 
 	public void setsex(String sex) {
 		this.sex = sex;
+	}
+	
+	public String getattuser() {
+		return attuser;
+	}
+
+	public void setattuser(String attuser) {
+		this.attuser = attuser;
+	}
+
+	public String getNewprestige() {
+		return newprestige;
+	}
+
+	public void setNewprestige(String newprestige) {
+		this.newprestige = newprestige;
+	}
+
+	public String getRewardmark() {
+		return rewardmark;
+	}
+
+	public void setRewardmark(String rewardmark) {
+		this.rewardmark = rewardmark;
 	}
 
 }

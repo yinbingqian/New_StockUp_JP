@@ -29,6 +29,7 @@ import com.umeng.message.MsgConstant;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UmengRegistrar;
 import com.umeng.message.proguard.aa.e;
+import com.umeng.message.tag.TagManager.Result;
 import com.umeng.update.UmengUpdateAgent;
 import com.umeng.update.UmengUpdateListener;
 import com.umeng.update.UpdateResponse;
@@ -57,7 +58,7 @@ public class Welcome_Activity extends BaseActivity {
 	private DBHelper dbh;
 	private String[] property_anm = { "name", "password" };
 	private Object[] property_ava = new Object[2];
-	private PushAgent mPushAgent;
+	public static PushAgent mPushAgent;
 	Context context;
     private String userId = "";
 	// property_ava = { tempStr, tempStr };
@@ -106,13 +107,40 @@ public class Welcome_Activity extends BaseActivity {
 		System.out.print(">>>>>>>>>>>>>>>>>>>>>>> "+device_token);
 		System.out.print(">>>>>>>>>>>>>>>>>>>>>>> "+device_token);
 		System.out.print(">>>>>>>>>>>>>>>>>>>>>>> "+device_token);
+//		Toast.makeText(context,device_token, Toast.LENGTH_SHORT).show();
 
 		try {
+			Thread thread = new Thread(new Runnable() {
+				
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub					
+//					try {
+//						Result result = mPushAgent.getTagManager().add("guzhang3790");
+//						Log.d("##########################", result.jsonString);
+//						Log.d("##########################", result.jsonString);
+//						Log.d("##########################", result.jsonString);
+//						Log.d("##########################", result.jsonString);
+//						Log.d("##########################", result.jsonString);
+//						Log.d("##########################", result.jsonString);
+//						Log.d("##########################", result.jsonString);
+//						Log.d("##########################", result.jsonString);
+//						Log.d("##########################", result.jsonString);
+//						Log.d("##########################", result.jsonString);
+//					} catch (Exception e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+				}
+			});
+			thread.start();
 			userId = getUserInfo().getid();
 //			mPushAgent.addAlias("guzhang",userId);
 //			mPushAgent.addExclusiveAlias("guzhang",userId);
 			mPushAgent.addAlias(userId,"guzhang");
 			mPushAgent.addExclusiveAlias(userId,"guzhang");
+			
+//			
 		} catch (e e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

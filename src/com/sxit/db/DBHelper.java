@@ -12,6 +12,9 @@ import com.sxit.entity.ChatMessage;
 import com.sxit.entity.HomePageNews;
 import com.sxit.entity.LoginUser;
 import com.sxit.entity.UserInfo;
+import com.sxit.entity.living.AllLiving;
+import com.sxit.entity.living.HotLiving;
+import com.sxit.entity.living.NowLiving;
 import com.sxit.entity.smarter.Expert;
 import com.sxit.entity.smarter.Guest;
 import com.sxit.utils.SOAP_UTILS;
@@ -59,6 +62,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
 	private static final String CREATE_TABLE_T_SU_EXPERT = "CREATE TABLE T_SU_EXPERT (_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,REWARDMARK TEXT,  HEADPIC TEXT,WEBID TEXT, LEVEL TEXT,MARK TEXT,REALNAME TEXT,STOCKSTYLE TEXT,RESUME TEXT)";
 
+	private static final String CREATE_TABLE_T_SU_NOWLIVING = "CREATE TABLE T_SU_NOWLIVING (_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,ANSWERCOUNT TEXT,CRTIMESTR TEXT,DEALADVISE TEXT, DEALCONTROL TEXT,DEALOPERATE TEXT,ID TEXT,LAUD TEXT,LIVECONTENT TEXT,LIVECOUNT TEXT,LIVEUSERID TEXT,LIVEUSERNAME TEXT,LIVINGS TEXT,TODAYVIEWPOINT TEXT,USERHEADPIC TEXT,USERRESUME TEXT)";
+	
+	private static final String CREATE_TABLE_T_SU_ALLLIVING = "CREATE TABLE T_SU_ALLLIVING (_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,ANSWERCOUNT TEXT,CRTIMESTR TEXT,DEALADVISE TEXT, DEALCONTROL TEXT,DEALOPERATE TEXT,ID TEXT,LAUD TEXT,LIVECONTENT TEXT,LIVECOUNT TEXT,LIVEUSERID TEXT,LIVEUSERNAME TEXT,LIVINGS TEXT,TODAYVIEWPOINT TEXT,USERHEADPIC TEXT,USERRESUME TEXT)";
+
+	private static final String CREATE_TABLE_T_SU_HOTLIVING = "CREATE TABLE T_SU_hotLIVING (_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,ANSWERCOUNT TEXT,CRTIMESTR TEXT,DEALADVISE TEXT, DEALCONTROL TEXT,DEALOPERATE TEXT,ID TEXT,LAUD TEXT,LIVECONTENT TEXT,LIVECOUNT TEXT,LIVEUSERID TEXT,LIVEUSERNAME TEXT,LIVINGS TEXT,TODAYVIEWPOINT TEXT,USERHEADPIC TEXT,USERRESUME TEXT)";
 	
 	private static final String CREATE_TABLE_T_SU_MSG = "CREATE TABLE T_SU_MSG (_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,STATUS INTEGER, CONTENT1 TEXT,  CONTENT2 BLOB, CONTENT3_TITLE TEXT,CONTENT3_CONTENT TEXT,CONTENT3_URL TEXT,CONTENT3_IMG TEXT,MSG_DIRECTION INTEGER,MSG_TYPE INTEGER,MSG_DATE TEXT,LOGIN_ID TEXT,SENDER_ID TEXT)";
 
@@ -96,6 +104,9 @@ public class DBHelper extends SQLiteOpenHelper {
 		db.execSQL(CREATE_TABLE_T_SU_USER);
 		db.execSQL(CREATE_TABLE_T_SU_GUEST);
 		db.execSQL(CREATE_TABLE_T_SU_EXPERT);
+		db.execSQL(CREATE_TABLE_T_SU_NOWLIVING);
+		db.execSQL(CREATE_TABLE_T_SU_ALLLIVING);
+		db.execSQL(CREATE_TABLE_T_SU_HOTLIVING);
 		db.execSQL(CREATE_TABLE_T_SU_ADT);
 		db.execSQL(CREATE_TABLE_T_SU_MSG);
 		db.execSQL(CREATE_TABLE_T_SU_LUI);
@@ -512,6 +523,264 @@ public class DBHelper extends SQLiteOpenHelper {
 		db.delete("T_SU_EXPERT", null, null);
 	}
 	
+	
+//正在直播
+	public void insNowLiving(NowLiving data) {
+		System.out.println("#SU DB# insNowLiving");
+		SQLiteDatabase db = getWritableDatabase();
+		ContentValues values = new ContentValues();
+		values.put("ANSWERCOUNT", data.getAnswerCount());
+		values.put("CRTIMESTR", data.getCrtimeStr());
+		values.put("DEALADVISE", data.getDealAdvise());
+		values.put("DEALCONTROL", data.getDealControl());
+		values.put("DEALOPERATE", data.getDealOperate());
+		values.put("ID", data.getId());
+		values.put("LAUD", data.getLaud());
+		values.put("LIVECONTENT", data.getLiveContent());
+		values.put("LIVECOUNT", data.getLiveCount());
+		values.put("LIVEUSERID", data.getLiveUserId());
+		values.put("LIVEUSERNAME", data.getLiveUserName());
+		values.put("LIVINGS", data.getLivings());
+		values.put("TODAYVIEWPOINT", data.getTodayViewPoint());
+		values.put("USERHEADPIC", data.getUserHeadpic());
+		values.put("USERRESUME", data.getUserResume());
+		db.insert("T_SU_NOWLIVING", "", values);
+		close();
+	}
+
+	public void insNowLivingList(List<NowLiving> data) {
+		System.out.println("#SU DB# insNowLivingList");
+		SQLiteDatabase db = getWritableDatabase();
+		for (int i = 0; i < data.size(); i++) {
+			ContentValues values = new ContentValues();
+			values.put("ANSWERCOUNT", data.get(i).getAnswerCount());
+			values.put("CRTIMESTR", data.get(i).getCrtimeStr());
+			values.put("DEALADVISE", data.get(i).getDealAdvise());
+			values.put("DEALCONTROL", data.get(i).getDealControl());
+			values.put("DEALOPERATE", data.get(i).getDealOperate());
+			values.put("ID", data.get(i).getId());
+			values.put("LAUD", data.get(i).getLaud());
+			values.put("LIVECONTENT", data.get(i).getLiveContent());
+			values.put("LIVECOUNT", data.get(i).getLiveUserId());
+			values.put("LIVEUSERID", data.get(i).getLiveUserName());
+			values.put("LIVEUSERNAME", data.get(i).getLivings());
+			values.put("LIVINGS", data.get(i).getTodayViewPoint());
+			values.put("TODAYVIEWPOINT", data.get(i).getUserHeadpic());
+			values.put("USERHEADPIC", data.get(i).getUserResume());
+			values.put("USERRESUME", data.get(i).getUserResume());
+			db.insert("T_SU_NOWLIVING", "", values);
+
+		}
+		close();
+	}
+
+	public List<NowLiving> queryNowLiving() {
+		System.out.println("#SU DB# queryNowLiving");
+		List<NowLiving> list = new ArrayList<NowLiving>();
+		NowLiving nowliving = new NowLiving();
+		SQLiteDatabase db = this.getReadableDatabase();
+		Cursor c = db.rawQuery("SELECT * FROM T_SU_NOWLIVING", null);
+		while (c.moveToNext()) {
+			nowliving = new NowLiving();
+			nowliving.setAnswerCount(c.getString(c.getColumnIndex("ANSWERCOUNT")));
+			nowliving.setCrtimeStr(c.getString(c.getColumnIndex("CRTIMESTR")));
+			nowliving.setDealAdvise(c.getString(c.getColumnIndex("DEALADVISE")));
+			nowliving.setDealControl(c.getString(c.getColumnIndex("DEALCONTROL")));
+			nowliving.setDealOperate(c.getString(c.getColumnIndex("DEALOPERATE")));
+			nowliving.setId(c.getString(c.getColumnIndex("ID")));
+			nowliving.setLaud(c.getString(c.getColumnIndex("LAUD")));
+			nowliving.setLiveContent(c.getString(c.getColumnIndex("LIVECONTENT")));
+			nowliving.setLiveCount(c.getString(c.getColumnIndex("LIVECOUNT")));
+			nowliving.setLiveUserId(c.getString(c.getColumnIndex("LIVEUSERID")));
+			nowliving.setLiveUserName(c.getString(c.getColumnIndex("LIVEUSERNAME")));
+			nowliving.setLivings(c.getString(c.getColumnIndex("LIVINGS")));
+			nowliving.setTodayViewPoint(c.getString(c.getColumnIndex("TODAYVIEWPOINT")));
+			nowliving.setUserHeadpic(c.getString(c.getColumnIndex("USERHEADPIC")));
+			nowliving.setUserResume(c.getString(c.getColumnIndex("USERRESUME")));
+			list.add(nowliving);
+		}
+		close();
+		return list;
+	}
+
+	public void clearNowLiving() {
+		System.out.println("#SU DB# clearNowLiving");
+		SQLiteDatabase db = getWritableDatabase();
+		db.delete("T_SU_NOWLIVING", null, null);
+	}
+	
+
+	//热门直播
+		public void insHotLiving(HotLiving data) {
+			System.out.println("#SU DB# insHotLiving");
+			SQLiteDatabase db = getWritableDatabase();
+			ContentValues values = new ContentValues();
+			values.put("ANSWERCOUNT", data.getAnswerCount());
+			values.put("CRTIMESTR", data.getCrtimeStr());
+			values.put("DEALADVISE", data.getDealAdvise());
+			values.put("DEALCONTROL", data.getDealControl());
+			values.put("DEALOPERATE", data.getDealOperate());
+			values.put("ID", data.getId());
+			values.put("LAUD", data.getLaud());
+			values.put("LIVECONTENT", data.getLiveContent());
+			values.put("LIVECOUNT", data.getLiveCount());
+			values.put("LIVEUSERID", data.getLiveUserId());
+			values.put("LIVEUSERNAME", data.getLiveUserName());
+			values.put("LIVINGS", data.getLivings());
+			values.put("TODAYVIEWPOINT", data.getTodayViewPoint());
+			values.put("USERHEADPIC", data.getUserHeadpic());
+			values.put("USERRESUME", data.getUserResume());
+			db.insert("T_SU_HOTLIVING", "", values);
+			close();
+		}
+
+		public void insHotLivingList(List<HotLiving> data) {
+			System.out.println("#SU DB# insHotLivingList");
+			SQLiteDatabase db = getWritableDatabase();
+			for (int i = 0; i < data.size(); i++) {
+				ContentValues values = new ContentValues();
+				values.put("ANSWERCOUNT", data.get(i).getAnswerCount());
+				values.put("CRTIMESTR", data.get(i).getCrtimeStr());
+				values.put("DEALADVISE", data.get(i).getDealAdvise());
+				values.put("DEALCONTROL", data.get(i).getDealControl());
+				values.put("DEALOPERATE", data.get(i).getDealOperate());
+				values.put("ID", data.get(i).getId());
+				values.put("LAUD", data.get(i).getLaud());
+				values.put("LIVECONTENT", data.get(i).getLiveContent());
+				values.put("LIVECOUNT", data.get(i).getLiveUserId());
+				values.put("LIVEUSERID", data.get(i).getLiveUserName());
+				values.put("LIVEUSERNAME", data.get(i).getLivings());
+				values.put("LIVINGS", data.get(i).getTodayViewPoint());
+				values.put("TODAYVIEWPOINT", data.get(i).getUserHeadpic());
+				values.put("USERHEADPIC", data.get(i).getUserResume());
+				values.put("USERRESUME", data.get(i).getUserResume());
+				db.insert("T_SU_HOTLIVING", "", values);
+
+			}
+			close();
+		}
+
+		public List<HotLiving> queryHotLiving() {
+			System.out.println("#SU DB# queryHotLiving");
+			List<HotLiving> list = new ArrayList<HotLiving>();
+			HotLiving allliving = new HotLiving();
+			SQLiteDatabase db = this.getReadableDatabase();
+			Cursor c = db.rawQuery("SELECT * FROM T_SU_HOTLIVING", null);
+			while (c.moveToNext()) {
+				allliving = new HotLiving();
+				allliving.setAnswerCount(c.getString(c.getColumnIndex("ANSWERCOUNT")));
+				allliving.setCrtimeStr(c.getString(c.getColumnIndex("CRTIMESTR")));
+				allliving.setDealAdvise(c.getString(c.getColumnIndex("DEALADVISE")));
+				allliving.setDealControl(c.getString(c.getColumnIndex("DEALCONTROL")));
+				allliving.setDealOperate(c.getString(c.getColumnIndex("DEALOPERATE")));
+				allliving.setId(c.getString(c.getColumnIndex("ID")));
+				allliving.setLaud(c.getString(c.getColumnIndex("LAUD")));
+				allliving.setLiveContent(c.getString(c.getColumnIndex("LIVECONTENT")));
+				allliving.setLiveCount(c.getString(c.getColumnIndex("LIVECOUNT")));
+				allliving.setLiveUserId(c.getString(c.getColumnIndex("LIVEUSERID")));
+				allliving.setLiveUserName(c.getString(c.getColumnIndex("LIVEUSERNAME")));
+				allliving.setLivings(c.getString(c.getColumnIndex("LIVINGS")));
+				allliving.setTodayViewPoint(c.getString(c.getColumnIndex("TODAYVIEWPOINT")));
+				allliving.setUserHeadpic(c.getString(c.getColumnIndex("USERHEADPIC")));
+				allliving.setUserResume(c.getString(c.getColumnIndex("USERRESUME")));
+				list.add(allliving);
+			}
+			close();
+			return list;
+		}
+
+		public void clearHotLiving() {
+			System.out.println("#SU DB# clearHotLiving");
+			SQLiteDatabase db = getWritableDatabase();
+			db.delete("T_SU_HOTLIVING", null, null);
+		}
+		
+
+		//全部直播
+			public void insAllLiving(AllLiving data) {
+				System.out.println("#SU DB# insAllLiving");
+				SQLiteDatabase db = getWritableDatabase();
+				ContentValues values = new ContentValues();
+				values.put("ANSWERCOUNT", data.getAnswerCount());
+				values.put("CRTIMESTR", data.getCrtimeStr());
+				values.put("DEALADVISE", data.getDealAdvise());
+				values.put("DEALCONTROL", data.getDealControl());
+				values.put("DEALOPERATE", data.getDealOperate());
+				values.put("ID", data.getId());
+				values.put("LAUD", data.getLaud());
+				values.put("LIVECONTENT", data.getLiveContent());
+				values.put("LIVECOUNT", data.getLiveCount());
+				values.put("LIVEUSERID", data.getLiveUserId());
+				values.put("LIVEUSERNAME", data.getLiveUserName());
+				values.put("LIVINGS", data.getLivings());
+				values.put("TODAYVIEWPOINT", data.getTodayViewPoint());
+				values.put("USERHEADPIC", data.getUserHeadpic());
+				values.put("USERRESUME", data.getUserResume());
+				db.insert("T_SU_ALLLIVING", "", values);
+				close();
+			}
+
+			public void insAllLivingList(List<AllLiving> data) {
+				System.out.println("#SU DB# insAllLivingList");
+				SQLiteDatabase db = getWritableDatabase();
+				for (int i = 0; i < data.size(); i++) {
+					ContentValues values = new ContentValues();
+					values.put("ANSWERCOUNT", data.get(i).getAnswerCount());
+					values.put("CRTIMESTR", data.get(i).getCrtimeStr());
+					values.put("DEALADVISE", data.get(i).getDealAdvise());
+					values.put("DEALCONTROL", data.get(i).getDealControl());
+					values.put("DEALOPERATE", data.get(i).getDealOperate());
+					values.put("ID", data.get(i).getId());
+					values.put("LAUD", data.get(i).getLaud());
+					values.put("LIVECONTENT", data.get(i).getLiveContent());
+					values.put("LIVECOUNT", data.get(i).getLiveUserId());
+					values.put("LIVEUSERID", data.get(i).getLiveUserName());
+					values.put("LIVEUSERNAME", data.get(i).getLivings());
+					values.put("LIVINGS", data.get(i).getTodayViewPoint());
+					values.put("TODAYVIEWPOINT", data.get(i).getUserHeadpic());
+					values.put("USERHEADPIC", data.get(i).getUserResume());
+					values.put("USERRESUME", data.get(i).getUserResume());
+					db.insert("T_SU_ALLLIVING", "", values);
+
+				}
+				close();
+			}
+
+			public List<AllLiving> queryAllLiving() {
+				System.out.println("#SU DB# queryAllLiving");
+				List<AllLiving> list = new ArrayList<AllLiving>();
+				AllLiving allliving = new AllLiving();
+				SQLiteDatabase db = this.getReadableDatabase();
+				Cursor c = db.rawQuery("SELECT * FROM T_SU_ALLLIVING", null);
+				while (c.moveToNext()) {
+					allliving = new AllLiving();
+					allliving.setAnswerCount(c.getString(c.getColumnIndex("ANSWERCOUNT")));
+					allliving.setCrtimeStr(c.getString(c.getColumnIndex("CRTIMESTR")));
+					allliving.setDealAdvise(c.getString(c.getColumnIndex("DEALADVISE")));
+					allliving.setDealControl(c.getString(c.getColumnIndex("DEALCONTROL")));
+					allliving.setDealOperate(c.getString(c.getColumnIndex("DEALOPERATE")));
+					allliving.setId(c.getString(c.getColumnIndex("ID")));
+					allliving.setLaud(c.getString(c.getColumnIndex("LAUD")));
+					allliving.setLiveContent(c.getString(c.getColumnIndex("LIVECONTENT")));
+					allliving.setLiveCount(c.getString(c.getColumnIndex("LIVECOUNT")));
+					allliving.setLiveUserId(c.getString(c.getColumnIndex("LIVEUSERID")));
+					allliving.setLiveUserName(c.getString(c.getColumnIndex("LIVEUSERNAME")));
+					allliving.setLivings(c.getString(c.getColumnIndex("LIVINGS")));
+					allliving.setTodayViewPoint(c.getString(c.getColumnIndex("TODAYVIEWPOINT")));
+					allliving.setUserHeadpic(c.getString(c.getColumnIndex("USERHEADPIC")));
+					allliving.setUserResume(c.getString(c.getColumnIndex("USERRESUME")));
+					list.add(allliving);
+				}
+				close();
+				return list;
+			}
+
+			public void clearAllLiving() {
+				System.out.println("#SU DB# clearAllLiving");
+				SQLiteDatabase db = getWritableDatabase();
+				db.delete("T_SU_ALLLIVING", null, null);
+			}
+			
 	/**
 	 * 顾问模块列表
 	 */

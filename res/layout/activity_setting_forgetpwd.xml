@@ -1,0 +1,73 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/register_bg"
+    android:orientation="vertical"
+    tools:context=".Information_Activity" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/normal_height54"
+        android:background="@color/theme_red"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="@dimen/normal_height54"
+            android:layout_height="@dimen/normal_height54"
+            android:layout_gravity="center"
+            android:background="@drawable/head_background_select"
+            android:clickable="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/img_back"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/img_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="请绑定手机号"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize22" />
+
+        <TextView
+            android:id="@+id/tv_save"
+            android:layout_width="@dimen/normal_height54"
+            android:layout_height="@dimen/normal_height54"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:background="@drawable/head_background_select"
+            android:gravity="center"
+            android:text="@string/nextdo"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize18" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:text="手机号码："
+        android:textSize="18dp" />
+
+    <AutoCompleteTextView
+        android:id="@+id/actv_phonenum"
+        style="@style/login_edittext_style"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/marging10"
+        android:layout_marginRight="@dimen/marging10"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/corners_bg"
+        android:enabled="true"
+        android:maxLength="11"
+        android:singleLine="true"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/textsize18" />
+
+</LinearLayout>

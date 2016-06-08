@@ -160,9 +160,9 @@ public class StockNews_Activity extends BaseActivity {
 				adapter.notifyDataSetChanged();
 			}else{				
 				list = (List<HomePageNews>)obj.getObj();
+				dbh.clearStockNewsData();
 				if(list.size()!=0){					
 					
-					dbh.clearStockNewsData();
 					dbh.insStockNewsInfo(list);
 					pageIndex = 1;
 				}
