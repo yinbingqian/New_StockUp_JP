@@ -549,7 +549,7 @@ public class HomePageActivity extends BaseActivity {
                 	hpl.setLiveUserId(json_living.get("LiveUserId").toString());
                 	hpl.setLiveUserName(json_living.get("LiveUserName").toString());
                 	hpl.setLivings(json_living.get("Livings").toString());
-                	hpl.setTodayViewPoint(json_living.get("TodayViewPoint").toString());
+                	hpl.setDescribeCc(json_living.get("DescribeCc").toString());
                 	hpl.setToplive(json_living.get("Toplive").toString());
                 	hpl.setUserHeadpic(json_living.get("UserHeadpic").toString());
                 	hpl.setUserResume(json_living.get("UserResume").toString());

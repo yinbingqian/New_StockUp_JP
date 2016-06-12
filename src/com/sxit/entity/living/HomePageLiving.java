@@ -17,7 +17,7 @@ public class HomePageLiving implements Serializable {
 	private String LiveUserId;
 	private String LiveUserName;
 	private String Livings;
-	private String TodayViewPoint;
+	private String DescribeCc;
 	private String Toplive;
 	private String UserHeadpic;
 	private String UserResume;
@@ -105,11 +105,11 @@ public class HomePageLiving implements Serializable {
 	public void setLivings(String livings) {
 		Livings = livings;
 	}
-	public String getTodayViewPoint() {
-		return TodayViewPoint;
+	public String getDescribeCc() {
+		return DescribeCc;
 	}
-	public void setTodayViewPoint(String todayViewPoint) {
-		TodayViewPoint = todayViewPoint;
+	public void setDescribeCc(String todayViewPoint) {
+		DescribeCc = todayViewPoint;
 	}
 	public String getToplive() {
 		return Toplive;

@@ -2123,7 +2123,7 @@ public class SoapService implements ISoapService {
 						nowliving.setLiveUserId(json_nowliving.get("LiveUserId").toString());
 						nowliving.setLiveUserName(json_nowliving.get("LiveUserName").toString());
 						nowliving.setLivings(json_nowliving.get("Livings").toString());
-						nowliving.setTodayViewPoint(json_nowliving.get("TodayViewPoint").toString());
+						nowliving.setDescribeCc(json_nowliving.get("DescribeCc").toString());
 						nowliving.setToplive(json_nowliving.get("Toplive").toString());
 						nowliving.setUserHeadpic(json_nowliving.get("UserHeadpic").toString());
 						nowliving.setUserResume(json_nowliving.get("UserResume").toString());
@@ -2183,7 +2183,7 @@ public class SoapService implements ISoapService {
 						nowliving.setLiveUserId(json_nowliving.get("LiveUserId").toString());
 						nowliving.setLiveUserName(json_nowliving.get("LiveUserName").toString());
 						nowliving.setLivings(json_nowliving.get("Livings").toString());
-						nowliving.setTodayViewPoint(json_nowliving.get("TodayViewPoint").toString());
+						nowliving.setDescribeCc(json_nowliving.get("DescribeCc").toString());
 						nowliving.setToplive(json_nowliving.get("Toplive").toString());
 						nowliving.setUserHeadpic(json_nowliving.get("UserHeadpic").toString());
 						nowliving.setUserResume(json_nowliving.get("UserResume").toString());
@@ -2243,7 +2243,7 @@ public class SoapService implements ISoapService {
 						nowliving.setLiveUserId(json_nowliving.get("LiveUserId").toString());
 						nowliving.setLiveUserName(json_nowliving.get("LiveUserName").toString());
 						nowliving.setLivings(json_nowliving.get("Livings").toString());
-						nowliving.setTodayViewPoint(json_nowliving.get("TodayViewPoint").toString());
+						nowliving.setDescribeCc(json_nowliving.get("DescribeCc").toString());
 						nowliving.setToplive(json_nowliving.get("Toplive").toString());
 						nowliving.setUserHeadpic(json_nowliving.get("UserHeadpic").toString());
 						nowliving.setUserResume(json_nowliving.get("UserResume").toString());

@@ -16,7 +16,7 @@ public class LivingDetail implements Serializable {
 	private String LiveUserId;
 	private String LiveUserName;
 	private String Livings;
-	private String TodayViewPoint;
+	private String DescribeCc;
 	private String Toplive;
 	private String UserHeadpic;
 	private String UserResume;
@@ -43,7 +43,7 @@ public class LivingDetail implements Serializable {
 	public LivingDetail(String AnswerCount, String CrtimeStr, String DealAdvise,
 			String DealControl, String DealOperate,String Hotlive, String Id, String Laud,
 			String LiveContent, String LiveCount, String LiveUserId, String LiveUserName, 
-			String Livings, String TodayViewPoint,String Toplive, String UserHeadpic, String UserResume) {
+			String Livings, String DescribeCc,String Toplive, String UserHeadpic, String UserResume) {
 		this.AnswerCount = AnswerCount;
 		this.CrtimeStr = CrtimeStr;
 		this.DealAdvise = DealAdvise;
@@ -57,7 +57,7 @@ public class LivingDetail implements Serializable {
 		this.LiveUserId = LiveUserId;
 		this.LiveUserName = LiveUserName;
 		this.Livings = Livings;
-		this.TodayViewPoint = TodayViewPoint;
+		this.DescribeCc = DescribeCc;
 		this.Toplive = Toplive;
 		this.UserHeadpic = UserHeadpic;
 		this.UserResume = UserResume;
@@ -159,12 +159,12 @@ public class LivingDetail implements Serializable {
 		Livings = livings;
 	}
 
-	public String getTodayViewPoint() {
-		return TodayViewPoint;
+	public String getDescribeCc() {
+		return DescribeCc;
 	}
 
-	public void setTodayViewPoint(String todayViewPoint) {
-		TodayViewPoint = todayViewPoint;
+	public void setDescribeCc(String todayViewPoint) {
+		DescribeCc = todayViewPoint;
 	}
 
 	public String getUserHeadpic() {

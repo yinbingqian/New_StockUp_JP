@@ -207,9 +207,9 @@ public class LiveHallFragment extends Fragment {
 						livingdetail.setLiveUserName(json_nowliving.get("LiveUserName").toString());
 						livingdetail.setLivings(json_nowliving.get("Livings").toString());
 
-//						advice_str = json_nowliving.get("TodayViewPoint").toString();
+//						advice_str = json_nowliving.get("DescribeCc").toString();
 						advice_str = json_nowliving.get("DealAdvise").toString();
-						livingdetail.setTodayViewPoint(advice_str);
+						livingdetail.setDescribeCc(advice_str);
 
 						livingdetail.setToplive(json_nowliving.get("Toplive").toString());
 						livingdetail.setUserHeadpic(json_nowliving.get("UserHeadpic").toString());
@@ -293,8 +293,8 @@ public class LiveHallFragment extends Fragment {
 						livingdetail.setLiveUserName(json_nowliving.get("LiveUserName").toString());
 						livingdetail.setLivings(json_nowliving.get("Livings").toString());
 
-						advice_str = json_nowliving.get("TodayViewPoint").toString();
-						livingdetail.setTodayViewPoint(advice_str);
+						advice_str = json_nowliving.get("DescribeCc").toString();
+						livingdetail.setDescribeCc(advice_str);
 
 						livingdetail.setToplive(json_nowliving.get("Toplive").toString());
 						livingdetail.setUserHeadpic(json_nowliving.get("UserHeadpic").toString());

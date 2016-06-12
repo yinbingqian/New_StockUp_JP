@@ -62,11 +62,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
 	private static final String CREATE_TABLE_T_SU_EXPERT = "CREATE TABLE T_SU_EXPERT (_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,REWARDMARK TEXT,  HEADPIC TEXT,WEBID TEXT, LEVEL TEXT,MARK TEXT,REALNAME TEXT,STOCKSTYLE TEXT,RESUME TEXT)";
 
-	private static final String CREATE_TABLE_T_SU_NOWLIVING = "CREATE TABLE T_SU_NOWLIVING (_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,ANSWERCOUNT TEXT,CRTIMESTR TEXT,DEALADVISE TEXT, DEALCONTROL TEXT,DEALOPERATE TEXT,ID TEXT,LAUD TEXT,LIVECONTENT TEXT,LIVECOUNT TEXT,LIVEUSERID TEXT,LIVEUSERNAME TEXT,LIVINGS TEXT,TODAYVIEWPOINT TEXT,USERHEADPIC TEXT,USERRESUME TEXT)";
+	private static final String CREATE_TABLE_T_SU_NOWLIVING = "CREATE TABLE T_SU_NOWLIVING (_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,ANSWERCOUNT TEXT,CRTIMESTR TEXT,DEALADVISE TEXT, DEALCONTROL TEXT,DEALOPERATE TEXT,ID TEXT,LAUD TEXT,LIVECONTENT TEXT,LIVECOUNT TEXT,LIVEUSERID TEXT,LIVEUSERNAME TEXT,LIVINGS TEXT,DESCRIBECC TEXT,USERHEADPIC TEXT,USERRESUME TEXT)";
 	
-	private static final String CREATE_TABLE_T_SU_ALLLIVING = "CREATE TABLE T_SU_ALLLIVING (_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,ANSWERCOUNT TEXT,CRTIMESTR TEXT,DEALADVISE TEXT, DEALCONTROL TEXT,DEALOPERATE TEXT,ID TEXT,LAUD TEXT,LIVECONTENT TEXT,LIVECOUNT TEXT,LIVEUSERID TEXT,LIVEUSERNAME TEXT,LIVINGS TEXT,TODAYVIEWPOINT TEXT,USERHEADPIC TEXT,USERRESUME TEXT)";
+	private static final String CREATE_TABLE_T_SU_ALLLIVING = "CREATE TABLE T_SU_ALLLIVING (_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,ANSWERCOUNT TEXT,CRTIMESTR TEXT,DEALADVISE TEXT, DEALCONTROL TEXT,DEALOPERATE TEXT,ID TEXT,LAUD TEXT,LIVECONTENT TEXT,LIVECOUNT TEXT,LIVEUSERID TEXT,LIVEUSERNAME TEXT,LIVINGS TEXT,DESCRIBECC TEXT,USERHEADPIC TEXT,USERRESUME TEXT)";
 
-	private static final String CREATE_TABLE_T_SU_HOTLIVING = "CREATE TABLE T_SU_hotLIVING (_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,ANSWERCOUNT TEXT,CRTIMESTR TEXT,DEALADVISE TEXT, DEALCONTROL TEXT,DEALOPERATE TEXT,ID TEXT,LAUD TEXT,LIVECONTENT TEXT,LIVECOUNT TEXT,LIVEUSERID TEXT,LIVEUSERNAME TEXT,LIVINGS TEXT,TODAYVIEWPOINT TEXT,USERHEADPIC TEXT,USERRESUME TEXT)";
+	private static final String CREATE_TABLE_T_SU_HOTLIVING = "CREATE TABLE T_SU_hotLIVING (_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,ANSWERCOUNT TEXT,CRTIMESTR TEXT,DEALADVISE TEXT, DEALCONTROL TEXT,DEALOPERATE TEXT,ID TEXT,LAUD TEXT,LIVECONTENT TEXT,LIVECOUNT TEXT,LIVEUSERID TEXT,LIVEUSERNAME TEXT,LIVINGS TEXT,DESCRIBECC TEXT,USERHEADPIC TEXT,USERRESUME TEXT)";
 	
 	private static final String CREATE_TABLE_T_SU_MSG = "CREATE TABLE T_SU_MSG (_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,STATUS INTEGER, CONTENT1 TEXT,  CONTENT2 BLOB, CONTENT3_TITLE TEXT,CONTENT3_CONTENT TEXT,CONTENT3_URL TEXT,CONTENT3_IMG TEXT,MSG_DIRECTION INTEGER,MSG_TYPE INTEGER,MSG_DATE TEXT,LOGIN_ID TEXT,SENDER_ID TEXT)";
 
@@ -541,7 +541,7 @@ public class DBHelper extends SQLiteOpenHelper {
 		values.put("LIVEUSERID", data.getLiveUserId());
 		values.put("LIVEUSERNAME", data.getLiveUserName());
 		values.put("LIVINGS", data.getLivings());
-		values.put("TODAYVIEWPOINT", data.getTodayViewPoint());
+		values.put("DESCRIBECC", data.getDescribeCc());
 		values.put("USERHEADPIC", data.getUserHeadpic());
 		values.put("USERRESUME", data.getUserResume());
 		db.insert("T_SU_NOWLIVING", "", values);
@@ -561,12 +561,12 @@ public class DBHelper extends SQLiteOpenHelper {
 			values.put("ID", data.get(i).getId());
 			values.put("LAUD", data.get(i).getLaud());
 			values.put("LIVECONTENT", data.get(i).getLiveContent());
-			values.put("LIVECOUNT", data.get(i).getLiveUserId());
-			values.put("LIVEUSERID", data.get(i).getLiveUserName());
-			values.put("LIVEUSERNAME", data.get(i).getLivings());
-			values.put("LIVINGS", data.get(i).getTodayViewPoint());
-			values.put("TODAYVIEWPOINT", data.get(i).getUserHeadpic());
-			values.put("USERHEADPIC", data.get(i).getUserResume());
+			values.put("LIVECOUNT", data.get(i).getLiveCount());
+			values.put("LIVEUSERID", data.get(i).getLiveUserId());
+			values.put("LIVEUSERNAME", data.get(i).getLiveUserName());
+			values.put("LIVINGS", data.get(i).getLivings());
+			values.put("DESCRIBECC", data.get(i).getDescribeCc());
+			values.put("USERHEADPIC", data.get(i).getUserHeadpic());
 			values.put("USERRESUME", data.get(i).getUserResume());
 			db.insert("T_SU_NOWLIVING", "", values);
 
@@ -594,7 +594,7 @@ public class DBHelper extends SQLiteOpenHelper {
 			nowliving.setLiveUserId(c.getString(c.getColumnIndex("LIVEUSERID")));
 			nowliving.setLiveUserName(c.getString(c.getColumnIndex("LIVEUSERNAME")));
 			nowliving.setLivings(c.getString(c.getColumnIndex("LIVINGS")));
-			nowliving.setTodayViewPoint(c.getString(c.getColumnIndex("TODAYVIEWPOINT")));
+			nowliving.setDescribeCc(c.getString(c.getColumnIndex("DESCRIBECC")));
 			nowliving.setUserHeadpic(c.getString(c.getColumnIndex("USERHEADPIC")));
 			nowliving.setUserResume(c.getString(c.getColumnIndex("USERRESUME")));
 			list.add(nowliving);
@@ -627,7 +627,7 @@ public class DBHelper extends SQLiteOpenHelper {
 			values.put("LIVEUSERID", data.getLiveUserId());
 			values.put("LIVEUSERNAME", data.getLiveUserName());
 			values.put("LIVINGS", data.getLivings());
-			values.put("TODAYVIEWPOINT", data.getTodayViewPoint());
+			values.put("DESCRIBECC", data.getDescribeCc());
 			values.put("USERHEADPIC", data.getUserHeadpic());
 			values.put("USERRESUME", data.getUserResume());
 			db.insert("T_SU_HOTLIVING", "", values);
@@ -647,12 +647,12 @@ public class DBHelper extends SQLiteOpenHelper {
 				values.put("ID", data.get(i).getId());
 				values.put("LAUD", data.get(i).getLaud());
 				values.put("LIVECONTENT", data.get(i).getLiveContent());
-				values.put("LIVECOUNT", data.get(i).getLiveUserId());
-				values.put("LIVEUSERID", data.get(i).getLiveUserName());
-				values.put("LIVEUSERNAME", data.get(i).getLivings());
-				values.put("LIVINGS", data.get(i).getTodayViewPoint());
-				values.put("TODAYVIEWPOINT", data.get(i).getUserHeadpic());
-				values.put("USERHEADPIC", data.get(i).getUserResume());
+				values.put("LIVECOUNT", data.get(i).getLiveCount());
+				values.put("LIVEUSERID", data.get(i).getLiveUserId());
+				values.put("LIVEUSERNAME", data.get(i).getLiveUserName());
+				values.put("LIVINGS", data.get(i).getLivings());
+				values.put("DESCRIBECC", data.get(i).getDescribeCc());
+				values.put("USERHEADPIC", data.get(i).getUserHeadpic());
 				values.put("USERRESUME", data.get(i).getUserResume());
 				db.insert("T_SU_HOTLIVING", "", values);
 
@@ -680,7 +680,7 @@ public class DBHelper extends SQLiteOpenHelper {
 				allliving.setLiveUserId(c.getString(c.getColumnIndex("LIVEUSERID")));
 				allliving.setLiveUserName(c.getString(c.getColumnIndex("LIVEUSERNAME")));
 				allliving.setLivings(c.getString(c.getColumnIndex("LIVINGS")));
-				allliving.setTodayViewPoint(c.getString(c.getColumnIndex("TODAYVIEWPOINT")));
+				allliving.setDescribeCc(c.getString(c.getColumnIndex("DESCRIBECC")));
 				allliving.setUserHeadpic(c.getString(c.getColumnIndex("USERHEADPIC")));
 				allliving.setUserResume(c.getString(c.getColumnIndex("USERRESUME")));
 				list.add(allliving);
@@ -713,7 +713,7 @@ public class DBHelper extends SQLiteOpenHelper {
 				values.put("LIVEUSERID", data.getLiveUserId());
 				values.put("LIVEUSERNAME", data.getLiveUserName());
 				values.put("LIVINGS", data.getLivings());
-				values.put("TODAYVIEWPOINT", data.getTodayViewPoint());
+				values.put("DESCRIBECC", data.getDescribeCc());
 				values.put("USERHEADPIC", data.getUserHeadpic());
 				values.put("USERRESUME", data.getUserResume());
 				db.insert("T_SU_ALLLIVING", "", values);
@@ -733,12 +733,12 @@ public class DBHelper extends SQLiteOpenHelper {
 					values.put("ID", data.get(i).getId());
 					values.put("LAUD", data.get(i).getLaud());
 					values.put("LIVECONTENT", data.get(i).getLiveContent());
-					values.put("LIVECOUNT", data.get(i).getLiveUserId());
-					values.put("LIVEUSERID", data.get(i).getLiveUserName());
-					values.put("LIVEUSERNAME", data.get(i).getLivings());
-					values.put("LIVINGS", data.get(i).getTodayViewPoint());
-					values.put("TODAYVIEWPOINT", data.get(i).getUserHeadpic());
-					values.put("USERHEADPIC", data.get(i).getUserResume());
+					values.put("LIVECOUNT", data.get(i).getLiveCount());
+					values.put("LIVEUSERID", data.get(i).getLiveUserId());
+					values.put("LIVEUSERNAME", data.get(i).getLiveUserName());
+					values.put("LIVINGS", data.get(i).getLivings());
+					values.put("DESCRIBECC", data.get(i).getDescribeCc());
+					values.put("USERHEADPIC", data.get(i).getUserHeadpic());
 					values.put("USERRESUME", data.get(i).getUserResume());
 					db.insert("T_SU_ALLLIVING", "", values);
 
@@ -766,7 +766,7 @@ public class DBHelper extends SQLiteOpenHelper {
 					allliving.setLiveUserId(c.getString(c.getColumnIndex("LIVEUSERID")));
 					allliving.setLiveUserName(c.getString(c.getColumnIndex("LIVEUSERNAME")));
 					allliving.setLivings(c.getString(c.getColumnIndex("LIVINGS")));
-					allliving.setTodayViewPoint(c.getString(c.getColumnIndex("TODAYVIEWPOINT")));
+					allliving.setDescribeCc(c.getString(c.getColumnIndex("DESCRIBECC")));
 					allliving.setUserHeadpic(c.getString(c.getColumnIndex("USERHEADPIC")));
 					allliving.setUserResume(c.getString(c.getColumnIndex("USERRESUME")));
 					list.add(allliving);
