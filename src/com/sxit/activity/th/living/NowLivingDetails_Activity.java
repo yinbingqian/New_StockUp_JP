@@ -80,7 +80,7 @@ public class NowLivingDetails_Activity extends FragmentActivity {
 		fragmentsList.add(new QAFragment());
 		fragmentsList.add(new ViewPointFragment());
 
-		tags = new String[] { "直播大厅", "互动问答","播主观点" };
+		tags = new String[] { "直播大厅", "互动问答","视频直播" };
 
 	}
 	

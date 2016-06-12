@@ -227,7 +227,8 @@ public class SOAP_UTILS {
 	public static final String HTTP_PATHIP = "http://share.guzhang.tv";
 //	public static final String HTTP_URL =  HTTP_BACKLOGINIP + "/guzhang/";
 //	public static final String HTTP_URL =  "http://192.168.1.104:8027/guzhang/";//内网地址
-	public static final String HTTP_URL =  "http://123.56.88.189:8027/guzhangTest/";//外网测试地址
+//	public static final String HTTP_URL =  "http://123.56.88.189:8027/guzhangTest/";//外网测试地址
+	public static final String HTTP_URL =  "http://123.56.88.189:8027/guzhang/";//外网测试地址
 //	public static final String HTTP_URL =  HTTP_IP + "/guzhang/";
 	public static final String HTTP_HEAD_PATH = HTTP_BACKLOGINIP + "/upload/headpic/";
 //	public static final String HTTP_HEAD_PATH = HTTP_IP + "/upload/headpic/";
