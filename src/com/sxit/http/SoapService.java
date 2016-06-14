@@ -968,7 +968,7 @@ public class SoapService implements ISoapService {
 
 	@Override
 	public void getGuestDetail(Object[] property_va, final boolean isPage) {
-		String[] property_nm = {};
+		String[] property_nm = {"userid","pagesize","pageindex"};
 		asynTaskBase.setMethod(SOAP_UTILS.METHOD.GETGUESTDETAIL);
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
@@ -1983,7 +1983,7 @@ public class SoapService implements ISoapService {
 
 	@Override
 	public void userExpertDetailChanged(Object[] property_va, final boolean isPage) {
-		String[] property_nm = {};
+		String[] property_nm = {"userid","pagesize","pageindex"};
 		asynTaskBase.setMethod(SOAP_UTILS.METHOD.USEREXPERTDETAILCHANGED);
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
@@ -2660,6 +2660,33 @@ public class SoapService implements ISoapService {
 		});
 	}
 	
+
+	@Override
+	public void getCcLivingInfoSingle(Object[] property_va) {
+		String[] property_nm = {};
+		asynTaskBase.setMethod(SOAP_UTILS.METHOD.GETCCLIVINGINFOSINGLE);
+		asynTaskBase.setProperty_nm(property_nm);
+		asynTaskBase.setProperty_va(property_va);
+		asynTaskBase.executeDo(new HttpObjectResult() {
+
+			@Override
+			public void soapResult(Object obj) {
+				// TODO Auto-generated method stub
+				soapRes.setObj(obj);
+				soapRes.setCode(SOAP_UTILS.METHOD.GETCCLIVINGINFOSINGLE);
+				EventCache.commandActivity.post(soapRes);
+			}
+
+			@Override
+			public void soapError() {
+				soapRes.setObj(null);
+				soapRes.setCode(SOAP_UTILS.METHOD.GETCCLIVINGINFOSINGLE);
+				EventCache.commandActivity.post(soapRes);
+			}
+		});
+	}
+
+	
 	@Override
 	public void adminLogin(Object[] property_va) {
 		// TODO Auto-generated method stub
@@ -2845,5 +2872,6 @@ public class SoapService implements ISoapService {
 		// TODO Auto-generated method stub
 
 	}
+
 
 }

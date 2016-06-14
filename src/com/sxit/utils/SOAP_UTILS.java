@@ -195,6 +195,9 @@ public class SOAP_UTILS {
 		public static final String UPDATEIMEI = "UpdateImei";
 		// 忘记密码中重置密码
 		public static final String USERPASSWORDFIND = "UserPasswordFind";
+		// 获取cc视频信息
+		public static final String GETCCLIVINGINFOSINGLE = "GetCcLivingInfoSingle";
+		
 	}
 
 	public class ACTION {

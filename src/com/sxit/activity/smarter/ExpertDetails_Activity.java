@@ -113,14 +113,15 @@ public class ExpertDetails_Activity extends BaseActivity {
 //				disitem.setSource(list.get(position).getSource());
 //				disitem.setThumbnail(list.get(position).getThumbnail());
 //				disitem.setTitle(list.get(position).getTitle());
-				
+				if(position > 1){
 				Intent intent = new Intent();
 				intent.setClass(ExpertDetails_Activity.this, Wap_Activity.class);
 				intent.putExtra("wap_url", SOAP_UTILS.HTTP_NEWSINFO_PATH + list.get(position-2).getId());
 				intent.putExtra("wap_share", SOAP_UTILS.HTTP_NEWSSHARE_PATH + list.get(position-2).getId());
 				intent.putExtra("wap_name", list.get(position-2).getTitle());
+//				intent.putExtra("NewsComCount", list.get(position-2).get);
 				startActivity(intent);
-				
+				}
 //				bundle.putSerializable("discuss", disitem);
 //				intent.putExtras(bundle);
 //				startActivity(intent);

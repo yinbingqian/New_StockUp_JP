@@ -617,4 +617,11 @@ public interface ISoapService extends IASoapService {
 	 */
 	void userPasswordFind(Object[] property_va);
 	
+	/**
+	 * 获取cc视频信息 --分析师ID
+	 * 
+	 * @param property_va
+	 */
+	void getCcLivingInfoSingle(Object[] property_va);
+	
 }
