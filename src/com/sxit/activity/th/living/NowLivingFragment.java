@@ -145,15 +145,19 @@ public class NowLivingFragment extends Fragment {
 				    editor.putString("Id", Id);
 				    editor.putString("UserPic", UserPic);
 				    editor.commit();
-
+				
 			if(!nowLivingList.get(position - 1).getLivings().equals("0")){
 				Intent intent = new Intent();
 				intent.putExtra("LiveUserName", nowLivingList.get(position - 1).getLiveUserName());
 				intent.setClass(context, NowLivingDetails_Activity.class);
 				startActivity(intent);
-				   }else{
+		   }else if(nowLivingList.get(position - 1).getLivings().equals("0") && !nowLivingList.get(position - 1).getCclive().equals("1")){
 						Toast.makeText(context, "直播未开启", Toast.LENGTH_SHORT).show();
-				} 
+		   }else if(nowLivingList.get(position - 1).getLivings().equals("0") && nowLivingList.get(position - 1).getCclive().equals("1")){
+			   Intent intent = new Intent();
+				intent.setClass(context, CcliveActivity.class);
+				startActivity(intent);
+				}
 			}
 		});
 		listView_nowlivinglist

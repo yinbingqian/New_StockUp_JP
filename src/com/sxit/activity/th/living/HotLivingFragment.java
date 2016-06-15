@@ -138,9 +138,13 @@ public class HotLivingFragment extends Fragment {
 				intent.putExtra("LiveUserName", hotlivingList.get(position - 1).getLiveUserName());
 				intent.setClass(context, NowLivingDetails_Activity.class);
 				startActivity(intent);
-					}else{
-							Toast.makeText(context, "直播未开启", Toast.LENGTH_SHORT).show();
-					}
+			}else if(hotlivingList.get(position - 1).getLivings().equals("0") && !hotlivingList.get(position - 1).getCclive().equals("1")){
+						Toast.makeText(context, "直播未开启", Toast.LENGTH_SHORT).show();
+		   }else if(hotlivingList.get(position - 1).getLivings().equals("0") && hotlivingList.get(position - 1).getCclive().equals("1")){
+			   Intent intent = new Intent();
+				intent.setClass(context, CcliveActivity.class);
+				startActivity(intent);
+				}
 			}
 		});
 		listView_hotlivinglist

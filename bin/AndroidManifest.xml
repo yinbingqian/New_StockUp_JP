@@ -111,6 +111,17 @@
                 android:name="DESCRIPTION"
                 android:value="单击正在直播" />
         </activity>
+         <activity
+            android:name="com.sxit.activity.th.living.CcliveActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:taskAffinity="" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="Cc直播" />
+        </activity>
         
         <activity
             android:name="com.sxit.activity.main.StockNews_Activity"

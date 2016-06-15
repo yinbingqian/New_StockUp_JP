@@ -32,7 +32,7 @@
                 android:layout_below="@+id/expert_headpic" 
                 android:background="@drawable/buttonstyle"
                 android:textColor="@color/deep_yellow"
-            android:textSize="14dp"
+                android:textSize="14dp"
                 android:text="关注ta"/>
         </RelativeLayout>
 
@@ -107,7 +107,7 @@
                 android:layout_below="@+id/expert_content"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="解答33333个网友提问"
+                android:text="解答333个网友提问"
                 android:textColor="@color/deep_yellow"
                 android:textSize="13dp" />
 <TextView
@@ -118,10 +118,10 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="15dp"
             android:gravity="center"
-            android:text="11人正在看"
+            android:text="Cc直播"
             android:textStyle="italic"
-            android:textColor="#cccccc"
-            android:textSize="13dp" />
+            android:textColor="@color/yellow"
+            android:textSize="14dp" />
             </RelativeLayout>
 
     </LinearLayout>

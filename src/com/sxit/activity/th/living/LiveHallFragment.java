@@ -186,18 +186,26 @@ public class LiveHallFragment extends Fragment {
 						JSONObject json_nowliving = (JSONObject) livingdetail_array.get(i);
 						LivingDetail livingdetail = new LivingDetail();
 						livingdetail.setAnswerCount(json_nowliving.get("AnswerCount").toString());
+						livingdetail.setAttention(json_nowliving.get("Attention").toString());
+						livingdetail.setCcEndTime(json_nowliving.get("CcEndTime").toString());
+						livingdetail.setCcStartTime(json_nowliving.get("CcStartTime").toString());
+						livingdetail.setCclive(json_nowliving.get("Cclive").toString());
+						livingdetail.setCcroomid(json_nowliving.get("Ccroomid").toString());
+						livingdetail.setCourseType(json_nowliving.get("CourseType").toString());
 
 						date_str = json_nowliving.get("CrtimeStr").toString();
 						livingdetail.setCrtimeStr(date_str);
 
-						livingdetail.setDealAdvise(json_nowliving.get("DealAdvise").toString());
-
+						advice_str = json_nowliving.get("DealAdvise").toString();
+						livingdetail.setDealAdvise(advice_str);
+						
 						control_str = json_nowliving.get("DealControl").toString();
 						livingdetail.setDealControl(control_str);
 
 						operate_str = json_nowliving.get("DealOperate").toString();
 						livingdetail.setDealOperate(operate_str);
 
+						livingdetail.setDescribeCc(json_nowliving.get("DescribeCc").toString());
 						livingdetail.setHotlive(json_nowliving.get("Hotlive").toString());
 						livingdetail.setId(json_nowliving.get("Id").toString());
 						livingdetail.setLaud(json_nowliving.get("Laud").toString());
@@ -206,11 +214,7 @@ public class LiveHallFragment extends Fragment {
 						livingdetail.setLiveUserId(json_nowliving.get("LiveUserId").toString());
 						livingdetail.setLiveUserName(json_nowliving.get("LiveUserName").toString());
 						livingdetail.setLivings(json_nowliving.get("Livings").toString());
-
-//						advice_str = json_nowliving.get("DescribeCc").toString();
-						advice_str = json_nowliving.get("DealAdvise").toString();
-						livingdetail.setDescribeCc(advice_str);
-
+						livingdetail.setNameCc(json_nowliving.get("NameCc").toString());
 						livingdetail.setToplive(json_nowliving.get("Toplive").toString());
 						livingdetail.setUserHeadpic(json_nowliving.get("UserHeadpic").toString());
 						livingdetail.setUserResume(json_nowliving.get("UserResume").toString());
@@ -241,6 +245,10 @@ public class LiveHallFragment extends Fragment {
 									"Pic").toString());
 							livehall.setPicThumbnail(json_qapic.get(
 									"Thumbnail").toString());
+							livehall.setRealName(json_qapic.get(
+									"RealName").toString());
+							livehall.setTitle(json_qapic.get(
+									"Title").toString());
 							
 						}
 						

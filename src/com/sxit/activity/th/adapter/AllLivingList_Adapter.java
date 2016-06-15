@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.sxit.activity.login.Login_Activity;
 import com.sxit.activity.th.adapter.NowLivingList_Adapter.ButtonListener;
+import com.sxit.activity.th.living.CcliveActivity;
 import com.sxit.entity.living.AllLiving;
 import com.sxit.http.ISoapService;
 import com.sxit.http.SoapService;
@@ -14,6 +15,8 @@ import com.umeng.message.tag.TagManager.Result;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +39,9 @@ public class AllLivingList_Adapter extends BaseAdapter {
 	String LiveUserId = "";
 	String UserId = "";
 	String type = "";
-
+	String Cclive = "";
+	String Id = "";
+	String UserPic = "";
 	private PushAgent mPushAgent;
 	
 	public ISoapService soapService = new SoapService();
@@ -121,7 +126,19 @@ public class AllLivingList_Adapter extends BaseAdapter {
 		viewHolder.intro.setText(list.get(position).getUserResume());
 		viewHolder.livecount.setText("解答" +list.get(position).getLiveCount() + "个网友提问");
 		viewHolder.rewardmark.setText("赞：" +list.get(position).getLaud());
-		viewHolder.watching_text.setText(list.get(position).getLiveCount() + "在看");
+
+		Cclive = list.get(position).getCclive();
+       if(Cclive.equals("1")){
+			
+			viewHolder.watching_text.setText("Cc直播");
+//			viewHolder.watching_text.setClickable(true);
+		}else{
+
+			viewHolder.watching_text.setText("");
+//			viewHolder.watching_text.setClickable(false);
+		}
+//       viewHolder.watching_text.setOnClickListener(new ButtonListener(position,  LiveUserId,
+//				UserId,type, viewHolder.watching_text));		
 		
 		if(list.get(position).getLivings().equals("0")){
 			viewHolder.living_tv.setVisibility(8);
@@ -150,6 +167,26 @@ public class AllLivingList_Adapter extends BaseAdapter {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
+			
+//			switch (v.getId()) {
+//			case R.id.watching_text:
+//				
+//				Id = list.get(position).getLiveUserId();
+//				UserPic = list.get(position).getUserHeadpic();
+//				 SharedPreferences sp = context.getSharedPreferences("live",Context.MODE_PRIVATE); // 私有数据 category是新建的表名
+//				    Editor editor = sp.edit();// 获取编辑器
+//				    editor.putString("Id", Id);
+//				    editor.putString("UserPic", UserPic);
+//				    editor.commit();
+//				    
+//				Intent intent = new Intent();
+//				intent.setClass(context, CcliveActivity.class);
+//				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+//				context.startActivity(intent);
+//				
+//				break;
+//	       case R.id.attention_tv:
+				
 			if(UserId.equals("")){
 				Toast.makeText(context, "请先登录", Toast.LENGTH_SHORT).show();
 				Intent intent_login = new Intent();
@@ -221,7 +258,13 @@ public class AllLivingList_Adapter extends BaseAdapter {
     			}
             }
 			String[] property_vas = new String[] {LiveUserId, UserId ,type };
-			soapService.getAttentionLiveUser(property_vas);		
+			soapService.getAttentionLiveUser(property_vas);	
+
+//			break;
+//			
+//	       default:
+//				break;
+//			}	
 		}
 		
 	}

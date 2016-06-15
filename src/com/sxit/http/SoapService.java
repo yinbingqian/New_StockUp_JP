@@ -2112,9 +2112,16 @@ public class SoapService implements ISoapService {
 						nowliving.setAnswerCount(json_nowliving.get("AnswerCount").toString());
 						nowliving.setAttention(json_nowliving.get("Attention").toString());
 						nowliving.setCrtimeStr(json_nowliving.get("CrtimeStr").toString());
+						nowliving.setCcEndTime(json_nowliving.get("CcEndTime").toString());
+						nowliving.setCcStartTime(json_nowliving.get("CcStartTime").toString());
+						nowliving.setCclive(json_nowliving.get("Cclive").toString());
+						nowliving.setCcroomid(json_nowliving.get("Ccroomid").toString());
+						nowliving.setCourseType(json_nowliving.get("CourseType").toString());
+						nowliving.setCrtimeStr(json_nowliving.get("CrtimeStr").toString());
 						nowliving.setDealAdvise(json_nowliving.get("DealAdvise").toString());
 						nowliving.setDealControl(json_nowliving.get("DealControl").toString());
 						nowliving.setDealOperate(json_nowliving.get("DealOperate").toString());
+						nowliving.setDescribeCc(json_nowliving.get("DescribeCc").toString());
 						nowliving.setHotlive(json_nowliving.get("Hotlive").toString());
 						nowliving.setId(json_nowliving.get("Id").toString());
 						nowliving.setLaud(json_nowliving.get("Laud").toString());
@@ -2123,7 +2130,7 @@ public class SoapService implements ISoapService {
 						nowliving.setLiveUserId(json_nowliving.get("LiveUserId").toString());
 						nowliving.setLiveUserName(json_nowliving.get("LiveUserName").toString());
 						nowliving.setLivings(json_nowliving.get("Livings").toString());
-						nowliving.setDescribeCc(json_nowliving.get("DescribeCc").toString());
+						nowliving.setNameCc(json_nowliving.get("NameCc").toString());
 						nowliving.setToplive(json_nowliving.get("Toplive").toString());
 						nowliving.setUserHeadpic(json_nowliving.get("UserHeadpic").toString());
 						nowliving.setUserResume(json_nowliving.get("UserResume").toString());
@@ -2172,9 +2179,16 @@ public class SoapService implements ISoapService {
 						nowliving.setAnswerCount(json_nowliving.get("AnswerCount").toString());
 						nowliving.setAttention(json_nowliving.get("Attention").toString());
 						nowliving.setCrtimeStr(json_nowliving.get("CrtimeStr").toString());
+						nowliving.setCcEndTime(json_nowliving.get("CcEndTime").toString());
+						nowliving.setCcStartTime(json_nowliving.get("CcStartTime").toString());
+						nowliving.setCclive(json_nowliving.get("Cclive").toString());
+						nowliving.setCcroomid(json_nowliving.get("Ccroomid").toString());
+						nowliving.setCourseType(json_nowliving.get("CourseType").toString());
+						nowliving.setCrtimeStr(json_nowliving.get("CrtimeStr").toString());
 						nowliving.setDealAdvise(json_nowliving.get("DealAdvise").toString());
 						nowliving.setDealControl(json_nowliving.get("DealControl").toString());
 						nowliving.setDealOperate(json_nowliving.get("DealOperate").toString());
+						nowliving.setDescribeCc(json_nowliving.get("DescribeCc").toString());
 						nowliving.setHotlive(json_nowliving.get("Hotlive").toString());
 						nowliving.setId(json_nowliving.get("Id").toString());
 						nowliving.setLaud(json_nowliving.get("Laud").toString());
@@ -2183,7 +2197,7 @@ public class SoapService implements ISoapService {
 						nowliving.setLiveUserId(json_nowliving.get("LiveUserId").toString());
 						nowliving.setLiveUserName(json_nowliving.get("LiveUserName").toString());
 						nowliving.setLivings(json_nowliving.get("Livings").toString());
-						nowliving.setDescribeCc(json_nowliving.get("DescribeCc").toString());
+						nowliving.setNameCc(json_nowliving.get("NameCc").toString());
 						nowliving.setToplive(json_nowliving.get("Toplive").toString());
 						nowliving.setUserHeadpic(json_nowliving.get("UserHeadpic").toString());
 						nowliving.setUserResume(json_nowliving.get("UserResume").toString());
@@ -2232,9 +2246,16 @@ public class SoapService implements ISoapService {
 						nowliving.setAnswerCount(json_nowliving.get("AnswerCount").toString());
 						nowliving.setAttention(json_nowliving.get("Attention").toString());
 						nowliving.setCrtimeStr(json_nowliving.get("CrtimeStr").toString());
+						nowliving.setCcEndTime(json_nowliving.get("CcEndTime").toString());
+						nowliving.setCcStartTime(json_nowliving.get("CcStartTime").toString());
+						nowliving.setCclive(json_nowliving.get("Cclive").toString());
+						nowliving.setCcroomid(json_nowliving.get("Ccroomid").toString());
+						nowliving.setCourseType(json_nowliving.get("CourseType").toString());
+						nowliving.setCrtimeStr(json_nowliving.get("CrtimeStr").toString());
 						nowliving.setDealAdvise(json_nowliving.get("DealAdvise").toString());
 						nowliving.setDealControl(json_nowliving.get("DealControl").toString());
 						nowliving.setDealOperate(json_nowliving.get("DealOperate").toString());
+						nowliving.setDescribeCc(json_nowliving.get("DescribeCc").toString());
 						nowliving.setHotlive(json_nowliving.get("Hotlive").toString());
 						nowliving.setId(json_nowliving.get("Id").toString());
 						nowliving.setLaud(json_nowliving.get("Laud").toString());
@@ -2243,7 +2264,7 @@ public class SoapService implements ISoapService {
 						nowliving.setLiveUserId(json_nowliving.get("LiveUserId").toString());
 						nowliving.setLiveUserName(json_nowliving.get("LiveUserName").toString());
 						nowliving.setLivings(json_nowliving.get("Livings").toString());
-						nowliving.setDescribeCc(json_nowliving.get("DescribeCc").toString());
+						nowliving.setNameCc(json_nowliving.get("NameCc").toString());
 						nowliving.setToplive(json_nowliving.get("Toplive").toString());
 						nowliving.setUserHeadpic(json_nowliving.get("UserHeadpic").toString());
 						nowliving.setUserResume(json_nowliving.get("UserResume").toString());
@@ -2663,7 +2684,7 @@ public class SoapService implements ISoapService {
 
 	@Override
 	public void getCcLivingInfoSingle(Object[] property_va) {
-		String[] property_nm = {};
+		String[] property_nm = {"userid"};
 		asynTaskBase.setMethod(SOAP_UTILS.METHOD.GETCCLIVINGINFOSINGLE);
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
