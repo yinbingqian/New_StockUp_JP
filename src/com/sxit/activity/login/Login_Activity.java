@@ -37,6 +37,8 @@ import com.umeng.message.tag.TagManager.Result;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
@@ -291,6 +293,13 @@ public class Login_Activity extends BaseActivity {
 					System.out.println("");
 					Utils.showTextToast(this, "登录成功");
 
+					SharedPreferences sp = getSharedPreferences("userinfo", Context.MODE_PRIVATE); // 私有数据
+					// category是新建的表名
+					Editor editor = sp.edit();// 获取编辑器
+					editor.putString("password", MD5Plus.stringToMD5(actv_password.getText().toString().trim()));
+					editor.putString("username", actv_username.getText().toString().trim());
+					editor.putString("realname", loginUser.getrealname());
+					editor.commit();
 					try {
 						// 解析attuser
 						String result = loginUser.getattuser().toString();
@@ -362,6 +371,13 @@ public class Login_Activity extends BaseActivity {
 				System.out.println("");
 				Utils.showTextToast(this, "登录成功");
 				// setResult(RESULT_OK);
+				SharedPreferences sp = getSharedPreferences("userinfo", Context.MODE_PRIVATE); // 私有数据
+				// category是新建的表名
+				Editor editor = sp.edit();// 获取编辑器
+				editor.putString("password", "1");
+				editor.putString("username", loginUser.getname());
+				editor.putString("realname", loginUser.getrealname());
+				editor.commit();
 
 				try {
 					// 解析attuser
@@ -487,7 +503,7 @@ public class Login_Activity extends BaseActivity {
 			String openid = (String) params[1];
 
 			String url = "https://graph.qq.com/user/get_user_info?access_token=" + access_token + "&oauth_consumer_key="
-					+ "100424468" + "&openid=" + openid;
+					+ "1103959364" + "&openid=" + openid;
 			HttpGet httpGet = new HttpGet(url);
 			HttpClient httpClient = new DefaultHttpClient();
 			// 发送请求

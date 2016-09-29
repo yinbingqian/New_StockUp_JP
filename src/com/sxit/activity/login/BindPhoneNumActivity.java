@@ -16,6 +16,8 @@ import com.umeng.message.tag.TagManager.Result;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -168,6 +170,14 @@ public class BindPhoneNumActivity extends BaseActivity implements OnClickListene
 					dbh.clearUserInfoData();
 					dbh.insUserInfo(userInfo);
 					Utils.showTextToast(context, "手机号绑定成功！");
+
+					SharedPreferences sp = getSharedPreferences("userinfo", Context.MODE_PRIVATE); // 私有数据
+					// category是新建的表名
+					Editor editor = sp.edit();// 获取编辑器
+					editor.putString("password", "1");
+					editor.putString("username", userInfo.getname());
+					editor.putString("realname", userInfo.getrealname());
+					editor.commit();
 
 					try {
 						// 解析attuser

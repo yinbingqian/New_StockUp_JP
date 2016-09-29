@@ -58,6 +58,7 @@ public class HotLivingFragment extends Fragment {
 	String Id = "";
 	String UserPic = "";
 	String UserId = "";
+	String Cclive = "";
 	public HotLivingFragment() {
 		super();
 	}
@@ -88,8 +89,8 @@ public class HotLivingFragment extends Fragment {
 		expertView = inflater.inflate(R.layout.fragment_hotliving, container, false);
 //		initDB();
 		initView();
-		setListeners();
 		initData();
+		setListeners();
 		return expertView;
 	}
 
@@ -126,10 +127,12 @@ public class HotLivingFragment extends Fragment {
 
 				Id = hotlivingList.get(position - 1).getLiveUserId();
 				UserPic = hotlivingList.get(position - 1).getUserHeadpic();
+				Cclive = hotlivingList.get(position - 1).getCclive();
 				 SharedPreferences sp = getActivity().getSharedPreferences("live",Context.MODE_PRIVATE); // 私有数据 category是新建的表名
 				    Editor editor = sp.edit();// 获取编辑器
 				    editor.putString("Id", Id);
 				    editor.putString("UserPic", UserPic);
+				    editor.putString("Cclive", Cclive);
 				    editor.commit();
 
 
@@ -139,7 +142,7 @@ public class HotLivingFragment extends Fragment {
 				intent.setClass(context, NowLivingDetails_Activity.class);
 				startActivity(intent);
 			}else if(hotlivingList.get(position - 1).getLivings().equals("0") && !hotlivingList.get(position - 1).getCclive().equals("1")){
-						Toast.makeText(context, "直播未开启", Toast.LENGTH_SHORT).show();
+						Toast.makeText(context, "直播暂时没有开启！", Toast.LENGTH_SHORT).show();
 		   }else if(hotlivingList.get(position - 1).getLivings().equals("0") && hotlivingList.get(position - 1).getCclive().equals("1")){
 			   Intent intent = new Intent();
 				intent.setClass(context, CcliveActivity.class);

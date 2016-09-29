@@ -2,10 +2,8 @@ package com.sxit.activity.qanda;
 
 import java.util.ArrayList;
 
-import com.sxit.activity.discuss.Discuss_Activity;
-import com.sxit.activity.discuss.Discuss_Edit_Activity;
 import com.sxit.activity.login.Login_Activity;
-import com.sxit.activity.smarter.custom.TabSwipPager;
+import com.sxit.activity.qanda.custom.TabSwipPager;
 import com.sxit.db.DBHelper;
 
 import android.content.Context;

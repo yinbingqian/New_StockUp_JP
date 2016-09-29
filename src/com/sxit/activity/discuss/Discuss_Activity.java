@@ -19,6 +19,7 @@ import com.sxit.utils.ShareTool;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -40,10 +41,12 @@ public class Discuss_Activity extends BaseActivity {
 	private int pageIndex = 1;
 
 	private DiscussItemAdapter adapter;
-	
+
 	ImageView img_share;
+	private long exitTime;
 
 	private ArrayList<DiscussItem> itemEntities;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -57,33 +60,35 @@ public class Discuss_Activity extends BaseActivity {
 	}
 
 	private void initData() {
-		String[] property_va = new String[] {"10", pageIndex + ""};
+		String[] property_va = new String[] { "10", pageIndex + "" };
 		soapService.getDiscussionList(property_va, false);
 	}
 
 	private void initView() {
 		listView_newslist = (PullToRefreshListView) findViewById(R.id.listView_newslist);
 		listView = listView_newslist.getRefreshableView();
-		
+
 		img_share = (ImageView) this.findViewById(R.id.img_share);
 	}
 
 	private void setListeners() {
 		img_share.setOnClickListener(this);
-//		listView_newslist.setOnItemClickListener(new OnItemClickListener() {
-//
-//			@Override
-//			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//				System.out.println("Click News");
-//				Toast.makeText(context, itemEntities.get(position-1).getCrtime(), Toast.LENGTH_SHORT).show();
-//			}
-//		});
+		// listView_newslist.setOnItemClickListener(new OnItemClickListener() {
+		//
+		// @Override
+		// public void onItemClick(AdapterView<?> parent, View view, int
+		// position, long id) {
+		// System.out.println("Click News");
+		// Toast.makeText(context, itemEntities.get(position-1).getCrtime(),
+		// Toast.LENGTH_SHORT).show();
+		// }
+		// });
 		listView_newslist.setOnRefreshListener(new OnRefreshListener<ListView>() {
 
 			@Override
 			public void onRefresh(PullToRefreshBase<ListView> refreshView) {
 				pageIndex = 1;
-				String[] property_va = new String[] {"10", pageIndex + ""};
+				String[] property_va = new String[] { "10", pageIndex + "" };
 				soapService.getDiscussionList(property_va, false);
 			}
 		});
@@ -106,11 +111,11 @@ public class Discuss_Activity extends BaseActivity {
 		switch (v.getId()) {
 		case R.id.img_share:
 			DBHelper dbh = new DBHelper(this);
-			if(dbh.queryUserInfo().size()>0){
+			if (dbh.queryUserInfo().size() > 0) {
 				Intent intent = new Intent();
 				intent.setClass(context, Discuss_Edit_Activity.class);
 				startActivity(intent);
-			}else{
+			} else {
 				Intent intent_login = new Intent();
 				intent_login.setClass(Discuss_Activity.this, Login_Activity.class);
 				startActivity(intent_login);
@@ -120,25 +125,46 @@ public class Discuss_Activity extends BaseActivity {
 			break;
 		}
 	}
-	
+
 	public void onEvent(SoapRes obj) {
 		super.onEvent(obj);
 		if (obj.getCode().equals(SOAP_UTILS.METHOD.GETDISCUSSIONLIST)) {
 			listView_newslist.onRefreshComplete();
-			if(obj.isPage()){
+			if (obj.isPage()) {
 				for (DiscussItem bean : (List<DiscussItem>) obj.getObj()) {
 					itemEntities.add(bean);
 				}
 				adapter.notifyDataSetChanged();
-			}else{				
-				itemEntities = (ArrayList<DiscussItem>)obj.getObj();
-				if(itemEntities.size()!=0){					
+			} else {
+				itemEntities = (ArrayList<DiscussItem>) obj.getObj();
+				if (itemEntities.size() != 0) {
 					pageIndex = 1;
 					adapter = new DiscussItemAdapter(this, itemEntities);
 					listView.setAdapter(adapter);
+				}else{
+					itemEntities.clear();
+					adapter = new DiscussItemAdapter(this, itemEntities);
+					listView.setAdapter(adapter);
+//					adapter.notifyDataSetChanged();
 				}
 			}
 		}
 	}
-	
+
+	/** 监听返回键 */
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+			if ((System.currentTimeMillis() - exitTime) > 2000) {
+				Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+				exitTime = System.currentTimeMillis();
+			} else {
+				finish();
+				System.exit(0);
+			}
+			return true;
+		}
+
+		return super.onKeyDown(keyCode, event);
+	}
 }

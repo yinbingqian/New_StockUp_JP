@@ -32,8 +32,8 @@ import android.os.Bundle;
  */
 public class WXEntryActivity extends WXCallbackActivity implements IWXAPIEventHandler {
 	private IWXAPI api;
-	public static final String APP_id = "wx84b8e5819e8cab1d";
-	public static final String AppSecret = "1d3a184d961e2b9dcb2d3c937923a24b";
+	public static final String APP_id = "wxa6a1e1a913983f44";
+	public static final String AppSecret = "325cb1e0c0b29501669ced397f8d6f1b";
 	// public static final String AppSecret =
 	// "300346ca58ed3910162f3edf448302e0";
 	public static BaseResp mResp = null;
@@ -149,7 +149,8 @@ public class WXEntryActivity extends WXCallbackActivity implements IWXAPIEventHa
 			String scope = (String) params[4];
 			String unionid = (String) params[5];
 
-			String url = "https://api.weixin.qq.com/sns/userinfo?access_token=" + access_token + "&openid=" + openid;
+			String url = "https://api.weixin.qq.com/sns/userinfo?access_token=" + access_token + "&unionid=" + unionid;
+//			String url = "https://api.weixin.qq.com/sns/userinfo?access_token=" + access_token + "&openid=" + openid;
 			HttpGet httpGet = new HttpGet(url);
 			HttpClient httpClient = new DefaultHttpClient();
 			// 发送请求
@@ -180,8 +181,10 @@ public class WXEntryActivity extends WXCallbackActivity implements IWXAPIEventHa
 				String unionid = token_json.getString("unionid");
 
 
-				Object[] property_va = { openid, nickname };
+				Object[] property_va = { unionid, nickname };
 				soapService.oneKeyLogin(property_va, headimgurl);
+//				Object[] property_va = { openid, nickname };
+//				soapService.oneKeyLogin(property_va, headimgurl);
 				finish();
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block

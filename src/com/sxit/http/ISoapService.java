@@ -44,28 +44,28 @@ public interface ISoapService extends IASoapService {
 	 * @param property_va
 	 */
 	void getListLive(Object[] property_va, boolean isPage);
-	
+
 	/**
 	 * 用户登录
 	 * 
 	 * @param property_va
 	 */
 	void userInfoLogin(Object[] property_va);
-	
+
 	/**
 	 * 用户更新
 	 * 
 	 * @param property_va
 	 */
 	void userInfoById(Object[] property_va, String headpic);
-	
+
 	/**
 	 * 多空刷新初始化
 	 * 
 	 * @param property_va
 	 */
 	void getDuelVote(Object[] property_va);
-	
+
 	/**
 	 * 多空刷新初始化
 	 * 
@@ -79,14 +79,14 @@ public interface ISoapService extends IASoapService {
 	 * @param property_va
 	 */
 	void duelVote(Object[] property_va);
-	
+
 	/**
 	 * 多空刷新初始化
 	 * 
 	 * @param property_va
 	 */
 	void viewPointSupport(Object[] property_va, int position);
-	
+
 	/**
 	 * 多空刷新初始化
 	 * 
@@ -100,14 +100,14 @@ public interface ISoapService extends IASoapService {
 	 * @param property_va
 	 */
 	void userRegistered(Object[] property_va);
-	
+
 	/**
 	 * 多空刷新初始化
 	 * 
 	 * @param property_va
 	 */
 	void viewPointAdd(Object[] property_va);
-	
+
 	/**
 	 * 多空刷新初始化
 	 * 
@@ -142,6 +142,7 @@ public interface ISoapService extends IASoapService {
 	 * @param property_va
 	 */
 	void getGuestTeam(Object[] property_va, boolean isPage);
+
 	/**
 	 * 鑾峰彇鍢夊璇︽儏
 	 * 
@@ -155,54 +156,63 @@ public interface ISoapService extends IASoapService {
 	 * @param property_va
 	 */
 	void getExpertTeam(Object[] property_va, boolean isPage);
+
 	/**
 	 * 鑾峰彇杈句汉璇︽儏
 	 * 
 	 * @param property_va
 	 */
 	void getExpertDetail(Object[] property_va, boolean isPage);
+
 	/**
 	 * 讨论组列表
 	 * 
 	 * @param property_va
 	 */
 	void getDiscussionList(Object[] property_va, boolean isPage);
+
 	/**
 	 * 讨论组列表
 	 * 
 	 * @param property_va
 	 */
 	void getMyDiscussionList(Object[] property_va, boolean isPage);
+
 	/**
 	 * 讨论组列表
 	 * 
 	 * @param property_va
 	 */
 	void getDiscussionColumn(Object[] property_va);
+
 	/**
 	 * 讨论组列表
 	 * 
 	 * @param property_va
 	 */
 	void getQuestionColumn(Object[] property_va);
+
 	/**
 	 * 讨论组发帖
 	 * 
 	 * @param property_va
 	 */
 	void discussionSubmit(Object[] property_va);
+
 	/**
 	 * 讨论组发帖
 	 * 
 	 * @param property_va
 	 */
 	void questionSubmit(Object[] property_va);
+
 	/**
 	 * 讨论组发帖
 	 * 
 	 * @param property_va
 	 */
 	void answerSubmit(Object[] property_va);
+
 	/**
 	 * 鑾峰彇瑙ｇ瓟鍒楄〃
 	 * 
@@ -225,6 +235,7 @@ public interface ISoapService extends IASoapService {
 	 */
 
 	void getQuestionDetail(Object[] property_va, boolean isPage);
+
 	/**
 	 * 采纳解答
 	 * 
@@ -232,13 +243,13 @@ public interface ISoapService extends IASoapService {
 	 */
 
 	void setAnswerUseful(Object[] property_va);
-	
+
 	/**
 	 * 获取论坛回复
 	 * 
 	 * @param property_va
 	 */
-	
+
 	void getDiscussionReply(Object[] property_va, boolean isPage);
 
 	/**
@@ -246,25 +257,25 @@ public interface ISoapService extends IASoapService {
 	 * 
 	 * @param property_va
 	 */
-	
+
 	void discussionUserSupport(Object[] property_va, boolean isUp);
-	
+
 	/**
 	 * 回复楼主
 	 * 
 	 * @param property_va
 	 */
-	
+
 	void discussionReplyHost(Object[] property_va);
-	
+
 	/**
 	 * 回复其他楼
 	 * 
 	 * @param property_va
 	 */
-	
+
 	void discussionReplyOther(Object[] property_va);
-	
+
 	/**
 	 * 我的解答已采纳
 	 * 
@@ -286,11 +297,7 @@ public interface ISoapService extends IASoapService {
 	 */
 
 	void getMyAnswerDetail(Object[] property_va, boolean isPage);
-	
-	
-	
-	
-	
+
 	/**
 	 * 分析师登陆信息--用户名|密码
 	 * 
@@ -525,76 +532,83 @@ public interface ISoapService extends IASoapService {
 	 * @param property_va
 	 */
 	void userExpertDetailChanged(Object[] property_va, boolean isPage);
-	
 
 	/**
-	 *wap页评论列表
+	 * wap页评论列表
 	 * 
 	 * @param property_va
 	 */
 	void getNewsComment(Object[] property_va, boolean isPage);
-	
+
 	/**
-	 *正在直播
+	 * 正在直播
 	 * 
 	 * @param property_va
 	 */
 	void getLiving(Object[] property_va, boolean isPage);
-	
+
 	/**
-	 *全部直播
+	 * 全部直播
 	 * 
 	 * @param property_va
 	 */
 	void getLivingALl(Object[] property_va, boolean isPage);
+
 	/**
-	 *热门直播
+	 * 热门直播
 	 * 
 	 * @param property_va
 	 */
 	void getLivingHot(Object[] property_va, boolean isPage);
-	
+
 	/**
-	 *正在直播详情
+	 * 正在直播详情
 	 * 
 	 * @param property_va
 	 */
 	void getLivingDetail(Object[] property_va, boolean isPage);
-	
+
 	/**
-	 *互动问答
+	 * 互动问答
 	 * 
 	 * @param property_va
 	 */
 	void getInteractQA(Object[] property_va, boolean isPage);
-	
+
 	/**
-	 *直播关注状态
+	 * 直播关注状态
 	 * 
 	 * @param property_va
 	 */
 	void getAttentionLiveUser(Object[] property_va);
-	
+
 	/**
-	 *直播大厅轮巡
+	 * 直播大厅轮巡
 	 * 
 	 * @param property_va
 	 */
 	void getLivingUpdate(Object[] property_va, boolean isPage);
-	
+
 	/**
-	 *直播大厅轮巡
+	 * 直播大厅轮巡
 	 * 
 	 * @param property_va
 	 */
 	void updateImei(Object[] property_va);
-	
+
 	/**
-	 *直播大厅轮巡
+	 * 直播大厅轮巡
 	 * 
 	 * @param property_va
 	 */
 	void userInfoLoginUpdateImei(Object[] property_va);
+
+	/**
+	 * 获取课程表
+	 * 
+	 * @param property_va
+	 */
+	void getCcLivingInfoSingle(Object[] property_va, boolean isPage);
 
 	/**
 	 * 绑定手机号
@@ -609,19 +623,11 @@ public interface ISoapService extends IASoapService {
 	 * @param property_va
 	 */
 	void codeVerify(Object[] property_va);
-	
+
 	/**
 	 * 忘记密码中重置密码
 	 * 
 	 * @param property_va
 	 */
 	void userPasswordFind(Object[] property_va);
-	
-	/**
-	 * 获取cc视频信息 --分析师ID
-	 * 
-	 * @param property_va
-	 */
-	void getCcLivingInfoSingle(Object[] property_va);
-	
 }

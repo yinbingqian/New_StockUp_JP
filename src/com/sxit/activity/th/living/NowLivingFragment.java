@@ -70,6 +70,7 @@ public class NowLivingFragment extends Fragment {
 	String Id = "";
 	String UserPic = "";
 	String UserId = "";
+	String Cclive = "";
 
 	public NowLivingFragment() {
 		super();
@@ -92,17 +93,16 @@ public class NowLivingFragment extends Fragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		System.out.println("onCreateView");
 
 		context = this.getActivity().getApplicationContext();
 
 		expertView = inflater.inflate(R.layout.fragment_nowliving, container, false);
-//		initDB();
+		// initDB();
 		initView();
-		setListeners();
 		initData();
+		setListeners();
 		return expertView;
 	}
 
@@ -112,102 +112,96 @@ public class NowLivingFragment extends Fragment {
 
 	private void initData() {
 		dbh = new DBHelper(context);
-		if(dbh.queryUserInfo().size()>0){
+		if (dbh.queryUserInfo().size() > 0) {
 			UserId = dbh.queryUserInfo().get(0).getid();
-			String[] property_va = new String[] {"10", pageIndex + "" , UserId};
+			String[] property_va = new String[] { "10", pageIndex + "", UserId };
 			soapService.getLiving(property_va, false);
-		}else{
-			String[] property_vas = new String[] {"10", pageIndex + "","0" };
+		} else {
+			String[] property_vas = new String[] { "10", pageIndex + "", "0" };
 			soapService.getLiving(property_vas, false);
 		}
-	
+
 	}
 
 	private void initView() {
-		listView_nowlivinglist = (PullToRefreshListView) expertView
-				.findViewById(R.id.listView_nowlivinglist);
+		listView_nowlivinglist = (PullToRefreshListView) expertView.findViewById(R.id.listView_nowlivinglist);
 		nowListView = listView_nowlivinglist.getRefreshableView();
-	
+
 	}
 
 	private void setListeners() {
-		
+
 		listView_nowlivinglist.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
 				Id = nowLivingList.get(position - 1).getLiveUserId();
 				UserPic = nowLivingList.get(position - 1).getUserHeadpic();
-				 SharedPreferences sp = getActivity().getSharedPreferences("live",Context.MODE_PRIVATE); // 私有数据 category是新建的表名
-				    Editor editor = sp.edit();// 获取编辑器
-				    editor.putString("Id", Id);
-				    editor.putString("UserPic", UserPic);
-				    editor.commit();
-				
-			if(!nowLivingList.get(position - 1).getLivings().equals("0")){
-				Intent intent = new Intent();
-				intent.putExtra("LiveUserName", nowLivingList.get(position - 1).getLiveUserName());
-				intent.setClass(context, NowLivingDetails_Activity.class);
-				startActivity(intent);
-		   }else if(nowLivingList.get(position - 1).getLivings().equals("0") && !nowLivingList.get(position - 1).getCclive().equals("1")){
-						Toast.makeText(context, "直播未开启", Toast.LENGTH_SHORT).show();
-		   }else if(nowLivingList.get(position - 1).getLivings().equals("0") && nowLivingList.get(position - 1).getCclive().equals("1")){
-			   Intent intent = new Intent();
-				intent.setClass(context, CcliveActivity.class);
-				startActivity(intent);
+				Cclive = nowLivingList.get(position - 1).getCclive();
+				SharedPreferences sp = getActivity().getSharedPreferences("live", Context.MODE_PRIVATE); // 私有数据
+																											// category是新建的表名
+				Editor editor = sp.edit();// 获取编辑器
+				editor.putString("Id", Id);
+				editor.putString("UserPic", UserPic);
+				editor.putString("Cclive", Cclive);
+				editor.commit();
+
+				if (!nowLivingList.get(position - 1).getLivings().equals("0")) {
+					Intent intent = new Intent();
+					intent.putExtra("LiveUserName", nowLivingList.get(position - 1).getLiveUserName());
+					intent.setClass(context, NowLivingDetails_Activity.class);
+					startActivity(intent);
+				} else if (nowLivingList.get(position - 1).getLivings().equals("0")
+						&& !nowLivingList.get(position - 1).getCclive().equals("1")) {
+					Toast.makeText(context, "直播暂时没有开启！", Toast.LENGTH_SHORT).show();
+				} else if (nowLivingList.get(position - 1).getLivings().equals("0")
+						&& nowLivingList.get(position - 1).getCclive().equals("1")) {
+					Intent intent = new Intent();
+					intent.setClass(context, CcliveActivity.class);
+					startActivity(intent);
 				}
 			}
 		});
-		listView_nowlivinglist
-				.setOnRefreshListener(new OnRefreshListener<ListView>() {
+		listView_nowlivinglist.setOnRefreshListener(new OnRefreshListener<ListView>() {
 
-					@Override
-					public void onRefresh(
-							PullToRefreshBase<ListView> refreshView) {
-						pageIndex = 1;
-						dbh = new DBHelper(context);
-						if(dbh.queryUserInfo().size()>0){
-							UserId = dbh.queryUserInfo().get(0).getid();
-							String[] property_va = new String[] {"10",
-									pageIndex + ""  , UserId};
-							soapService.getLiving(property_va, false);
-						}else{
-							String[] property_va = new String[] {"10",
-									pageIndex + "","0" };
-							soapService.getLiving(property_va, false);
-						}
-					}
-				});
+			@Override
+			public void onRefresh(PullToRefreshBase<ListView> refreshView) {
+				pageIndex = 1;
+				dbh = new DBHelper(context);
+				if (dbh.queryUserInfo().size() > 0) {
+					UserId = dbh.queryUserInfo().get(0).getid();
+					String[] property_va = new String[] { "10", pageIndex + "", UserId };
+					soapService.getLiving(property_va, false);
+				} else {
+					String[] property_va = new String[] { "10", pageIndex + "", "0" };
+					soapService.getLiving(property_va, false);
+				}
+			}
+		});
 
 		// end of list
-		listView_nowlivinglist
-				.setOnLastItemVisibleListener(new OnLastItemVisibleListener() {
+		listView_nowlivinglist.setOnLastItemVisibleListener(new OnLastItemVisibleListener() {
 
-					@Override
-					public void onLastItemVisible() {
-						dbh = new DBHelper(context);
-						if(dbh.queryUserInfo().size()>0){
-							UserId = dbh.queryUserInfo().get(0).getid();
-							String[] property_va = new String[] {"10",
-									++pageIndex + ""  , UserId};
-							soapService.getLiving(property_va, true);
-						}else{
-							String[] property_va = new String[] {"10",
-									++pageIndex + "" ,"0"};
-							soapService.getLiving(property_va, true);
-						}
-						
-						
+			@Override
+			public void onLastItemVisible() {
+				dbh = new DBHelper(context);
+				if (dbh.queryUserInfo().size() > 0) {
+					UserId = dbh.queryUserInfo().get(0).getid();
+					String[] property_va = new String[] { "10", ++pageIndex + "", UserId };
+					soapService.getLiving(property_va, true);
+				} else {
+					String[] property_va = new String[] { "10", ++pageIndex + "", "0" };
+					soapService.getLiving(property_va, true);
+				}
 
-					}
-				});
+			}
+		});
 	}
 
 	private void getDBData() {
-//		nowLivingList = dbh.queryNowLiving();
-		nowLivingAdapter = new NowLivingList_Adapter(context, nowLivingList,UserId);
+		// nowLivingList = dbh.queryNowLiving();
+		nowLivingAdapter = new NowLivingList_Adapter(context, nowLivingList, UserId);
 		nowListView.setAdapter(nowLivingAdapter);
 
 	}
@@ -224,16 +218,18 @@ public class NowLivingFragment extends Fragment {
 				nowLivingList = (List<NowLiving>) obj.getObj();
 				getDBData();
 			}
-		}else if(obj.getCode().equals(SOAP_UTILS.METHOD.GETATTENTIONLIVEUSER)){
+		} else if (obj.getCode().equals(SOAP_UTILS.METHOD.GETATTENTIONLIVEUSER)) {
 			try {
-				JSONObject	json_obj = new JSONObject(obj.getObj().toString());
-			
-			if(json_obj.get("Result").toString().equals("sucess")){
-				
-				Toast.makeText(context, json_obj.get("Message").toString(), Toast.LENGTH_SHORT).show();
-			}else if(json_obj.get("Result").toString().equals("false")){
-//				Toast.makeText(context, json_obj.get("Message").toString(), Toast.LENGTH_SHORT).show();
-			}
+				JSONObject json_obj = new JSONObject(obj.getObj().toString());
+
+				if (json_obj.get("Result").toString().equals("sucess")) {
+
+					Toast.makeText(context, json_obj.get("Message").toString(), Toast.LENGTH_SHORT).show();
+				} else if (json_obj.get("Result").toString().equals("false")) {
+					// Toast.makeText(context,
+					// json_obj.get("Message").toString(),
+					// Toast.LENGTH_SHORT).show();
+				}
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -241,5 +237,4 @@ public class NowLivingFragment extends Fragment {
 		}
 	}
 
-	
 }

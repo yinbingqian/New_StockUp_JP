@@ -27,7 +27,7 @@
             android:layout_marginTop="@dimen/marging10"
             android:gravity="center"
             android:text="努力加载中..."
-            android:textColor="@color/blcak"
+            android:textColor="@color/black"
             android:textSize="@dimen/textsize28" />
     </LinearLayout>
 

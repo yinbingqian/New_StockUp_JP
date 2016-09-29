@@ -75,7 +75,7 @@
                     android:layout_marginLeft="@dimen/marging10"
                     android:layout_toRightOf="@id/img_icon"
                     android:text="王周俊"
-                    android:textColor="@color/blcak"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/textsize18"
                     android:textStyle="bold" />
 

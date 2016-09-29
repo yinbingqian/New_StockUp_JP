@@ -71,7 +71,7 @@
             android:layout_marginLeft="@dimen/marging10"
             android:layout_toRightOf="@id/img_icon"
             android:text="王周俊"
-            android:textColor="@color/blcak_grey" />
+            android:textColor="@color/black_grey" />
 
         <TextView
             android:id="@+id/tv_questionState"
@@ -118,7 +118,7 @@
         android:paddingBottom="24dp"
         android:paddingTop="8dp"
         android:text="海洋时代2商会上市股票发行是不是越多越好，发行多少才合适？我到底应该怎么做才好呢？请专家给一个稳妥的回答，我在此表示诚挚的感谢！"
-        android:textColor="@color/blcak_grey" />
+        android:textColor="@color/black_grey" />
         <AutoCompleteTextView
             android:id="@+id/actv_feedback"
             style="@style/login_edittext_style"

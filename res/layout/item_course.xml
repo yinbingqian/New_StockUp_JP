@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.9" >
+
+            <ImageView
+                android:id="@+id/course_headpic"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" >
+
+            <TextView
+                android:id="@+id/kksj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="开课时间"
+                android:textColor="@color/font_grey2"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/kkrq_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_alignBottom="@+id/kksj"
+                android:layout_toRightOf="@+id/kksj"
+                android:gravity="center"
+                android:text="5月18日"
+                android:textColor="@color/deep_yellow"
+                android:textSize="19dp" />
+
+            <TextView
+                android:id="@+id/kksj_text"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_alignBottom="@+id/kksj"
+                android:layout_toRightOf="@+id/kkrq_text"
+                android:gravity="center"
+                android:text="15:00-16:30"
+                android:textColor="@color/font_grey2"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btn_jinru"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/kksj"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="22dp"
+                android:background="@drawable/duel_send_bt"
+                android:text="进入课堂"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+            <Button
+                android:id="@+id/btn_wks"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/kksj"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/btn_gbg"
+                android:enabled="false"
+                android:text="未开始"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+            <Button
+                android:id="@+id/btn_yjs"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/kkrq_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/duel_gery_bt"
+                android:enabled="false"
+                android:text="已结束"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+            <Button
+                android:id="@+id/btn_djhf"
+                android:layout_width="120dp"
+                android:layout_height="36dp"
+                android:layout_below="@+id/btn_yjs"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/duel_gery_bt"
+                android:text="点击回放"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/mq_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_jinru"
+                android:layout_marginTop="20dp"
+                android:text="1898人"
+                android:textColor="@color/font_grey2"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/type_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/btn_jinru"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="14dp"
+                android:text="公开课"
+                android:textStyle="italic"
+                android:textColor="#bbbbbb"
+                android:textSize="19dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="12dp"
+        android:layout_marginTop="10dp"
+        android:background="#efefef" />
+
+</LinearLayout>

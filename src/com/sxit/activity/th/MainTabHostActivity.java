@@ -39,12 +39,13 @@ public class MainTabHostActivity extends TabHostAbstractActivity {
 
 		TabHostItem ask = new TabHostItem(getString(R.string.tabHost_thrid), R.drawable.tab_icon_3_u,
 				R.drawable.maintab_toolbar_bg, new Intent(this, Discuss_Activity.class));
-          Intent moreliving_intent = new Intent();
-          moreliving_intent.putExtra("friendpage", false);
-          moreliving_intent.setClass(this,MoreLiving_Activity.class);
+		Intent moreliving_intent = new Intent();
+		moreliving_intent.putExtra("friendpage", false);
+		moreliving_intent.setClass(this, MoreLiving_Activity.class);
 		TabHostItem myzone = new TabHostItem(getString(R.string.tabHost_fourth), R.drawable.tab_icon_4_u,
 				R.drawable.maintab_toolbar_bg, moreliving_intent);
-//		R.drawable.maintab_toolbar_bg, new Intent(this, QandA_Activity.class));
+		// R.drawable.maintab_toolbar_bg, new Intent(this,
+		// QandA_Activity.class));
 
 		mItems = new ArrayList<TabHostItem>();
 		mItems.add(info);
@@ -53,8 +54,8 @@ public class MainTabHostActivity extends TabHostAbstractActivity {
 		mItems.add(myzone);
 
 		// 设置分割线
-//		 TabWidget tabWidget = getTabWidget();
-//		 tabWidget.setDividerDrawable(R.drawable.tabhost_divider);
+		// TabWidget tabWidget = getTabWidget();
+		// tabWidget.setDividerDrawable(R.drawable.tabhost_divider);
 
 	}
 
@@ -63,7 +64,7 @@ public class MainTabHostActivity extends TabHostAbstractActivity {
 		super.onCreate(savedInstanceState);
 		MyApplication myApplication = MyApplication.getInstance();
 		myApplication.mainTabHostActivity = this;
-		
+
 		Intent intent = getIntent();
 		locationCur = intent.getIntExtra("locationCur", 0);
 		switch (locationCur) {
@@ -81,7 +82,6 @@ public class MainTabHostActivity extends TabHostAbstractActivity {
 		}
 	}
 
-	
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();

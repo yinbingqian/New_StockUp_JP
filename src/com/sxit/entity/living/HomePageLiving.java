@@ -5,10 +5,16 @@ import java.io.Serializable;
 public class HomePageLiving implements Serializable {
 	private String AnswerCount;
 	private String Attention;
+	private String CcEndTime;
+	private String CcStartTime;
+	private String Cclive;
+	private String Ccroomid;
+	private String CourseType;
 	private String CrtimeStr;
 	private String DealAdvise;
 	private String DealControl;
 	private String DealOperate;
+	private String DescribeCc;
 	private String Hotlive;
 	private String Id;
 	private String Laud;
@@ -17,7 +23,7 @@ public class HomePageLiving implements Serializable {
 	private String LiveUserId;
 	private String LiveUserName;
 	private String Livings;
-	private String DescribeCc;
+	private String NameCc;
 	private String Toplive;
 	private String UserHeadpic;
 	private String UserResume;
@@ -32,6 +38,36 @@ public class HomePageLiving implements Serializable {
 	}
 	public void setAttention(String attention) {
 		Attention = attention;
+	}
+	public String getCcEndTime() {
+		return CcEndTime;
+	}
+	public void setCcEndTime(String ccEndTime) {
+		CcEndTime = ccEndTime;
+	}
+	public String getCcStartTime() {
+		return CcStartTime;
+	}
+	public void setCcStartTime(String ccStartTime) {
+		CcStartTime = ccStartTime;
+	}
+	public String getCclive() {
+		return Cclive;
+	}
+	public void setCclive(String cclive) {
+		Cclive = cclive;
+	}
+	public String getCcroomid() {
+		return Ccroomid;
+	}
+	public void setCcroomid(String ccroomid) {
+		Ccroomid = ccroomid;
+	}
+	public String getCourseType() {
+		return CourseType;
+	}
+	public void setCourseType(String courseType) {
+		CourseType = courseType;
 	}
 	public String getCrtimeStr() {
 		return CrtimeStr;
@@ -56,6 +92,12 @@ public class HomePageLiving implements Serializable {
 	}
 	public void setDealOperate(String dealOperate) {
 		DealOperate = dealOperate;
+	}
+	public String getDescribeCc() {
+		return DescribeCc;
+	}
+	public void setDescribeCc(String describeCc) {
+		DescribeCc = describeCc;
 	}
 	public String getHotlive() {
 		return Hotlive;
@@ -105,11 +147,11 @@ public class HomePageLiving implements Serializable {
 	public void setLivings(String livings) {
 		Livings = livings;
 	}
-	public String getDescribeCc() {
-		return DescribeCc;
+	public String getNameCc() {
+		return NameCc;
 	}
-	public void setDescribeCc(String todayViewPoint) {
-		DescribeCc = todayViewPoint;
+	public void setNameCc(String nameCc) {
+		NameCc = nameCc;
 	}
 	public String getToplive() {
 		return Toplive;
@@ -129,6 +171,6 @@ public class HomePageLiving implements Serializable {
 	public void setUserResume(String userResume) {
 		UserResume = userResume;
 	}
-	
+
 	
 }

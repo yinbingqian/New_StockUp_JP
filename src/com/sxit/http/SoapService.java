@@ -17,6 +17,7 @@ import com.sxit.entity.discuss.DiscussItem;
 import com.sxit.entity.discuss.DiscussReply;
 import com.sxit.entity.discuss.DiscussTag;
 import com.sxit.entity.living.AllLiving;
+import com.sxit.entity.living.Course;
 import com.sxit.entity.living.HotLiving;
 import com.sxit.entity.living.NowLiving;
 import com.sxit.entity.living.QA;
@@ -968,7 +969,7 @@ public class SoapService implements ISoapService {
 
 	@Override
 	public void getGuestDetail(Object[] property_va, final boolean isPage) {
-		String[] property_nm = {"userid","pagesize","pageindex"};
+		String[] property_nm = { "userid", "pagesize", "pageindex" };
 		asynTaskBase.setMethod(SOAP_UTILS.METHOD.GETGUESTDETAIL);
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
@@ -1983,7 +1984,7 @@ public class SoapService implements ISoapService {
 
 	@Override
 	public void userExpertDetailChanged(Object[] property_va, final boolean isPage) {
-		String[] property_nm = {"userid","pagesize","pageindex"};
+		String[] property_nm = { "userid", "pagesize", "pageindex" };
 		asynTaskBase.setMethod(SOAP_UTILS.METHOD.USEREXPERTDETAILCHANGED);
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
@@ -2094,7 +2095,7 @@ public class SoapService implements ISoapService {
 
 	@Override
 	public void getLiving(Object[] property_va, final boolean isPage) {
-		String[] property_nm = { "UserId", "pagesize", "pageindex" };
+		String[] property_nm = { "pagesize", "pageindex", "UserId" };
 		asynTaskBase.setMethod(SOAP_UTILS.METHOD.GETLIVING);
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
@@ -2112,8 +2113,8 @@ public class SoapService implements ISoapService {
 						nowliving.setAnswerCount(json_nowliving.get("AnswerCount").toString());
 						nowliving.setAttention(json_nowliving.get("Attention").toString());
 						nowliving.setCrtimeStr(json_nowliving.get("CrtimeStr").toString());
-						nowliving.setCcEndTime(json_nowliving.get("CcEndTime").toString());
-						nowliving.setCcStartTime(json_nowliving.get("CcStartTime").toString());
+						// nowliving.setCcEndTime(json_nowliving.get("CcEndTime").toString());
+						// nowliving.setCcStartTime(json_nowliving.get("CcStartTime").toString());
 						nowliving.setCclive(json_nowliving.get("Cclive").toString());
 						nowliving.setCcroomid(json_nowliving.get("Ccroomid").toString());
 						nowliving.setCourseType(json_nowliving.get("CourseType").toString());
@@ -2161,7 +2162,7 @@ public class SoapService implements ISoapService {
 
 	@Override
 	public void getLivingALl(Object[] property_va, final boolean isPage) {
-		String[] property_nm = { "UserId", "pagesize", "pageindex" };
+		String[] property_nm = { "pagesize", "pageindex", "UserId" };
 		asynTaskBase.setMethod(SOAP_UTILS.METHOD.GETLIVINGALL);
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
@@ -2179,8 +2180,8 @@ public class SoapService implements ISoapService {
 						nowliving.setAnswerCount(json_nowliving.get("AnswerCount").toString());
 						nowliving.setAttention(json_nowliving.get("Attention").toString());
 						nowliving.setCrtimeStr(json_nowliving.get("CrtimeStr").toString());
-						nowliving.setCcEndTime(json_nowliving.get("CcEndTime").toString());
-						nowliving.setCcStartTime(json_nowliving.get("CcStartTime").toString());
+						// nowliving.setCcEndTime(json_nowliving.get("CcEndTime").toString());
+						// nowliving.setCcStartTime(json_nowliving.get("CcStartTime").toString());
 						nowliving.setCclive(json_nowliving.get("Cclive").toString());
 						nowliving.setCcroomid(json_nowliving.get("Ccroomid").toString());
 						nowliving.setCourseType(json_nowliving.get("CourseType").toString());
@@ -2228,7 +2229,7 @@ public class SoapService implements ISoapService {
 
 	@Override
 	public void getLivingHot(Object[] property_va, final boolean isPage) {
-		String[] property_nm = { "UserId", "pagesize", "pageindex" };
+		String[] property_nm = { "pagesize", "pageindex", "UserId" };
 		asynTaskBase.setMethod(SOAP_UTILS.METHOD.GETLIVINGHOT);
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
@@ -2246,8 +2247,8 @@ public class SoapService implements ISoapService {
 						nowliving.setAnswerCount(json_nowliving.get("AnswerCount").toString());
 						nowliving.setAttention(json_nowliving.get("Attention").toString());
 						nowliving.setCrtimeStr(json_nowliving.get("CrtimeStr").toString());
-						nowliving.setCcEndTime(json_nowliving.get("CcEndTime").toString());
-						nowliving.setCcStartTime(json_nowliving.get("CcStartTime").toString());
+						// nowliving.setCcEndTime(json_nowliving.get("CcEndTime").toString());
+						// nowliving.setCcStartTime(json_nowliving.get("CcStartTime").toString());
 						nowliving.setCclive(json_nowliving.get("Cclive").toString());
 						nowliving.setCcroomid(json_nowliving.get("Ccroomid").toString());
 						nowliving.setCourseType(json_nowliving.get("CourseType").toString());
@@ -2313,6 +2314,67 @@ public class SoapService implements ISoapService {
 			public void soapError() {
 				soapRes.setObj(null);
 				soapRes.setCode(SOAP_UTILS.METHOD.GETLIVINGDETAIL);
+				EventCache.commandActivity.post(soapRes);
+			}
+		});
+	}
+
+	@Override
+	public void getCcLivingInfoSingle(Object[] property_va, final boolean isPage) {
+		String[] property_nm = {};
+		asynTaskBase.setMethod(SOAP_UTILS.METHOD.GETCCLIVINGINFOSINGLE);
+		asynTaskBase.setProperty_nm(property_nm);
+		asynTaskBase.setProperty_va(property_va);
+		asynTaskBase.executeDo(new HttpObjectResult() {
+
+			@Override
+			public void soapResult(Object obj) {
+				// TODO Auto-generated method stub
+				try {
+					JSONArray jsonArray = new JSONArray(obj.toString());
+					List<Course> arrayList = new ArrayList<Course>();
+
+					for (int i = 0; i < jsonArray.length(); i++) {
+						JSONObject jsonObject = (JSONObject) jsonArray.get(i);
+						Course course = new Course();
+						course.setId(jsonObject.get("Id").toString());
+						course.setCcLiveTimetablesStatus(jsonObject.get("CcLiveTimetablesStatus").toString());
+						course.setCourseName(jsonObject.get("CourseName").toString());
+						course.setCourseType(jsonObject.get("CourseType").toString());
+						course.setDescribe(jsonObject.get("Describe").toString());
+						course.setEtime(jsonObject.get("Etime").toString());
+						course.setEtimeStr(jsonObject.get("EtimeStr").toString());
+						course.setLiveHeadPic(jsonObject.get("LiveHeadPic").toString());
+						course.setLiveRoomId(jsonObject.get("LiveRoomId").toString());
+						course.setLiveUserId(jsonObject.get("LiveUserId").toString());
+						course.setLiveUserName(jsonObject.get("LiveUserName").toString());
+						course.setMtime(jsonObject.get("Mtime").toString());
+						course.setMtimeStr(jsonObject.get("MtimeStr").toString());
+						course.setOnlineCount(jsonObject.get("OnlineCount").toString());
+						course.setStime(jsonObject.get("Stime").toString());
+						course.setStimeStr(jsonObject.get("StimeStr").toString());
+
+
+						arrayList.add(course);
+					}
+
+					soapRes.setObj(arrayList);
+					soapRes.setPage(isPage);
+					soapRes.setCode(SOAP_UTILS.METHOD.GETCCLIVINGINFOSINGLE);
+					EventCache.commandActivity.post(soapRes);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					soapRes.setObj(null);
+					soapRes.setCode(SOAP_UTILS.METHOD.GETCCLIVINGINFOSINGLE);
+					EventCache.commandActivity.post(soapRes);
+				}
+			}
+
+			@Override
+			public void soapError() {
+				soapRes.setObj(null);
+				soapRes.setCode(SOAP_UTILS.METHOD.GETCCLIVINGINFOSINGLE);
 				EventCache.commandActivity.post(soapRes);
 			}
 		});
@@ -2558,7 +2620,6 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
 
 	@Override
 	public void bindPhoneNum(Object[] property_va) {
@@ -2599,12 +2660,11 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
 
 	@Override
 	public void codeVerify(Object[] property_va) {
 		// TODO Auto-generated method stub
-		String[] property_nm = {"sim","code"};
+		String[] property_nm = { "sim", "code" };
 		asynTaskBase.setMethod(SOAP_UTILS.METHOD.CODEVERIFY);
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
@@ -2640,11 +2700,11 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
+
 	@Override
 	public void userPasswordFind(Object[] property_va) {
 		// TODO Auto-generated method stub
-		String[] property_nm = {"sim","pwd_new"};
+		String[] property_nm = { "sim", "pwd_new" };
 		asynTaskBase.setMethod(SOAP_UTILS.METHOD.USERPASSWORDFIND);
 		asynTaskBase.setProperty_nm(property_nm);
 		asynTaskBase.setProperty_va(property_va);
@@ -2657,9 +2717,9 @@ public class SoapService implements ISoapService {
 					JSONObject json_obj = new JSONObject(obj.toString());
 					String result = json_obj.get("Result").toString();
 					String message = json_obj.get("Message").toString();
-//					 if (result.equals("success")) {
-//					 message = "success";
-//					 }
+					// if (result.equals("success")) {
+					// message = "success";
+					// }
 					soapRes.setObj(json_obj);
 					soapRes.setCode(SOAP_UTILS.METHOD.USERPASSWORDFIND);
 					EventCache.commandActivity.post(soapRes);
@@ -2680,34 +2740,8 @@ public class SoapService implements ISoapService {
 			}
 		});
 	}
-	
 
-	@Override
-	public void getCcLivingInfoSingle(Object[] property_va) {
-		String[] property_nm = {"userid"};
-		asynTaskBase.setMethod(SOAP_UTILS.METHOD.GETCCLIVINGINFOSINGLE);
-		asynTaskBase.setProperty_nm(property_nm);
-		asynTaskBase.setProperty_va(property_va);
-		asynTaskBase.executeDo(new HttpObjectResult() {
 
-			@Override
-			public void soapResult(Object obj) {
-				// TODO Auto-generated method stub
-				soapRes.setObj(obj);
-				soapRes.setCode(SOAP_UTILS.METHOD.GETCCLIVINGINFOSINGLE);
-				EventCache.commandActivity.post(soapRes);
-			}
-
-			@Override
-			public void soapError() {
-				soapRes.setObj(null);
-				soapRes.setCode(SOAP_UTILS.METHOD.GETCCLIVINGINFOSINGLE);
-				EventCache.commandActivity.post(soapRes);
-			}
-		});
-	}
-
-	
 	@Override
 	public void adminLogin(Object[] property_va) {
 		// TODO Auto-generated method stub

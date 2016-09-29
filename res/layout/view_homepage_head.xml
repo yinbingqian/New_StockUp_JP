@@ -286,7 +286,7 @@
             android:gravity="center"
             android:text="11人正在看"
             android:textStyle="italic"
-                android:textColor="@color/font_grey4"
+                android:textColor="@color/yellow"
             android:textSize="12dp" />
             </RelativeLayout>
             
@@ -388,7 +388,7 @@
             android:gravity="center"
             android:text="11人正在看"
             android:textStyle="italic"
-                android:textColor="@color/font_grey4"
+                android:textColor="@color/yellow"
             android:textSize="12dp" />
             </RelativeLayout>
             
@@ -490,7 +490,7 @@
             android:gravity="center"
             android:text="11人正在看"
             android:textStyle="italic"
-                android:textColor="@color/font_grey4"
+                android:textColor="@color/yellow"
             android:textSize="12dp" />
             </RelativeLayout>
             
@@ -592,7 +592,7 @@
             android:gravity="center"
             android:text="11人正在看"
             android:textStyle="italic"
-                android:textColor="@color/font_grey4"
+                android:textColor="@color/yellow"
             android:textSize="12dp" />
             </RelativeLayout>
             

@@ -62,7 +62,7 @@
                     android:layout_marginLeft="@dimen/marging10"
                     android:layout_toRightOf="@id/img_icon"
                     android:text="王周俊"
-                    android:textColor="@color/blcak"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/textsize18"
                     android:textStyle="bold" />
 
@@ -98,7 +98,7 @@
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="5dp"
                     android:text="当前中国宏观经济形势最关键的问题是什么？是风险利率过高。这产生了两个负面效果，一是抑制企利润和新增长模式成长(估计层面)，二是没有增量资金来到股市(资产配至层面)，居民通过购买信托和理财向旧增长模式输血，5年大熊市。"
-                    android:textColor="@color/blcak"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/textsize17" />
 
                 <ImageView

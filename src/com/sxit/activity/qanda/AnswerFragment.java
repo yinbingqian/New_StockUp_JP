@@ -3,50 +3,36 @@ package com.sxit.activity.qanda;
 import java.util.List;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnLastItemVisibleListener;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.sxit.activity.base.MyApplication;
 import com.sxit.activity.login.Login_Activity;
 import com.sxit.activity.qanda.adapter.AnswerList_Adapter;
-import com.sxit.activity.smarter.adapter.ExpertList_Adapter;
-import com.sxit.activity.smarter.adapter.GuestDetailList_Adapter;
-import com.sxit.activity.th.adapter.HomePageNews_Adapter;
-import com.sxit.activity.wap.Wap_Activity;
 import com.sxit.customview.LoadingPage;
-import com.sxit.customview.LoadingPage.ILoadingDo;
 import com.sxit.db.DBHelper;
-import com.sxit.entity.HomePageNews;
-import com.sxit.entity.UserInfo;
 import com.sxit.entity.qanda.Answer;
-import com.sxit.entity.smarter.GuestDetail;
 import com.sxit.http.ISoapService;
 import com.sxit.http.SoapRes;
 import com.sxit.http.SoapService;
 import com.sxit.utils.EventCache;
 import com.sxit.utils.SOAP_UTILS;
-import com.umeng.message.PushAgent;
 
-import lnpdit.lntv.tradingtime.R;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.LinearLayout.LayoutParams;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
+import lnpdit.lntv.tradingtime.R;
 
 public class AnswerFragment extends Fragment {
 

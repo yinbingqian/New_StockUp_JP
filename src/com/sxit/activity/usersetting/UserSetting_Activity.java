@@ -65,8 +65,8 @@ public class UserSetting_Activity extends BaseActivity {
 		setListeners();
 		initDB();
 	}
-	
-	private void initDB(){
+
+	private void initDB() {
 		dbh = new DBHelper(context);
 	}
 
@@ -79,7 +79,7 @@ public class UserSetting_Activity extends BaseActivity {
 		rl_sex = (RelativeLayout) findViewById(R.id.rl_sex);
 		rl_head = (RelativeLayout) findViewById(R.id.rl_head);
 		tv_name = (TextView) findViewById(R.id.tv_name);
-		tv_birth = (TextView) findViewById(R.id.tv_brith);
+		tv_birth = (TextView) findViewById(R.id.tv_birth);
 		tv_sex = (TextView) findViewById(R.id.tv_sex);
 		actv_password = (AutoCompleteTextView) findViewById(R.id.actv_password);
 	}
@@ -96,8 +96,13 @@ public class UserSetting_Activity extends BaseActivity {
 	public void setUI() {
 		user = getUserInfo();
 		tv_name.setText(user.getrealname());
-		tv_sex.setText(user.getsex().equals("0") ? "男" : "女");
-		tv_birth.setText(user.getbirth());
+		tv_sex.setText(user.getsex().equals("1") ? "男" : "女");
+		if (user.getbirth().equals("stockAge")) {
+			tv_birth.setText("2015-12-12");
+		} else {
+			tv_birth.setText(user.getbirth());
+		}
+
 		Instance.imageLoader.displayImage(user.getheadpic(), header, Instance.user_options);
 	}
 
@@ -180,9 +185,9 @@ public class UserSetting_Activity extends BaseActivity {
 						photo = (Bitmap) extra.get("data");
 						ByteArrayOutputStream stream = new ByteArrayOutputStream();
 						photo.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-						
+
 						byte[] data_array = ImageTool.bitmapToBytes(photo);
-						String[] property_nm = { "userid","streamLength" };
+						String[] property_nm = { "userid", "streamLength" };
 						Object[] property_va = { user.getid(), data_array.length };
 						new postHeaderTask().execute(property_nm, property_va, data_array);
 						header.setImageBitmap(photo);
@@ -191,41 +196,44 @@ public class UserSetting_Activity extends BaseActivity {
 			}
 		}
 	}
-	
+
 	class postHeaderTask extends AsyncTask<Object, Object, Object> {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            rl_head.setEnabled(false);
-        }
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			rl_head.setEnabled(false);
+		}
 
-        @Override
-        protected Object doInBackground(Object... params) {
-            System.out.println(">>>>>");
-            Object res_obj = (Object) ImgPostService.data(SOAP_UTILS.METHOD.USEREDITOR_HEADSTREAM, (String[]) params[0],(Object[]) params[1], (byte[])params[2]);
-            return res_obj;
-        }
+		@Override
+		protected Object doInBackground(Object... params) {
+			System.out.println(">>>>>");
+			Object res_obj = (Object) ImgPostService.data(SOAP_UTILS.METHOD.USEREDITOR_HEADSTREAM, (String[]) params[0],
+					(Object[]) params[1], (byte[]) params[2]);
+			return res_obj;
+		}
 
-        @Override
-        protected void onPostExecute(Object result) {
-            super.onPostExecute(result);
-            rl_head.setEnabled(true);
-            try {
+		@Override
+		protected void onPostExecute(Object result) {
+			super.onPostExecute(result);
+			rl_head.setEnabled(true);
+			try {
 				JSONObject json_obj = new JSONObject(result.toString());
-				if(json_obj.get("Result").toString().equals("success")){
-					dbh.updateUser(user.getid(), "HEADPIC", SOAP_UTILS.HTTP_HEAD_PATH + json_obj.get("Message").toString());
+				if (json_obj.get("Result").toString().equals("success")) {
+					dbh.updateUser(user.getid(), "HEADPIC",
+							SOAP_UTILS.HTTP_HEAD_PATH + json_obj.get("Message").toString());
 					setUI();
 					Toast.makeText(UserSetting_Activity.this, "头像修改成功", Toast.LENGTH_SHORT).show();
-				}else if(json_obj.get("Result").toString().equals("error")){
-					Toast.makeText(UserSetting_Activity.this, json_obj.get("Message").toString(), Toast.LENGTH_SHORT).show();
+				} else if (json_obj.get("Result").toString().equals("error")) {
+					Toast.makeText(UserSetting_Activity.this, json_obj.get("Message").toString(), Toast.LENGTH_SHORT)
+							.show();
 				}
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-        }
+		}
 
-    }
+	}
 
 	// 截取图片
 	public void cropImage(Uri uri, int outputX, int outputY, int requestCode) {
@@ -285,10 +293,10 @@ public class UserSetting_Activity extends BaseActivity {
 			if (res.getObj() != null) {
 				if (res.getObj().toString().equals("true")) {
 					LoginUser user = getLoginUser();
-//					user.setProvince(province);
-//					user.setCity(city);
-//					setLoginUser(user);
-//					address.setText(province + " · " + city);
+					// user.setProvince(province);
+					// user.setCity(city);
+					// setLoginUser(user);
+					// address.setText(province + " · " + city);
 					Utils.showTextToast(this, getString(R.string.edit_success));
 				} else {
 					Utils.showTextToast(this, getString(R.string.edit_password_fail));

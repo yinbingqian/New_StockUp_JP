@@ -86,10 +86,10 @@ public class LivingDetailList_Adapter extends BaseAdapter {
 		final ArrayList<String> imageUrls = new ArrayList<String>();
 		final ArrayList<String> imagethumbnailUrls = new ArrayList<String>();
 		if(picImg!=null){
-		imageUrls.add(SOAP_UTILS.HTTP_DISCUSS_PATH + picImg);
+		imageUrls.add(SOAP_UTILS.HTTP_MAG_PATH + picImg);
 		}
 		if(picImgthumbnail!=null){
-		imagethumbnailUrls.add(SOAP_UTILS.HTTP_DISCUSS_PATH + picImgthumbnail);
+		imagethumbnailUrls.add(SOAP_UTILS.HTTP_MAG_PATH + picImgthumbnail);
 		}
 		holder.gridview.setTag(imagethumbnailUrls);
 		if (imageUrls == null || imageUrls.size() == 0) { // 没有图片资源就隐藏GridView

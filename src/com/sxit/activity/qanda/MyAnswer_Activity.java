@@ -2,7 +2,7 @@ package com.sxit.activity.qanda;
 
 import java.util.ArrayList;
 
-import com.sxit.activity.smarter.custom.TabSwipPager;
+import com.sxit.activity.qanda.custom.TabSwipPager;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

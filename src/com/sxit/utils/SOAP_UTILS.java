@@ -189,14 +189,14 @@ public class SOAP_UTILS {
 		public static final String GETATTENTIONLIVEUSER = "GetAttentionLiveUser";
 		// 直播大厅轮巡
 		public static final String GETLIVINGUPDATE = "GetLivingUpdate";
+		// 获取课程表
+		public static final String GETCCLIVINGINFOSINGLE = "getCcLivingInfoSingle";
 		// 直播大厅轮巡
 		public static final String USERINFOLOGINUPDATEIMEI = "UserInfoLoginUpdateImei";
 		// 直播大厅轮巡
 		public static final String UPDATEIMEI = "UpdateImei";
 		// 忘记密码中重置密码
 		public static final String USERPASSWORDFIND = "UserPasswordFind";
-		// 获取cc视频信息
-		public static final String GETCCLIVINGINFOSINGLE = "GetCcLivingInfoSingle";
 		
 	}
 
@@ -217,8 +217,8 @@ public class SOAP_UTILS {
 	}
 
 	public static final String NAMESPACE = "MobileNewspaper";
-	public static final String IP = "http://192.168.1.104:8027/guzhang";
-//	public static final String IP = "http://backlogin.guzhang.tv/guzhang";
+//	public static final String IP = "http://123.56.88.189";
+	public static final String IP = "http://backlogin.guzhang.tv/guzhang";
 	public static final String HEADER_URL = "http://192.168.1.104:8027/guzhang/upload/headpic/";
 //	public static final String HEADER_URL = "http://backlogin.guzhang.tv/guzhang/upload/headpic/";
 	public static final String URL = IP + "/phoneinvoke.asmx?wsdl";
@@ -228,14 +228,14 @@ public class SOAP_UTILS {
 //	public static final String HTTP_IP = "http://192.168.1.118:8027";
 //	public static final String HTTP_IP = "http://192.168.1.118:8080";
 	public static final String HTTP_PATHIP = "http://share.guzhang.tv";
-//	public static final String HTTP_URL =  HTTP_BACKLOGINIP + "/guzhang/";
+	public static final String HTTP_URL =  HTTP_BACKLOGINIP + "/guzhang/";
 //	public static final String HTTP_URL =  "http://192.168.1.104:8027/guzhang/";//内网地址
 //	public static final String HTTP_URL =  "http://123.56.88.189:8027/guzhangTest/";//外网测试地址
-	public static final String HTTP_URL =  "http://123.56.88.189:8027/guzhang/";//外网测试地址
+//	public static final String HTTP_URL =  "http://123.56.88.189:8027/guzhang/";//外网测试地址
 //	public static final String HTTP_URL =  HTTP_IP + "/guzhang/";
-	public static final String HTTP_HEAD_PATH = HTTP_BACKLOGINIP + "/upload/headpic/";
+	public static final String HTTP_HEAD_PATH = IP + "/upload/headpic/";
 //	public static final String HTTP_HEAD_PATH = HTTP_IP + "/upload/headpic/";
-	public static final String HTTP_ADT_PATH = HTTP_BACKLOGINIP +"/manage/pic/";
+	public static final String HTTP_ADT_PATH = IP +"/manage/pic/";
 //	public static final String HTTP_ADT_PATH = HTTP_IP +"/manage/pic/";
 	public static final String HTTP_NEWSINFO_PATH = HTTP_PATHIP +"/share/content.aspx?id=";
 	public static final String HTTP_NEWSSHARE_PATH = HTTP_PATHIP +"/share/content.aspx?type=android&id=";

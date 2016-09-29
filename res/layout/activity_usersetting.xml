@@ -130,7 +130,7 @@
                     android:gravity="center"
                     android:singleLine="true"
                     android:text="@string/adviser"
-                    android:textColor="@color/blcak"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/textsize17" />
             </RelativeLayout>
 
@@ -211,14 +211,14 @@
                     android:src="@drawable/pen_icon" />
 
                 <TextView
-                    android:id="@+id/tv_brith"
+                    android:id="@+id/tv_birth"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_marginRight="@dimen/marging20"
                     android:layout_toLeftOf="@id/img_arrow4"
                     android:gravity="center"
                     android:text="1988-8-26"
-                    android:textColor="@color/blcak"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/textsize17" />
             </RelativeLayout>
 
@@ -259,7 +259,7 @@
                     android:layout_toLeftOf="@id/img_arrow3"
                     android:gravity="center"
                     android:text="男"
-                    android:textColor="@color/blcak"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/textsize17" />
             </RelativeLayout>
 

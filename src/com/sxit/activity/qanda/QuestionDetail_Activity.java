@@ -30,7 +30,7 @@ import com.sxit.utils.live.NoScrollGridAdapter;
 import com.sxit.utils.live.NoScrollGridView;
 
 /**
- * 问股详情页
+ * 互动详情页
  * 
  * @author huanyu 类名称：NewsInfo_Activity 创建时间:2014-10-29 下午3:18:47
  */

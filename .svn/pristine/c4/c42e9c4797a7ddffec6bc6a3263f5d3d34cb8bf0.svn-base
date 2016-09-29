@@ -27,7 +27,7 @@
             android:layout_marginLeft="@dimen/marging10"
             android:layout_toRightOf="@id/img_icon"
             android:text="123"
-            android:textColor="@color/blcak_grey" />
+            android:textColor="@color/black_grey" />
 
         <TextView
             android:id="@+id/tv_questionState"
@@ -75,7 +75,7 @@
         android:paddingBottom="4dp"
         android:paddingTop="4dp"
         android:text="asdadasd"
-        android:textColor="@color/blcak_grey" />
+        android:textColor="@color/black_grey" />
 
     <TextView
         android:layout_width="fill_parent"

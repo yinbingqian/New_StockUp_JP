@@ -4,11 +4,11 @@
     <!-- 透明 -->
     <color name="transparent">#00000000</color>
     <!-- 黑白红 -->
-    <color name="blcak">#000000</color>
+    <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="red">#CC0000</color>
     <!-- 黑灰 -->
-    <color name="blcak_grey">#3C3C3C</color>
+    <color name="black_grey">#3C3C3C</color>
     <!-- 灰 -->
     <color name="simple_grey">#BFBFBF</color>
     <color name="grey">#808080</color>

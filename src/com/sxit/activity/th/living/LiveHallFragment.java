@@ -284,7 +284,8 @@ public class LiveHallFragment extends Fragment {
 						date_str = json_nowliving.get("CrtimeStr").toString();
 						livingdetail.setCrtimeStr(date_str);
 
-						livingdetail.setDealAdvise(json_nowliving.get("DealAdvise").toString());
+						advice_str = json_nowliving.get("DealAdvise").toString();
+						livingdetail.setDealAdvise(advice_str);
 
 						control_str = json_nowliving.get("DealControl").toString();
 						livingdetail.setDealControl(control_str);
@@ -301,8 +302,7 @@ public class LiveHallFragment extends Fragment {
 						livingdetail.setLiveUserName(json_nowliving.get("LiveUserName").toString());
 						livingdetail.setLivings(json_nowliving.get("Livings").toString());
 
-						advice_str = json_nowliving.get("DescribeCc").toString();
-						livingdetail.setDescribeCc(advice_str);
+						livingdetail.setDescribeCc(json_nowliving.get("DescribeCc").toString());
 
 						livingdetail.setToplive(json_nowliving.get("Toplive").toString());
 						livingdetail.setUserHeadpic(json_nowliving.get("UserHeadpic").toString());

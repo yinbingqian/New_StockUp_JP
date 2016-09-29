@@ -1,100 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white" >
+    android:layout_height="match_parent" >
 
-<LinearLayout 
-    android:id="@+id/livehead_layout"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="15dp"
-    android:layout_marginRight="10dp"
-    android:layout_marginTop="15dp"
-    android:orientation="horizontal">
-            <com.sxit.utils.XCRoundImageView
-                android:id="@+id/live_headpic"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/user_none" />
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/listView_onlinecourselist"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="#00000000"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:listSelector="#00000000"
+        android:smoothScrollbar="true" />
 
-           
-
-<RelativeLayout 
-    android:id="@+id/time"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/live_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="20dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="播主姓名"
-                android:textColor="@color/font_grey1"
-                android:textSize="18dp" />
-            <TextView 
-                android:id="@+id/starttime_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="70dp"
-                android:layout_marginTop="50dp"
-                android:textSize="14dp"
-                android:textColor="@color/font_grey1"
-                android:text="开始时间 2016-05-12 20:00"/>
-            <TextView 
-                android:id="@+id/endtime_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="70dp"
-                android:layout_marginTop="70dp"
-                android:textSize="14dp"
-                android:textColor="@color/font_grey1"
-                android:text="结束时间 2016-06-15 21:00"/>
-           </RelativeLayout>
-  </LinearLayout>
-  
-            <TextView
-                android:id="@+id/live_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:gravity="center"
-                android:layout_below="@+id/livehead_layout"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="直播间标题"
-                android:textColor="@color/font_grey1"
-                android:textSize="17dp" />
-            <TextView
-                android:id="@+id/live_resume"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/live_title"
-                android:gravity="center"
-                android:layout_marginLeft="20dp"
-                android:text="直播间简介 :"
-                android:textColor="@color/font_grey1"
-                android:textSize="17dp" />
-            
-        
-             
-
-    <TextView
-                android:id="@+id/live_comein"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="40dp"
-                android:text="进入直播间 >>"
-                android:textColor="@color/theme_red"
-                android:textSize="22dp" />
 </RelativeLayout>

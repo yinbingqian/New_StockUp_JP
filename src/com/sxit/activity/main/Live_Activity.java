@@ -225,6 +225,11 @@ public class Live_Activity extends BaseActivity {
 					pageIndex = 1;
 					adapter = new ListItemAdapter(this, itemEntities);
 					listView.setAdapter(adapter);
+				}else{
+					itemEntities.clear();
+					adapter = new ListItemAdapter(this, itemEntities);
+					listView.setAdapter(adapter);
+//					listView.addHeaderView(headerView);
 				}
 			}
 		}

@@ -3,7 +3,7 @@ package com.sxit.activity.th.living;
 
 import java.util.ArrayList;
 
-import com.sxit.activity.smarter.custom.TabSwipPager;
+import com.sxit.activity.qanda.custom.TabSwipPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import lnpdit.lntv.tradingtime.R;
 
 public class NowLivingDetails_Activity extends FragmentActivity {
@@ -78,9 +77,9 @@ public class NowLivingDetails_Activity extends FragmentActivity {
 		fragmentsList = new ArrayList<Fragment>();
 		fragmentsList.add(new LiveHallFragment());
 		fragmentsList.add(new QAFragment());
-		fragmentsList.add(new ViewPointFragment());
+		fragmentsList.add(new OnlineCourseFragment());
 
-		tags = new String[] { "直播大厅", "互动问答","视频直播" };
+		tags = new String[] { "播主观点", "互动问答","网络课堂" };
 
 	}
 	
